@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/blog_principal/src/styles/style_ava.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="icon"
+      href="/blog_principal/src/imgs/star-fill.svg"
+      type="image/svg+xml"
+    />
+    <title>Avaliação</title>
+  </head>
+  <body>
+    <form id="form" action="">
+      <div class="container">
+        <div id="back">
+          <a href="/blog_principal/index.html" class="btn-default">
+            <img src="/blog_principal/src/imgs/arrow-left.svg" alt="Voltar" />
+          </a>
+        </div>
+        <div class="image-container">
+          <img src="/blog_principal/src/imgs/Logotipo_TS.png" alt="Logotipo" />
+        </div>
+        <h1 id="title">
+          <a class="section-title">Avalie - Trabalho Seguro</a>
+        </h1>
+        <h3 id="question_star">O quanto gostou do nosso sistema ?</h3>
+        <div id="questions_all">
+          <div id="stars-av">
+            <ul class="avaliacao">
+              <li class="star-icon ativo" data-avaliacao="1"></li>
+              <li class="star-icon" data-avaliacao="2"></li>
+              <li class="star-icon" data-avaliacao="3"></li>
+              <li class="star-icon" data-avaliacao="4"></li>
+              <li class="star-icon" data-avaliacao="5"></li>
+            </ul>
+          </div>
+          <div id="ava">
+            <label for="title_label">Nos dê sua opinião:</label><br />
+            <input class="opinion" name="opinion" /><br />
+            <label for="title_label">O que deseja que melhoremos ?</label><br />
+            <input class="upgrade" name="opinion" />
+          </div>
+          <button id="send" class="btn-default">Enviar</button>
+        </div>
+      </div>
+      <div id="error-message" style="color: red; display: none"></div>
+    </form>
+    <div id="popup" class="popup" style="display: none">
+      <div class="popup-content">
+        <span id="closeBtn" class="close">&times;</span>
+        <p id="popup-message"></p>
+      </div>
+    </div>
+  </body>
+  <script src="/blog_principal/src/javascript/script_ava.js"></script>
+</html>
