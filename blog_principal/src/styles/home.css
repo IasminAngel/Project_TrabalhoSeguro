@@ -17,7 +17,7 @@
   color: var(--color-neutral-1);
 }
 
-#cta #subtitulo{
+#cta #subtitulo {
   font-size: 2rem;
   color: #232970a8;
 }
@@ -68,6 +68,9 @@
   width: fit-content;
 }
 
+.we-are {
+  font-size: 1rem;
+}
 
 @media screen and (max-width: 1170px) {
   #home {
