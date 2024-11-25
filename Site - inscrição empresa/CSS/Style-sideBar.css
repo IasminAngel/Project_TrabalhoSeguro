@@ -1,0 +1,49 @@
+.sideBar
+{
+    display: inline;
+    max-width: 900;
+    border: 3px solid #4A8DB9;
+}
+ 
+ 
+.decorationDiv{
+    width: 100%;
+    height: 40px;
+}
+
+.logotypeGroup{
+    background-color: #E3E3E3;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+ .decorationDiv#firstRec{
+        background-color: rgb(78, 123, 248);
+    }
+    
+    .decorationDiv#secondRec{
+        background-color: rgb(40, 90, 228);
+    }
+
+    .decorationDiv#thirdRec{
+        background-color: rgb(68, 68, 255);
+    }
+
+    .decorationDiv#fourthRec{
+        background-color: rgb(4, 4, 238);
+    }
+
+    .decorationDiv#fifthRec{
+        background-color: rgb(3, 3, 221);
+    }
+
+    .decorationDiv#sixthRec{
+        background-color: rgb(0, 0, 199);
+    }
+
+    .decorationDiv#seventhRec{
+        background-color: rgb(6, 6, 182);
+    }
+

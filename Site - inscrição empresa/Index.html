@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="CSS/Style.css">
+    <link rel="stylesheet" href="CSS/Style-sideBar.css">
+    <link rel="stylesheet" href="CSS/Style-textFields.css">
+
     <title>Inscrição</title>
 
 </head>
@@ -17,17 +21,21 @@
     
     <div class="sideBar">
 
-        <figcaption class="logotypeGroup">
+        <div class="logotypeGroup">
             <p>AQUI VAI O LOGOTIPO</p>
-        </figcaption>
+        </div>
 
-        <div class="decorationDiv" id="firstRec"></div>
-        <div class="decorationDiv" id="secondRec"></div>
-        <div class="decorationDiv" id="thirdRec"></div>
-        <div class="decorationDiv" id="fourthRec"></div>
-        <div class="decorationDiv" id="fifthRec"></div>
-        <div class="decorationDiv" id="sixthRec"></div>
-        <div class="decorationDiv" id="seventhRec"></div>
+        <div class="decorationDiv">
+            
+            <div class="decorationDiv" id="firstRec"></div>
+            <div class="decorationDiv" id="secondRec"></div>
+            <div class="decorationDiv" id="thirdRec"></div>
+            <div class="decorationDiv" id="fourthRec"></div>
+            <div class="decorationDiv" id="fifthRec"></div>
+            <div class="decorationDiv" id="sixthRec"></div>
+            <div class="decorationDiv" id="seventhRec"></div>
+
+        </div>
     </div>
 
     <div class="divContentMain">
@@ -63,17 +71,17 @@
             <div class="registrationRows">
                 <div class="below">
                     <p>CNPJ</p>
-                    <input type="text">
+                    <input type="text" id="cnpj">
                 </div>
 
                 <div class="below">
                     <p>Inscrição estadual</p>
-                    <input type="text">
+                    <input type="text" id="estadualRegistration">
                 </div>
 
                 <div class="below">
                     <p>Telefone de contato</p>
-                    <input type="text">
+                    <input type="text" id="contactPhone">
                 </div>
             </div>
 
@@ -81,58 +89,61 @@
 
             <div class="below">
                 <p>Endereço</p>
-                <input type="text">
+                <input type="text" id="address">
             </div>
 
             <div class="below" id="numberDiv">
                 <p>Número</p>
-                <input type="text">
+                <input type="text" id="number">
             </div>
 
             <div class="below">
                 <p>Complemento</p>
-                <input type="text">
+                <input type="text" id="complement">
             </div>
 
             <div class="registrationRows">
                 <div class="below">
                     <p>Bairro</p>
-                    <input type="text">
+                    <input type="text" id="neighborhood">
                 </div>
 
                 <div class="below">
                     <p>CEP</p>
-                    <input type="text">
+                    <input type="text" id="cep">
                 </div>
 
                 <div class="below">
                     <p>UF</p>
-                    <input type="text">
+                    <input type="text" id="uf">
                 </div>
 
                 <div class="below">
                     <p>Cidade</p>
-                    <input type="text">
+                    <input type="text" id="city">
                 </div>
             </div>
             
             <div class="registrationRows">
                 <div class="below">
                     <p>Nome do contato</p>
-                    <input type="text">
+                    <input type="text" id="name">
                 </div>
             </div>
 
             <div class="registrationRows">
                 <div class="below">
                     <p>Email de contato</p>
-                    <input type="text">
+                    <input type="text" id="email">
                 </div>
             </div>
         </div>
         
-        <a href="#" id="save">Salvar</a>
-        <a href="#" id="exit">Cancelar</a>
+        <div class="centralizing">
+
+            <a href="#" id="save">Salvar</a>
+            <a href="#" id="exit">Cancelar</a>
+        </div>
     </div>
 
 </div>

@@ -1,0 +1,70 @@
+#fantasyName{
+        width: 820px;
+        background-color: #D9D9D9;
+        
+    }
+
+    #socialReason{
+        width: 430px;
+        background-color: #D9D9D9;
+    }
+
+#cnpj{
+    width: 408px;
+    background-color: #D9D9D9;
+}
+
+#estadualRegistration{
+    width: 408px;
+    background-color: #D9D9D9;
+}
+
+#contactPhone{
+    width: 408px;
+    background-color: #D9D9D9;
+}
+
+#address{
+    width: 820px;
+    background-color: #D9D9D9;
+}
+
+#number{
+    width: 70px;
+    margin-right: 154px;
+    background-color: #D9D9D9;
+}
+
+#complement{
+    background-color: #D9D9D9;
+}
+
+#neighborhood{
+    width: 408px;
+    background-color: #D9D9D9;
+}
+
+#cep{
+    width: 408px;
+    background-color: #D9D9D9;
+}
+
+#uf{
+    width: 70px;
+    background-color: #D9D9D9;
+}
+
+#city{
+    width: 313px;
+    background-color: #D9D9D9;
+}
+
+#name{
+    width: 845px;
+    background-color: #D9D9D9;
+}
+
+#email{
+    width: 845px;
+    background-color: #D9D9D9;
+}
