@@ -1,0 +1,27 @@
+Classes:
+
+1. divContentMain - Conteúdo da Div Principal: 
+    Essa classe pertence a div que é responsável por abarcar, armazenar, todos os elementos desta página, exceto, é claro, a barra lateral.
+
+2. registrationArea - Área de inscrição:
+    Essa classe pertence a div que abarca todo o conteúdo que será solicitado para concluir a inscrição.
+
+3. registrationRows - Linhas de registro:
+    Essa classe pertence a div que é responsável pelas linhas de cada conteúdo necessário na área de inscrição. 
+
+4. below - Abaixo:
+    Essa classe pertence a div responsável por permitir o layout desta página
+
+5. sideBar
+6. divContent
+7. navBar
+8. decorationDiv
+
+Id's:
+
+1. title
+2. updateDate
+3. codeDiv 
+4. numberDiv
+5. save
+6. exit
