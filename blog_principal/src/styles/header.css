@@ -19,8 +19,9 @@ header {
 }
 
 #nav_logo {
-  font-size: 24px;
+  font-size: 32px;
   color: var(--color-primary-6);
+  font-style: normal;
 }
 
 #nav_list {
