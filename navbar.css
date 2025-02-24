@@ -1,0 +1,45 @@
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%; /* Garanta que a navbar ocupe toda a largura da tela */
+  height: 61px;
+  position: fixed; /* Fixe a navbar no topo */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Para garantir que a navbar fique sobre outros elementos */
+}
+
+.barra-fundo {
+  background: #8fa9da;
+  width: 100%; /* Altere para 100% para ocupar toda a largura da tela */
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.text {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 88px;
+  top: 12px;
+  width: 1214px;
+  height: 49px;
+}
+
+.voltar-house {
+  width: 101px;
+  height: 41px;
+  position: absolute;
+  left: 12px;
+  top: 5px;
+  overflow: visible;
+}
+

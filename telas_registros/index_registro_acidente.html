@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registro Acidentes </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="barra-fundo"></div>
+        <div class="text">Registrar Acidente</div>
+        <img class="voltar-house" src="voltar-house0.svg" /> <!-- Aplicar imagem -->
+    </div>
+    <div class="container">
+        <div class="title">Registro Acidentes</div>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Data do Incidente:</span>
+                        <input type="text" placeholder="DD/MM/AAA" required>
+                    </div>
+                    <!-- Input for Username -->
+                    <div class="input-box">
+                        <span class="details">Local do Acidente:</span>
+                        <input type="text" placeholder="Local" required>
+                    </div>
+                    <!-- Input for Email -->
+                    <div class="input-box">
+                        <span class="details">Matrícula do funcionário afetado:</span>
+                        <input type="text" placeholder="Matrícula" required>
+                    </div>
+                    <!-- Input for Phone Number -->
+                    <div class="input-box">
+                        <span class="details">Digite de forma coerente a fratura tida pelo funcionário:</span>
+                        <input type="text" placeholder="Enter your number" required>
+                    </div>
+                    <!-- 
+
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="text" placeholder="Enter your password" required>
+                    </div>
+                   
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="text" placeholder="Confirm your password" required>
+                    </div>-->
+                </div>
+                <div class="gender-details">
+                    <!-- Radio buttons for gender selection -->
+                    <input type="radio" name="gender" id="dot-1">
+                    <input type="radio" name="gender" id="dot-2">
+                    <input type="radio" name="gender" id="dot-3">
+                    <span class="gender-title">---</span>
+                    <div class="category">
+                        <!-- Label for Male -->
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">---</span>
+                        </label>
+                        <!-- Label for Female -->
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">---</span>
+                        </label>
+                        <!-- Label for Prefer not to say -->
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">---</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
