@@ -55,7 +55,8 @@ document.getElementById("entrar").addEventListener("click", function (event) {
       errorDiv.innerHTML = errorMessage;
   } else {
       errorDiv.style.display = "none"; // Esconde o elemento de erro se não houver mensagens
-      window.location.href = "index.html"; // Redireciona para a página principal
+      window.location.replace("/index.html");
+ // Redireciona para a página principal
   }
 
   cleanMessage(); // Chama a função para limpar mensagens após um tempo
