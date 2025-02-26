@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("/blog_principal/src/styles/style.css");
+@import url("/public/src/assets/css/style.css");
 
 * {
   padding: 0;
@@ -9,12 +9,15 @@
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #466090;
+  background-image: url("/public/src/assets/imgs/background.png");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
 }
 
 .container {

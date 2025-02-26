@@ -79,7 +79,7 @@ document.getElementById("confirm").addEventListener("click", function (event) {
         errorDiv.innerHTML = errorMessage;
     } else {
         errorDiv.style.display = "none";
-        window.location.href = "/tela_login/index.html"; // Redireciona o usuário para a tela de login
+        window.location.href = "/public/src/pages/login/login.html"; // Redireciona o usuário para a tela de login
     }
 
     cleanMessage(); // Limpa a mensagem de erro após um curto intervalo

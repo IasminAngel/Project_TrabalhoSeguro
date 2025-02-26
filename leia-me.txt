@@ -3,3 +3,4 @@ Fiz esse arquivo de texto pra falar das modificações em que fiz (por mais que 
 Estou fazendo uma organização geral do código (pastas, imgs, configs e dentre outros), então não estranhem, qualquer dúvida, só falar comigo
 
 - mudar background tela-login + cadastro + senha + ajustar botão de cadastro
+- Lembra de transformar as imagens em variavel
