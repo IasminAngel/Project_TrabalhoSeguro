@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Acidentes</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="/public/src/pages/registers/acidentes/style_register.css">
 </head>
 
 <body>
     <div class="navbar">
         <div class="barra-fundo"></div>
         <div class="text">Registrar Acidente</div>
-        <img class="voltar-house" src="voltar-house0.svg" />
+        <img class="voltar-house" src="/public/src/assets/icons/house.svg"/>
     </div>
     <div class="container">
-        <div class="title">Registro Acidentes</div>
+        <div class="title">Formulário - Acidente</div>
         <div class="content">
             <form action="#">
                 <div class="questions">
@@ -42,21 +41,20 @@
                     </div>
                 </div>
                 <div class="all-options">
-                    <input type="radio" name="option" id="dot-1">
-                    <input type="radio" name="option" id="dot-2">
-                    <input type="radio" name="option" id="dot-3">
-                    <span class="option-title">O funcionário estava utilizando EPI ?</span>
+                    <span class="option-title">O funcionário estava utilizando EPI?</span>
                     <div class="category">
-                        <label for="dot-1">
-                            <span class="dot one"></span>
-                            <span class="option">Sim</span>
-                        </label>
-                        <label for="dot-2">
-                            <span class="dot two"></span>
-                            <span class="option">Não</span>
-                        </label>
+                      <label for="dot-1">
+                        <input type="radio" id="dot-1" name="epi" hidden>
+                        <span class="dot one"></span>
+                        <span class="option">Sim</span>
+                      </label>
+                      <label for="dot-2">
+                        <input type="radio" id="dot-2" name="epi" hidden>
+                        <span class="dot two"></span>
+                        <span class="option">Não</span>
+                      </label>
                     </div>
-                </div>
+                  </div>
                 <div class="button">
                     <input type="submit" value="Registrar">
                 </div>
