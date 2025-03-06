@@ -1,7 +1,0 @@
-OI ! AQUI É IASMIN !
-Fiz esse arquivo de texto pra falar das modificações em que fiz (por mais que o próprio git vá avisar vocês, mas é bom)
-Estou fazendo uma organização geral do código (pastas, imgs, configs e dentre outros), então não estranhem, qualquer dúvida, só falar comigo
-
-- Lembra de transformar as imagens em variavel
-- lembrar de transformar as cores em váriavel
-- Colocar os devidos vídeos na página principal
