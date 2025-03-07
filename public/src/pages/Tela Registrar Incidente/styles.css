@@ -175,6 +175,7 @@ body {
     .input-field {
         width: 90%; /* Campos de entrada serão mais estreitos em telas pequenas */
         padding: 15px;
+        margin: 5px 0
     }
 
     .enviar-btn {
