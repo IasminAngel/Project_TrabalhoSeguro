@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Principal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Borda azul claro no topo com "Registro" -->
+    <div class="top-border">Registrar Incidente</div>
+
+    <!-- Botões de navegação -->
+    <button class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+    <button class="home-btn">
+        <i class="fas fa-home"></i>
+    </button>
+
+    <!-- Container dividido assimetricamente -->
+    <div class="container">
+        <div class="option">
+            <!-- Campos de entrada no lado menor -->
+            <div>
+                <label for="data-acidente">Data do acidente:</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-clock input-icon"></i> <!-- Ícone de relógio -->
+                    <input type="text" id="data-acidente" class="input-field">
+                </div>
+            </div>
+
+            <div>
+                <label for="tipo-incidente">Tipo de incidente:</label>
+                <div class="input-wrapper">
+                    <i class="material-symbols-outlined input-icon">vital_signs</i>  <!-- Ícone de batimentos cardíacos -->
+                    <input type="text" id="tipo-incidente" class="input-field">
+                </div>
+            </div>
+
+            <div>
+                <label for="local-incidente">Local do incidente:</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-map-marker-alt input-icon"></i> <!-- Ícone de GPS -->
+                    <input type="text" id="local-incidente" class="input-field">
+                </div>
+            </div>
+
+            <!-- Botão "Enviar" -->
+            <button class="enviar-btn">Enviar</button>
+        </div>
+        
+        <div class="option-sm">
+            <!-- Campo quadrado grande no lado maior -->
+            <div>
+                <label for="descricao-ocorrido">Descrição detalhada do ocorrido</label>
+                <textarea id="descricao-ocorrido" class="big-input-field" placeholder="Digite uma descrição detalhada do ocorrido"></textarea>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
