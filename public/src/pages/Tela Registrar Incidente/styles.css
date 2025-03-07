@@ -1,0 +1,201 @@
+/* Importando a fonte "Inter" do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif; /* Aplicando a fonte "Inter" */
+    background-color: #17335f;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.top-border {
+    width: 100%;
+    background-color: #6aa0e1;
+    color: #17335f;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Botão de seta */
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #174175; /* Cor quando o mouse passa por cima */
+}
+
+/* Botão de casa */
+.home-btn {
+    position: absolute;
+    top: 10px;
+    left: 70px; /* Distância para o ícone de casa */
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.home-btn:hover {
+    color: #174175; /* Cor quando o mouse passa por cima */
+}
+
+/* Container dividido assimetricamente */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Agora ocupa toda a altura da tela */
+    margin-top: 0; /* Removido o espaço extra acima */
+}
+
+/* Lado menor da divisão */
+.option {
+    flex: 1;
+    background-color: #2b3a5b;
+    text-align: center;
+    padding: 50px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.option-sm {
+    flex: 2;
+    background-color: #213667;
+    text-align: center;
+    padding: 50px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para o wrapper do campo de entrada */
+.input-wrapper {
+    position: relative;
+    width: 80%; /* Largura do campo */
+    margin: 15px 0; /* Espaçamento entre campos */
+}
+
+/* Estilo para o ícone dentro do campo */
+.input-icon {
+    position: absolute;
+    left: 10px; /* Posição do ícone à esquerda */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza o ícone verticalmente */
+    font-size: 30px; /* Tamanho do ícone */
+    color: #4f4f4f; /* Cor cinza forte */
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 20px 20px 20px 40px; /* Padding extra para espaço à esquerda para o ícone */
+    margin: 15px 0;
+    border: none;
+    border-radius: 50px;
+    background-color: white;
+    color: #060607;
+    font-size: 16px;
+}
+
+.input-field:focus {
+    outline: none;
+    border: 2px solid #17335f; /* Borda mais forte quando em foco */
+}
+
+/* Estilo para o campo quadrado grande no container maior */
+.big-input-field {
+    width: 120%;
+    height: 600px; /* Aumentei a altura do campo */
+    padding: 20px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #060607;
+    font-size: 16px;
+}
+
+.big-input-field:focus {
+    outline: none;
+    border: 2px solid #17335f; /* Borda mais forte quando em foco */
+}
+
+/* Estilo para o botão "Enviar" */
+.enviar-btn {
+    width: 30%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color:  #17335f;
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.enviar-btn:hover {
+    background-color: #0056b3; /* Cor azul mais escuro quando passa o mouse */
+}
+
+/* Responsividade para telas pequenas (como dispositivos móveis) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Empilha os elementos em telas menores */
+    }
+
+    .option, .option-sm {
+        width: 100%; /* Ambos os contêineres ocuparão 100% da largura */
+    }
+
+    .input-field {
+        width: 90%; /* Campos de entrada serão mais estreitos em telas pequenas */
+        padding: 15px;
+    }
+
+    .enviar-btn {
+        width: 80%; /* Botão "Enviar" mais largo */
+        padding: 15px;
+    }
+
+    /* Ajustando os botões de navegação para telas pequenas */
+    .back-btn, .home-btn {
+        font-size: 24px; /* Menor tamanho de fonte */
+        left: 10px;
+    }
+}
+
+/* Para telas maiores */
+@media (min-width: 769px) {
+    .container {
+        flex-direction: row; /* Para telas maiores, exibe os contêineres lado a lado */
+    }
+
+    .option, .option-sm {
+        width: 50%; /* Cada contêiner ocupa 50% da largura */
+    }
+}
