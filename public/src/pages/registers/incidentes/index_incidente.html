@@ -1,67 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Principal</title>
-    <link rel="stylesheet" href="">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <title>Registro Incidentes</title>
+    <link rel="stylesheet" href="/public/src/pages/registers/incidentes/styles.css">
 </head>
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+/>
+<link
+rel="icon"
+href="/public/src/assets/icons/card-text.svg"
+type="image/svg+xml"
+/>
+
 <body>
-
-    <!-- Borda azul claro no topo com "Registro" -->
-    <div class="top-border">Registrar Incidente</div>
-
-    <!-- Botões de navegação -->
-    <button class="back-btn">
-        <i class="fas fa-arrow-left"></i>
-    </button>
-    <button class="home-btn">
-        <i class="fas fa-home"></i>
-    </button>
-
-    <!-- Container dividido assimetricamente -->
+    <div class="navbar">
+        <div class="barra-fundo"></div>
+        <div class="text">Registrar Incidente</div>
+        <img class="voltar-house" src="/public/src/assets/icons/house.svg"/>
+    </div>
     <div class="container">
-        <div class="option">
-            <!-- Campos de entrada no lado menor -->
-            <div>
-                <label for="data-acidente">Data do acidente:</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-clock input-icon"></i> <!-- Ícone de relógio -->
-                    <input type="text" id="data-acidente" class="input-field">
+        <div class="title">Formulário - Incidente</div>
+        <div class="content">
+            <form action="#">
+                <div class="questions">
+                    <div class="input-box">
+                        <span class="details">Data do Incidente:</span>
+                        <input type="text" placeholder="DD/MM/AAAA" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Tipo de Incidente:</span>
+                        <input type="text" placeholder="Digite o local" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Matrícula do funcionário afetado:</span>
+                        <input type="text" placeholder="Digite a matrícula" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Digite de forma coerente a fratura tida pelo funcionário:</span>
+                        <input type="text" placeholder="Digite a fratura" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Digite uma descrição detalhada do ocorrido:</span>
+                        <textarea placeholder="Descrição do ocorrido" required></textarea>
+                    </div>
                 </div>
-            </div>
-
-            <div>
-                <label for="tipo-incidente">Tipo de incidente:</label>
-                <div class="input-wrapper">
-                    <i class="material-symbols-outlined input-icon">vital_signs</i>  <!-- Ícone de batimentos cardíacos -->
-                    <input type="text" id="tipo-incidente" class="input-field">
+                <div class="all-options">
+                    <span class="option-title">O funcionário estava utilizando EPI?</span>
+                    <div class="category">
+                      <label for="dot-1">
+                        <input type="radio" id="dot-1" name="epi" hidden>
+                        <span class="dot one"></span>
+                        <span class="option">Sim</span>
+                      </label>
+                      <label for="dot-2">
+                        <input type="radio" id="dot-2" name="epi" hidden>
+                        <span class="dot two"></span>
+                        <span class="option">Não</span>
+                      </label>
+                    </div>
+                  </div>
+                <div class="button">
+                    <input type="submit" value="Registrar">
                 </div>
-            </div>
-
-            <div>
-                <label for="local-incidente">Local do incidente:</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-map-marker-alt input-icon"></i> <!-- Ícone de GPS -->
-                    <input type="text" id="local-incidente" class="input-field">
-                </div>
-            </div>
-
-            <!-- Botão "Enviar" -->
-            <button class="enviar-btn">Enviar</button>
-        </div>
-        
-        <div class="option-sm">
-            <!-- Campo quadrado grande no lado maior -->
-            <div>
-                <label for="descricao-ocorrido">Descrição detalhada do ocorrido</label>
-                <textarea id="descricao-ocorrido" class="big-input-field"></textarea>
-            </div>
+            </form>
         </div>
     </div>
-
 </body>
+
 </html>

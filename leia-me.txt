@@ -5,3 +5,5 @@ Estou fazendo uma organização geral do código (pastas, imgs, configs e dentre
 - Lembra de transformar as imagens em variavel
 - lembrar de transformar as cores em váriavel
 - Colocar os devidos vídeos na página principal
+
+- Iasmin (pausou na criação da tela de incidentes e desvio, detalhe, esperar resposta do cliente e ir fazer conect com banco de dados)
