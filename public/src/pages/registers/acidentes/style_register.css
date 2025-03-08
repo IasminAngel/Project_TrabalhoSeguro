@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap");
 @import url("/public/src/components/navbar/navbar.css");
 
+html,
+body {
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,24 +16,24 @@
 }
 
 body {
-  height: 150vh;
+  min-height: 108vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #11185e, #254aa3);
+  background: linear-gradient(135deg, #11185e, #254aa3, #023373);
   padding: 20px;
 }
 
-
-
 .container {
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   background: #ffffff;
-  padding: 30px;
+  padding: 90px;
+  color: #000;
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 2);
   text-align: center;
+  min-height: 60vh; /* Mantém responsivo ao reduzir altura */
 }
 
 .title {
@@ -40,7 +47,7 @@ body {
 
 .title::after {
   content: "";
-  width: 50px;
+  width: 300px;
   height: 4px;
   background: #254aa3;
   display: block;
@@ -131,5 +138,92 @@ input[type="radio"]:checked + .dot {
   .category {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* Para telas menores que 440px, esconder o título */
+/*@media (max-width: 440px) {
+  .title {
+    display: none;
+  }
+  .title::after {
+    display: none;
+  }
+}*/
+
+@media (max-width: 768px) {
+  .category {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-height: 700px) {
+  /* Quando a altura da tela for menor */
+  .container {
+    min-height: 80vh; /* Aumenta a altura mínima */
+    padding: 50px;
+  }
+}
+
+@media (max-height: 500px) {
+  /* Para telas extremamente achatadas */
+  .container {
+    min-height: 90vh;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    padding: 15px;
+    min-height: 70vh;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 15px;
+    min-height: 80vh;
+  }
+}
+
+@media (max-width: 344px) {
+  .container {
+    padding: 3px;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 414px) {
+  html,
+  body {
+    min-height: 140vh;
+  }
+
+  body {
+    min-height: 200vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  html,
+  body {
+    min-height: 150vh;
+  }
+
+  body {
+    min-height: 180vh;
+  }
+}
+
+@media (max-width: 1280px) {
+  html,
+  body {
+    min-height: 108vh;
+  }
+
+  body {
+    min-height: 180vh;
   }
 }
