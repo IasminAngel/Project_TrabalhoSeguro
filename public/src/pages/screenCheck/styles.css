@@ -12,7 +12,6 @@ body {
     position: relative;
 }
 
-
 .top-border {
     width: 100%;
     background-color: #6aa0e1; 
@@ -25,8 +24,6 @@ body {
     top: 0;
     left: 0;
 }
-
-
 
 /* Ícone de seta no canto superior esquerdo */
 .back-icon {
@@ -44,8 +41,6 @@ body {
     color: #174175;
 }
 
-
-
 .top-img {
     position: absolute;
     top: 50px; 
@@ -55,16 +50,14 @@ body {
     height: auto;
 }
 
-
 .container {
     display: flex;
     justify-content: center;
     gap: 500px; 
     max-width: 1200px;
     width: 100%;
-    margin-top: 150px; 
+    margin-top: 150px;
 }
-
 
 .option {
     position: relative;
@@ -85,22 +78,31 @@ body {
     transition: transform 0.3s ease;
 }
 
-
 .option-img:hover {
     transform: scale(1.1);
 }
 
-
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
+    /* Ajusta o layout para tela pequena */
     .container {
         flex-direction: column;
+        gap: 50px;  /* Ajusta o espaço entre os itens */
         margin-top: 50px;
     }
+
+    /* Ajusta o tamanho das imagens */
     .option {
         width: 200px;
         height: 200px;
     }
+
     .top-img {
         width: 150px;
+    }
+    
+    /* Ajusta o espaço dos ícones */
+    .back-icon {
+        font-size: 24px;
     }
 }
