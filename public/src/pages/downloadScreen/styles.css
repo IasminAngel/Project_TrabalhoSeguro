@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #17335f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Botão de fechar no canto esquerdo */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #303799;
+}
+
+/* Container branco central */
+.menu-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.menu-container h2 {
+    color: #223d69;
+    margin-bottom: 20px;
+}
+
+/* Estilização dos botões */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Aumenta o espaçamento entre os botões */
+    align-items: center;
+}
+
+.report-btn, .submit-btn {
+    width: 200px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.report-btn {
+    background-color: #6aa0e1;
+    color: white;
+}
+
+.report-btn:hover {
+    background-color: #4f86c6;
+}
+
+.submit-btn {
+    background-color: #17335f;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #0d2448;
+}
