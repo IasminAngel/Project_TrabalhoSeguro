@@ -29,6 +29,18 @@ document.getElementById("send").addEventListener("click", function (event) {
   const opinionField = document.querySelector(".opinion");
   const upgradeField = document.querySelector(".upgrade");
 
+/* fetch("http://localhost:3030/inserir", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ 
+        opinionField: opinionField.value, 
+        upgradeField: upgradeField.value 
+    }),
+})
+    .then((response) => response.text())
+    .then((data) => alert(data))
+    .catch((error) => console.error("Erro:", error));*/
+
   // Verifica se o campo de opinião está vazio e exibe uma mensagem de erro, se necessário
   if (opinionField.value === "") {
     errorMessage += "Por favor, preencha sua opinião.<br>";
