@@ -1,0 +1,84 @@
+body{
+    background-color: #000B31;
+    color: white;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28px;
+    background-color: #91a9da71;
+    height: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.main_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.container_registor{
+    background-color: #0A2D89;
+    width: 340px;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-left: 12px;
+    border: 1px solid white;
+}
+
+.btn_add_member{
+    width: 380px;
+    height: 30px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 12px;
+    background-color: #6175A8;
+    color: white;
+    cursor: pointer;
+}
+
+.show_members{
+    display: flex;
+    flex-direction: column;
+}
+
+.div_btns_final{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn_final{
+    display: none;
+    width : 70px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 12px;
+    background-color: #6175A8;
+    color: white;
+}
+
+.data_bar{
+    border-radius: 12px;
+    border: none;
+}
+
+.teste{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-items: end;
+    padding-right: 150px;
+}
+
