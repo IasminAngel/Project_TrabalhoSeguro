@@ -30,7 +30,7 @@ $(document).ready(function () {
     // Percorre cada seção para verificar se está dentro da área de visualização
     sections.each(function (i) {
       const section = $(this); // Seleciona a seção atual
-      const sectionTop = section.offset().top - 100; // Posição da seção no topo menos 100px
+      const sectionTop = section.offset().top - 110; // Posição da seção no topo menos 100px
       const sectionBottom = sectionTop + section.outerHeight(); // Posição do final da seção
 
       // Verifica se a posição de rolagem está dentro da seção atual
