@@ -54,7 +54,35 @@ document.getElementById("send").addEventListener("click", function (event) {
     errorDiv.innerHTML = errorMessage;
   } else {
     errorDiv.style.display = "none";
-    showPopup(); // Mostra o popup de agradecimento se não houver erros
+
+    // Coleta os dados do formulário
+    const estrela = document.querySelector(".star-icon.ativo").getAttribute("data-avaliacao");
+    const opiniao = opinionField.value;
+    const melhoras = upgradeField.value;
+
+
+    // Envia os dados para o backend
+    fetch("http://localhost:3000/salvar-avaliacao", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ estrela, opiniao, melhoras }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          errorDiv.style.display = "block";
+          errorDiv.innerHTML = data.error;
+        } else {
+          showPopup(); // Mostra o popup de agradecimento se não houver erros
+        }
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+        errorDiv.style.display = "block";
+        errorDiv.innerHTML = "Erro ao enviar dados.";
+      });
   }
 });
 
