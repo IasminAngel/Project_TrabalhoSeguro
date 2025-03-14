@@ -23,7 +23,7 @@ body {
 }
 
 .close-btn:hover {
-    color: #303799;
+    color: #11185e;
 }
 
 /* Container branco central */
@@ -33,7 +33,6 @@ body {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    border: 5px solid black;
 }
 
 .menu-container h2 {
