@@ -1,17 +1,23 @@
+
+// import { exp_inp_func } from "./Adicionar_setor.js";
+import { exp_tecnico_value } from "./Adicionar_setor.js";
+
+
+
 export function expFuncionarios() {
-    
+
     let funcionarios = [
         {
             id : 1,
             nome : "Maria Angelina das Graças",
-            tecnico : "Adolfo",
-            funcao : "Cuidar do planejamento de finanças da empresa"
+            tecnico : exp_tecnico_value,
+            funcao : "ss"
         },
         
         {
             id : 2,
             nome : "Joana dos Santos Almeida",
-            tecnico : "Carlos",
+            tecnico : exp_tecnico_value,
             funcao : "Gerenciar a equipe de vendas"
         }
     
