@@ -33,7 +33,7 @@ body {
 .back-arrow {
     position: absolute;
     top: 10px;
-    left: 40px;
+    left: 35px;
     font-size: 30px;
     color: white;
     text-decoration: none;
@@ -98,7 +98,7 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     color: #17335f;
-    width: 80%; /* Aumenta a largura da tabela */
+    width: 200%; /* Aumenta a largura da tabela */
     max-width: 1000px; /* Limita o tamanho máximo */
 }
 
