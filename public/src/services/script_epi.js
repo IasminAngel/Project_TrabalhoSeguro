@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("#item-form");
     const tableBody = document.querySelector("tbody");
 
-    // Mostrar o formulário ao clicar no botão "Adicionar item"
+
     addButton.addEventListener("click", function () {
         form.style.display = "block";
     });
