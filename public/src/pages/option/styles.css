@@ -119,7 +119,7 @@ body {
 
 /* Efeito ao passar o mouse nos ícones */
 .icon:hover {
-    color: #ADD8E6;
+    color: #254aa3;
     border-radius: 50%;
     padding: 15%px;
 }
