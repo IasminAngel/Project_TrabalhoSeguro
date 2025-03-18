@@ -1,3 +1,4 @@
+<!-- ESTRUTURAR DEPOIS DE APLICAR OS PLANOS DISPONIVEIS NO SITE PRINCIPAL, DEPOIS DE VERIFICAR SE O LOGIN REALMENTE FOI REGISTRADO -->
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -42,6 +43,9 @@
             <a href="#menu">Vantagens</a>
           </li>
           <li class="nav-item">
+            <a href="#planos-container">Assinaturas</a>
+          </li>
+          <li class="nav-item">
             <a href="#testimonials">Avaliações</a>
           </li>
         </ul>
@@ -62,6 +66,9 @@
           </li>
           <li class="nav-item">
             <a href="#menu">Vantagens</a>
+          </li>
+          <li class="nav-item">
+            <a href="#planos-container">Assinaturas</a>
           </li>
           <li class="nav-item">
             <a href="#testimonials">Avaliações</a>
@@ -231,6 +238,119 @@
         </div>
       </section>
 
+      <div id="planos-container">
+        <h3 class="section-subtitle">Planos de Assinatura</h3>
+        <div class="planos-wrapper">
+          <section class="pagaments">
+            <div class="title">
+              <h2>Planos - Mensal</h2>
+              <h5>Inclusões do plano mensal:</h5>
+              <div class="description">
+                <p>
+                  <li>Registro de Incidentes</li>
+                  <li>Registro de Acidentes</li>
+                  <li>Registro de Desvios</li>
+                  <li>Verificação de perfil</li>
+                  <li>Verificação de Setores</li>
+                  <li>Verificação de EPIS</li>
+                  <li>Verificação de Funcionários</li>
+                  <li>Download Relatórios</li>
+                </p>
+              </div>
+            </div>
+            <form action="#">
+              <div class="pay">
+                <!-- Transformar em variável -->
+                <h2 id="mensalPrice"></h2>
+              </div>
+              <div class="category">
+                <label for="visa" class="visaMethod">
+                  <div class="imgContainer visa">
+                    <img src="https://i.ibb.co/vjQCN4y/Visa-Card.png" alt="" />
+                  </div>
+                </label>
+
+                <label for="mastercard" class="mastercardMethod">
+                  <div class="imgContainer mastercard">
+                    <img src="https://i.ibb.co/vdbBkgT/mastercard.jpg" alt="" />
+                  </div>
+                </label>
+
+                <label for="paypal" class="paypalMethod">
+                  <div class="imgContainer paypal">
+                    <img src="https://i.ibb.co/KVF3mr1/paypal.png" alt="" />
+                  </div>
+                </label>
+
+                <label for="AMEX" class="amexMethod">
+                  <div class="imgContainer AMEX">
+                    <img
+                      src="https://i.ibb.co/wQnrX86/American-Express.jpg"
+                      alt=""
+                    />
+                  </div>
+                </label>
+                <button class="btn-default">Assine já</button>
+              </div>
+            </form>
+          </section>
+          <br /><br />
+          <section class="pagaments">
+            <div class="title">
+              <h2>Planos - Anual</h2>
+              <h5>Inclusões do plano anual:</h5>
+              <div class="description">
+                <p>
+                  <li>Registro de Incidentes</li>
+                  <li>Registro de Acidentes</li>
+                  <li>Registro de Desvios</li>
+                  <li>Verificação de perfil</li>
+                  <li>Verificação de Setores</li>
+                  <li>Verificação de EPIS</li>
+                  <li>Verificação de Funcionários</li>
+                  <li>Download Relatórios</li>
+                  <li>Análise total desempenho empresarial</li>
+                </p>
+              </div>
+            </div>
+            <form action="#">
+              <div class="pay">
+                <h2 id="anualPrice"></h2>
+              </div>
+              <div class="category">
+                <label for="visa" class="visaMethod">
+                  <div class="imgContainer visa">
+                    <img src="https://i.ibb.co/vjQCN4y/Visa-Card.png" alt="" />
+                  </div>
+                </label>
+
+                <label for="mastercard" class="mastercardMethod">
+                  <div class="imgContainer mastercard">
+                    <img src="https://i.ibb.co/vdbBkgT/mastercard.jpg" alt="" />
+                  </div>
+                </label>
+
+                <label for="paypal" class="paypalMethod">
+                  <div class="imgContainer paypal">
+                    <img src="https://i.ibb.co/KVF3mr1/paypal.png" alt="" />
+                  </div>
+                </label>
+
+                <label for="AMEX" class="amexMethod">
+                  <div class="imgContainer AMEX">
+                    <img
+                      src="https://i.ibb.co/wQnrX86/American-Express.jpg"
+                      alt=""
+                    />
+                  </div>
+                </label>
+                <button class="btn-default">Assine já</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+
       <section id="testimonials">
         <div id="testimonials_content">
           <h2 class="section-title">Depoimentos</h2>
@@ -253,7 +373,10 @@
                   </span>
                 </p>
                 <p>
-                  "Estou muito satisfeito com a experiência que tive neste site! Ele é bem estruturado, intuitivo e extremamente fácil de navegar. O design é moderno e agradável, com uma paleta de cores bem escolhida que não cansa a vista."
+                  "Estou muito satisfeito com a experiência que tive neste site!
+                  Ele é bem estruturado, intuitivo e extremamente fácil de
+                  navegar. O design é moderno e agradável, com uma paleta de
+                  cores bem escolhida que não cansa a vista."
                 </p>
               </div>
             </div>
@@ -284,7 +407,9 @@
             </div>
           </div>
           <button class="btn-default">
-            <a href="/public/src/pages/ava/form_ava.html">Comente sua avaliação</a>
+            <a href="/public/src/pages/ava/form_ava.html"
+              >Comente sua avaliação</a
+            >
           </button>
         </div>
       </section>
@@ -294,7 +419,9 @@
       <img src="/blog_principal/src/imgs/" alt="" />
       <div id="footer_items">
         <span id="copyright"> &copy 2024 - Equipe Trabalho Seguro </span>
-        <span id="Sobre"><a href="/public/src/pages/bio/sobre_nos.html">Sobre nós</a></span>
+        <span id="Sobre"
+          ><a href="/public/src/pages/bio/sobre_nos.html">Sobre nós</a></span
+        >
 
         <div class="social-media-buttons">
           <a href="">

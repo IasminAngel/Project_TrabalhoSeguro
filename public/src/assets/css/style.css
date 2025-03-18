@@ -4,6 +4,7 @@
 @import url("menu.css");
 @import url("testimonials.css");
 @import url("footer.css");
+@import url("pagament.css");
 
 :root {
   --color-primary-1: #f8f8f8;
