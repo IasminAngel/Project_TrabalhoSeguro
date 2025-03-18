@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <link rel="stylesheet" href="style_epis.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="top-border">
+        <a href="/public/src/pages/screenCheck/index_check.html" class="back-icon">
+            <i class="fas fa-arrow-left back-arrow"></i>
+        </a>
+        <span class="title">EPIS</span>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Pesquisar...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>ID</th>
+                    <th>Validade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linhas da tabela serão inseridas aqui -->
+            </tbody>
+        </table>
+
+        <!-- Botão de Adicionar -->
+        <button class="add-item">Adicionar item</button>
+
+        <!-- Formulário escondido -->
+        <div id="item-form" style="display: none;">
+            <input type="text" id="item-name" placeholder="Nome do item">
+            <input type="text" id="item-id" placeholder="ID">
+            <input type="date" id="item-date">
+            <button id="save-item">Salvar</button>
+        </div>
+    </div>
+
+    <script src="/public/src/services/script_epi.js"></script>
+</body>
+</html>

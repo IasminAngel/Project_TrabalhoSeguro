@@ -1,0 +1,137 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #17335f; /* Azul um pouco mais escuro */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Remove o scroll lateral */
+    position: relative;
+}
+
+.top-border {
+    width: 100%;
+    background: linear-gradient(to bottom, #6aa0e1, #6aa0e1); /* Degradê de azul */
+    color: #17335f;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px; /* Ajustado para acompanhar o novo height */
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px; /* Reduzido conforme solicitado */
+    position: relative;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
+.back-arrow:hover {
+    color: #174175; /* Muda a cor para azul claro */
+}
+
+
+
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 20px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.search-icon {
+    font-size: 20px;
+    color: #17335f;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.top-img {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: auto;
+}
+
+/* Estilo da Tabela */
+.table-container {
+    margin-top: 80px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #17335f;
+    width: 80%; /* Aumenta a largura da tabela */
+    max-width: 1000px; /* Limita o tamanho máximo */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #17335f;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #ADD8E6;
+}
+
+/* Botão de Adicionar */
+.add-item {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #17335f;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-item:hover {
+    background-color: #12529a;
+}
