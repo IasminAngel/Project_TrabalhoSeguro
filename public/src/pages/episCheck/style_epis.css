@@ -1,7 +1,7 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #17335f; /* Azul um pouco mais escuro */
+    font-family:  Verdana, sans-serif;
+    background-color: #17335f; 
     color: white;
     margin: 0;
     padding: 0;
@@ -9,13 +9,13 @@ body {
     flex-direction: column; 
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Remove o scroll lateral */
+    overflow: hidden; 
     position: relative;
 }
 
 .top-border {
     width: 100%;
-    background: linear-gradient(to bottom, #6aa0e1, #6aa0e1); /* Degradê de azul */
+    background: linear-gradient(to bottom, #6aa0e1, #6aa0e1); 
     color: #17335f;
     font-size: 24px;
     font-weight: bold;
@@ -109,7 +109,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #17335f;
+    border: 3px solid #17335f;
 }
 
 th, td {
