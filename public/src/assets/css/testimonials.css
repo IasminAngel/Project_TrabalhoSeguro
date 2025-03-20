@@ -34,7 +34,7 @@
   background-color: var(--color-neutral-0);
   padding: 12px;
   border-radius: 12px;
-  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 12px 4px var(--color-shadows-2);
 }
 
 .feedback-avatar {

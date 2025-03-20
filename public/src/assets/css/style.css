@@ -15,10 +15,16 @@
   --color-primary-6: #08246d;
   --color-primary-7: #0d1c89;
   --color-primary-8: #466090;
+  --color-primary-9: #232970a8;
+  --color-primary-10: #434343;
 
   --color-neutral-0: #fff;
   --color-neutral-1: #5888e7;
   --color-neutral-2: #000;
+
+  --color-shadows-1: rgba(0, 0, 0, 0.2);
+  --color-shadows-2: rgba(0, 0, 0, 0.1);
+  --color-shadows-3: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -49,7 +55,7 @@ section {
   border-radius: 12px;
   padding: 10px 14px;
   font-weight: 600;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 2px var(--color-shadows-2);
   cursor: pointer;
   color: var(--color-primary-1);
   transition: background-color 0.3s ease;
@@ -75,11 +81,11 @@ section {
   border-radius: 10px;
   text-decoration: none;
   color:var(--color-neutral-2);
-  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 12px 4px var(--color-shadows-2);
 }
 
 .social-media-buttons a:hover {
-  box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 12px 8px var(--color-shadows-2);
 }
 
 .section-title {
@@ -109,9 +115,9 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
+  background: var(--color-neutral-0);
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px var(--color-shadows-3);
   z-index: 1000;
   max-width: 1000px;
   width: 90%;
@@ -125,7 +131,7 @@ section {
 }
 
 .closeVideo {
-  color: white;
+  color: var(--color-neutral-0);
   border: none;
   padding: 10px 20px;
   cursor: pointer;

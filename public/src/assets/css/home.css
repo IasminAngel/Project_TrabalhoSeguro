@@ -19,7 +19,7 @@
 
 #cta #subtitulo {
   font-size: 2rem;
-  color: #232970a8;
+  color: var(--color-primary-9);
 }
 
 #cta .title span {
@@ -47,7 +47,7 @@
   background-color: var(--color-neutral-1);
   padding: 8px 14px;
   font-weight: 500;
-  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 12px 4px var(--color-shadows-2);
   border-radius: 12px;
 }
 
