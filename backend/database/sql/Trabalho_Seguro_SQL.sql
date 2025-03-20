@@ -284,7 +284,6 @@ CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Cadastro` (
   `email` VARCHAR(64) NOT NULL,
   `celular` VARCHAR(12) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
-  `confirmar_senha` VARCHAR(45) NOT NULL,
   `genero` JSON NOT NULL,
   PRIMARY KEY (`idCadastro`))
 ENGINE = InnoDB;
