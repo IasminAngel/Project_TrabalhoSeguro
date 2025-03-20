@@ -1,0 +1,3 @@
+const register = registerField.value;
+
+
