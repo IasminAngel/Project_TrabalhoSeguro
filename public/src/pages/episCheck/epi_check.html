@@ -6,6 +6,7 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Página</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style_epis.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 </head>
@@ -15,10 +16,6 @@
             <i class="fas fa-arrow-left back-arrow"></i>
         </a>
         <span class="title">EPIS</span>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Pesquisar...">
-            <i class="fas fa-search search-icon"></i>
-        </div>
     </div>
 
     <div class="table-container">
@@ -35,15 +32,16 @@
             </tbody>
         </table>
 
-      
         <button class="add-item">Adicionar</button>
 
         <!-- Formulário -->
         <div id="item-form" style="display: none;">
-            <input type="text" id="item-name" placeholder="Nome do item">
-            <input type="text" id="item-id" placeholder="ID">
-            <input type="date" id="item-date">
-            <button id="save-item">Salvar</button>
+            <div class="form-container">
+                <input type="text" id="item-name" placeholder="Nome do item">
+                <input type="text" id="item-id" placeholder="ID">
+                <input type="date" id="item-date">
+                <button id="save-item">Salvar</button>
+            </div>
         </div>
     </div>
 
