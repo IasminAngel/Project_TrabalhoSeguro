@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/public/src/pages/profile_funcionario/style_employee.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="profile-container">
     <!-- Imagem de Perfil -->
-    <img id="profile-img" src="/public/src/assets/imgs/Personicone.png" alt="Imagem de Perfil" class="profile-img">
+    <div class="profile-img-container">
+        <img id="profile-img" src="/public/src/assets/imgs/Personicone.png" alt="Imagem de Perfil" class="profile-img">
+        <input type="file" id="image-input" class="image-input" accept="image/*" style="display:none">
+    </div>
 
     <!-- Informações do Usuário -->
     <div class="user-info">
@@ -71,3 +74,7 @@
         </a>
     </div>
 </div>
+
+<script src="/public/src/services/script_employee.js"></script>
+</body>
+</html>

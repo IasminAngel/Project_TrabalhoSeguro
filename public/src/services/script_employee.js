@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveButton = document.getElementById("save-button");
     const fields = document.querySelectorAll(".edit-field");
     const texts = document.querySelectorAll(".user-info span");
+    const profileImg = document.getElementById("profile-img");
+    const imageInput = document.getElementById("image-input");
 
     // Função para alternar entre visualizar e editar
     editButton.addEventListener("click", function () {
@@ -22,5 +24,25 @@ document.addEventListener("DOMContentLoaded", function () {
         texts.forEach(text => text.style.display = "block");
         saveButton.style.display = "none";
         editButton.style.display = "block";
+    });
+
+    // Melhorando a acessibilidade com o atributo 'aria-live' para anunciar mudanças no perfil
+    const profileSection = document.querySelector('.profile-container');
+    profileSection.setAttribute('aria-live', 'polite');
+
+    // Função para alterar a imagem de perfil
+    profileImg.addEventListener("click", function () {
+        imageInput.click(); // Aciona o input de imagem ao clicar na imagem de perfil
+    });
+
+    imageInput.addEventListener("change", function () {
+        const file = imageInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profileImg.src = e.target.result; // Atualiza a imagem de perfil
+            };
+            reader.readAsDataURL(file);
+        }
     });
 });
