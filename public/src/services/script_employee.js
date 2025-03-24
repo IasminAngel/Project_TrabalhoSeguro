@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                profileImg.src = e.target.result; // Atualiza a imagem de perfil
+                profileImg.src = e.target.result; 
             };
             reader.readAsDataURL(file);
         }
