@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         editButton.style.display = "block";
     });
 
-    // Melhorando a acessibilidade com o atributo 'aria-live' para anunciar mudanças no perfil
+    
     const profileSection = document.querySelector('.profile-container');
     profileSection.setAttribute('aria-live', 'polite');
 
