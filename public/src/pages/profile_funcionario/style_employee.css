@@ -5,7 +5,16 @@ body {
     align-items: center;
     min-height: 100vh; /* Garante que ocupe toda a altura da tela */
     margin: 0; /* Remove qualquer margem padrão */
-    background-color: #254aa3; /* Cor de fundo opcional */
+    background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5)), 
+    url('/public/src/assets/imgs/FundoProfile.jpg');
+
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-blend-mode: overlay; /* Mistura o gradiente com a imagem */
+
+
+
+
 }
 
 /* Estilizando o container principal */
@@ -13,11 +22,11 @@ body {
     background-color: white;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0px 10px 15px rgba(53, 62, 92, 0.1);
+    box-shadow: 0px 10px 15px rgba(22, 55, 165, 0.1);
     text-align: center;
     max-width: 400px;
     width: 100%;
-    border: 3px solid rgba(9, 8, 77, 0.3);
+    border: 5px solid rgba(13, 16, 182, 0.3);
 }
 
 /* Estilizando o container da imagem de perfil */
@@ -30,7 +39,7 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #17335f;
+    border: 3px solid #595d64;
     object-fit: cover;
     cursor: pointer;
 }
@@ -53,7 +62,7 @@ label {
     display: none;
     width: 80%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
     text-align: center;
 }
