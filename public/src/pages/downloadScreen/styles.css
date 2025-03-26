@@ -2,12 +2,12 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5)), 
-    url('/public/src/assets/imgs/FundoProfile.jpg');
+    background: linear-gradient(rgb(35, 66, 116), rgb(38, 109, 223)), 
+    url('/public/src/assets/imgs/downloadIcon.jpg');
 
     background-size: cover; /* Faz a imagem cobrir todo o espaço */
     background-position: center; /* Centraliza a imagem */
-    background-blend-mode: overlay; /* Mistura o gradiente com a imagem */
+    background-blend-mode: color; /* Mistura o gradiente com a imagem */
 
     color: white;
     display: flex;
@@ -35,18 +35,19 @@ body {
 
 /* Container centralizado */
 .menu-container {
-    background-color: white;
+    background-color: rgb(68, 86, 185);
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow:  0px 10px 20px rgba(0, 0, 0, 0.9);;            
     text-align: center;
     width: 100%;
     max-width: 500px; /* Limita a largura do container */
+    
 }
 
 /* Título do container */
 .menu-container h2 {
-    color: #223d69;
+    color: #f2f5f8;
     margin-bottom: 20px;
 }
 
