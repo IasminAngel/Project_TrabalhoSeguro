@@ -2,7 +2,13 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #17335f, #6aa0e1); /* Gradiente suave de azul */
+    background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5)), 
+    url('/public/src/assets/imgs/FundoProfile.jpg');
+
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-blend-mode: overlay; /* Mistura o gradiente com a imagem */
+
     color: white;
     display: flex;
     justify-content: center;
