@@ -108,6 +108,8 @@ form {
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
+  border-color: #c0c0c0;
+  
 }
 
 .input-box input:focus,
@@ -169,7 +171,7 @@ textarea {
 
 /* Grupo de Período */
 .periodo-title {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .periodo-group {

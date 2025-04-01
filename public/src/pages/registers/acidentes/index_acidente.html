@@ -1,3 +1,5 @@
+<!-- EDITAR PARA ACIDENTE E INCIDENTE -->
+
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
   <head>
@@ -50,7 +52,27 @@
               <span class="details">Matrícula do funcionário afetado:</span>
               <input type="text" placeholder="Digite a matrícula" required />
             </div>
+            <div class="input-box">
+              <span class="details">Agente Causador:</span>
+              <input type="text" placeholder="Digite o agente causador" required />
+            </div>
             <div class="input-option">
+
+              <!-- Mudar para opções gerais para não alterar o tempo inteiro -->
+              <span class="details periodo-title">Acidentou outras vezes ?</span>
+              <div class="radio-group periodo-group">
+                <label class="radio-option">
+                    <input type="radio" name="periodo" />
+                    <span class="radio-label">Sim</span>
+                    <!-- Se marcar sim, aparece a pergunta a quantia de vezes -->
+                     <!-- Editar name em todos os requisitos -->
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="periodo" />
+                    <span class="radio-label">Não</span>
+                </label>
+            </div>
+
                 <span class="details">Turno do trabalho:</span>
                 <div class="radio-group">
                     <label class="radio-option">
@@ -78,7 +100,6 @@
                         <span class="radio-label">SN</span>
                     </label>
                 </div>
-                
                 <span class="details periodo-title">Período:</span>
                 <div class="radio-group periodo-group">
                     <label class="radio-option">
@@ -90,6 +111,29 @@
                         <span class="radio-label">Extra</span>
                     </label>
                 </div>
+
+                <span class="details periodo-title">Foi emitida a CAT ?</span>
+                <div class="radio-group periodo-group">
+                    <label class="radio-option">
+                      <!-- EDITAR NAMES -->
+                        <input type="radio" name="periodo" />
+                        <span class="radio-label">Não</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="periodo" />
+                        <span class="radio-label">Sim, foi emitida após avaliação Médico do Trabalho</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="periodo" />
+                        <span class="radio-label">Sim, foi emitida após avaliação Médico Clínico</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="periodo" />
+                        <span class="radio-label">Sim, foi emitida após avaliação Médico do Pronto Atendimento</span>
+                    </label>
+                </div>
+
+
             </div>
 
             <!-- APLICAR A CAT - AFASTAMENTO - QUAL EPI - E QUANTIA DE ACIDENTES -->
@@ -113,14 +157,13 @@
             >
             <div class="category">
               <label for="dot-1">
-                <input type="radio" id="dot-1" name="epi" hidden />
-                <span class="dot one"></span>
-                <span class="option">Sim</span>
+                <label class="radio-option">
+                  <input type="radio" name="periodo" />
+                  <span class="radio-label">Sim</span>
               </label>
-              <label for="dot-2">
-                <input type="radio" id="dot-2" name="epi" hidden />
-                <span class="dot two"></span>
-                <span class="option">Não</span>
+              <label class="radio-option">
+                  <input type="radio" name="periodo" />
+                  <span class="radio-label">Não</span>
               </label>
             </div>
           </div>
