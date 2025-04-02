@@ -96,7 +96,7 @@ form {
 .input-box span {
   display: block;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   color: var(--text-dark);
 }
 
@@ -176,7 +176,7 @@ textarea {
 
 .periodo-group {
   margin-top: 8px;
-  margin-bottom: 5px;
+  margin-bottom: 30px;
 }
 
 /* ======================
