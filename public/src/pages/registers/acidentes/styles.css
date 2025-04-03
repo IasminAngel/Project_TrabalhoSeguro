@@ -27,18 +27,24 @@
 /* ======================
    ESTRUTURA BASE
    ====================== */
-html, body {
+html,
+body {
   min-height: 100vh;
   height: auto;
   overflow-y: auto;
 }
 
 body {
-  min-height: 108vh;
+  min-height: 180vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--tertiary-color)
+  );
   padding: 20px;
 }
 
@@ -86,6 +92,10 @@ form {
   text-align: left;
 }
 
+.hidden {
+  display: none;
+}
+
 /* ======================
    INPUTS BÁSICOS
    ====================== */
@@ -109,7 +119,6 @@ form {
   outline: none;
   transition: border-color 0.3s ease;
   border-color: #c0c0c0;
-  
 }
 
 .input-box input:focus,
@@ -238,16 +247,16 @@ input[type="radio"]:checked + .dot {
   .radio-group {
     gap: 10px 15px;
   }
-  
+
   .radio-option {
     gap: 6px;
   }
-  
+
   .category {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .container {
     padding: 50px;
     min-height: 80vh;
@@ -259,7 +268,7 @@ input[type="radio"]:checked + .dot {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .container {
     padding: 15px;
     min-height: 70vh;
@@ -287,7 +296,8 @@ input[type="radio"]:checked + .dot {
 }
 
 @media (max-width: 414px) {
-  html, body {
+  html,
+  body {
     min-height: 140vh;
   }
 
@@ -297,7 +307,8 @@ input[type="radio"]:checked + .dot {
 }
 
 @media (max-width: 1024px) {
-  html, body {
+  html,
+  body {
     min-height: 150vh;
   }
 
@@ -307,7 +318,8 @@ input[type="radio"]:checked + .dot {
 }
 
 @media (max-width: 1280px) {
-  html, body {
+  html,
+  body {
     min-height: 108vh;
   }
 

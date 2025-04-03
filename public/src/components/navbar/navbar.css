@@ -35,19 +35,58 @@
   align-items: center;
 }
 
-.voltar-house {
-  width: 101px;
-  height: 41px;
-  position: absolute;
-  left: -10px;
-  top: 5px;
-  overflow: visible;
-  filter: brightness(0) saturate(100%) invert(100%); /* Branco */
+.menu-container {
+  position: relative;
+  padding: 10px;
 }
 
-.voltar-house:hover {
-  filter: brightness(0) saturate(100%) invert(24%) sepia(99%) saturate(7466%)
-    hue-rotate(240deg) brightness(102%) contrast(130%);
+.menu-btn {
+  background: linear-gradient(135deg, #01052e, #112b68, #00204b);
+  color: white;
+  border: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 150px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu ul li:last-child {
+  border-bottom: none;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu ul li:hover {
+  background-color: #f4f4f4;
 }
 
 @media (max-width: 400px) {

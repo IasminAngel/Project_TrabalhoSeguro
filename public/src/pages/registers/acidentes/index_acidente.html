@@ -1,172 +1,325 @@
-<!-- EDITAR PARA ACIDENTE E INCIDENTE -->
-
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro Acidentes</title>
+    <title>Registro Acidentes e Incidentes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="icon"
+      href="/public/src/assets/icons/card-text.svg"
+      type="image/svg+xml"
+    />
     <link
       rel="stylesheet"
       href="/public/src/pages/registers/acidentes/styles.css"
     />
   </head>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  />
-  <link
-    rel="icon"
-    href="/public/src/assets/icons/card-text.svg"
-    type="image/svg+xml"
-  />
 
   <body>
     <div class="navbar">
       <div class="barra-fundo"></div>
-      <div class="text">Registrar Acidente</div>
-      <a href="/public/src/pages/option/index_option.html">
-        <img class="voltar-house" src="/public/src/assets/icons/house.svg" />
-      </a>
+      <div class="text">Registrar Acidente / Incidente</div>
+      <div class="menu-container">
+        <button id="menu-btn" class="menu-btn">&#9776;</button>
+        <div id="menu" class="menu">
+          <ul>
+            <li>
+              <a href="#"><span>🏠</span> Home</a>
+            </li>
+            <li>
+              <a href="#"><span>🛡️</span> Epis</a>
+            </li>
+            <li>
+              <a href="#"><span>👤</span> Funcionarios</a>
+            </li>
+            <li>
+              <a href="#"><span>🔄</span> Sair</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+
     <div class="container">
-      <div class="title">Formulário - Acidente</div>
+      <div class="title">Formulário - Acidente / Incidente</div>
       <div class="content">
-        <form action="#">
+        <form id="acidenteForm" action="#">
           <div class="questions">
             <div class="input-box">
-              <span class="details">Data do Acidente:</span>
-              <input type="text" placeholder="DD/MM/AAAA" required />
+              <label class="details" for="dataAcidente"
+                >Data do Acidente:</label
+              >
+              <input id="dataAcidente" type="date" required />
             </div>
-            <!-- ADD CLASS IN INPUTS CRUD / APLICAR REQUERIMENTO PARA SCRIPT (NOMEAÇÃO)-->
+
             <div class="input-box">
-              <span class="details">Local do Acidente:</span>
+              <label class="details" for="local">Local do Acidente:</label>
               <input
+                id="local"
                 class="register"
                 type="text"
                 placeholder="Digite o local"
                 required
               />
             </div>
-            <div class="input-box">
-              <span class="details">Matrícula do funcionário afetado:</span>
-              <input type="text" placeholder="Digite a matrícula" required />
-            </div>
-            <div class="input-box">
-              <span class="details">Agente Causador:</span>
-              <input type="text" placeholder="Digite o agente causador" required />
-            </div>
-            <div class="input-option">
 
-              <!-- Mudar para opções gerais para não alterar o tempo inteiro -->
-              <span class="details periodo-title">Acidentou outras vezes ?</span>
+            <div class="input-box">
+              <label class="details" for="matricula"
+                >Matrícula do funcionário afetado:</label
+              >
+              <input
+                id="matricula"
+                type="text"
+                placeholder="Digite a matrícula"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label class="details" for="agente">Agente Causador:</label>
+              <input
+                id="agente"
+                type="text"
+                placeholder="Digite o agente causador"
+                required
+              />
+            </div>
+
+            <div class="input-option">
+              <legend class="details periodo-title">
+                Acidentou outras vezes?
+              </legend>
               <div class="radio-group periodo-group">
                 <label class="radio-option">
-                    <input type="radio" name="periodo" />
-                    <span class="radio-label">Sim</span>
-                    <!-- Se marcar sim, aparece a pergunta a quantia de vezes -->
-                     <!-- Editar name em todos os requisitos -->
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="periodo" />
-                    <span class="radio-label">Não</span>
-                </label>
-            </div>
-
-                <span class="details">Turno do trabalho:</span>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="turno" />
-                        <span class="radio-label">Matutino</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="turno" />
-                        <span class="radio-label">Vespertino</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="turno" />
-                        <span class="radio-label">Noturno</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="turno" />
-                        <span class="radio-label">ADM</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="turno" />
-                        <span class="radio-label">Serviço Diurno</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="turno" />
-                        <span class="radio-label">SN</span>
-                    </label>
-                </div>
-                <span class="details periodo-title">Período:</span>
-                <div class="radio-group periodo-group">
-                    <label class="radio-option">
-                        <input type="radio" name="periodo" />
-                        <span class="radio-label">Normal</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="periodo" />
-                        <span class="radio-label">Extra</span>
-                    </label>
-                </div>
-
-                <span class="details periodo-title">Foi emitida a CAT ?</span>
-                <div class="radio-group periodo-group">
-                    <label class="radio-option">
-                      <!-- EDITAR NAMES -->
-                        <input type="radio" name="periodo" />
-                        <span class="radio-label">Não</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="periodo" />
-                        <span class="radio-label">Sim, foi emitida após avaliação Médico do Trabalho</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="periodo" />
-                        <span class="radio-label">Sim, foi emitida após avaliação Médico Clínico</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="periodo" />
-                        <span class="radio-label">Sim, foi emitida após avaliação Médico do Pronto Atendimento</span>
-                    </label>
-                </div>
-
-
-            </div>
-
-            <!-- APLICAR A CAT - AFASTAMENTO - QUAL EPI - E QUANTIA DE ACIDENTES -->
-
-            <div class="input-box">
-              <span class="details"
-                >Digite de forma coerente a fratura tida pelo funcionário:</span
-              >
-              <input type="text" placeholder="Digite a fratura" required />
-            </div>
-            <div class="input-box">
-              <span class="details"
-                >Digite uma descrição detalhada do ocorrido:</span
-              >
-              <textarea placeholder="Descrição do ocorrido" required></textarea>
-            </div>
-          </div>
-          <div class="all-options">
-            <span class="option-title"
-              >O funcionário estava utilizando EPI?</span
-            >
-            <div class="category">
-              <label for="dot-1">
-                <label class="radio-option">
-                  <input type="radio" name="periodo" />
+                  <input type="radio" name="acidentes_anteriores" value="sim" />
                   <span class="radio-label">Sim</span>
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="acidentes_anteriores"
+                    value="nao"
+                    checked
+                  />
+                  <span class="radio-label">Não</span>
+                </label>
+              </div>
+
+              <div id="quantidadeAcidentesContainer" class="hidden">
+                <label class="details" for="quantidadeAcidentes"
+                  >Quantas vezes?</label
+                >
+                <input id="quantidadeAcidentes" type="number" min="1" />
+              </div>
+            </div>
+
+            <div class="input-option">
+              <legend class="details periodo-title">Houve testemunhas?</legend>
+              <div class="radio-group periodo-group">
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="confirmacao_testemunha"
+                    value="sim"
+                    id="testemunhaSim"
+                  />
+                  <span class="radio-label">Sim</span>
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="confirmacao_testemunha"
+                    value="nao"
+                    id="testemunhaNao"
+                    checked
+                  />
+                  <span class="radio-label">Não</span>
+                </label>
+              </div>
+            </div>
+
+            <div id="testemunhaContainer" class="hidden">
+              <div class="input-box">
+                <label class="details" for="testemunhaInfo"
+                  >Nome ou matrícula da testemunha:</label
+                >
+                <input
+                  id="testemunhaInfo"
+                  type="text"
+                  placeholder="Digite o nome ou matrícula"
+                />
+              </div>
+            </div>
+
+            <div class="input-option">
+              <legend class="details periodo-title">
+                O acidente necessitou de afastamento?
+              </legend>
+              <div class="radio-group periodo-group">
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="afastamento"
+                    value="sim"
+                    id="afastamentoSim"
+                  />
+                  <span class="radio-label">Sim</span>
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="afastamento"
+                    value="nao"
+                    id="afastamentoNao"
+                    checked
+                  />
+                  <span class="radio-label">Não</span>
+                </label>
+              </div>
+            </div>
+
+            <div id="diasAfastamentoContainer" class="hidden">
+              <div class="input-box">
+                <label class="details" for="diasAfastamento"
+                  >Quantos dias de afastamento?</label
+                >
+                <input
+                  id="diasAfastamento"
+                  type="number"
+                  min="1"
+                  placeholder="Digite o número de dias"
+                />
+              </div>
+            </div>
+
+            <legend class="details">Turno do trabalho:</legend>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="turno" value="matutino" />
+                <span class="radio-label">Matutino</span>
               </label>
               <label class="radio-option">
-                  <input type="radio" name="periodo" />
-                  <span class="radio-label">Não</span>
+                <input type="radio" name="turno" value="vespertino" />
+                <span class="radio-label">Vespertino</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="turno" value="noturno" />
+                <span class="radio-label">Noturno</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="turno" value="adm" />
+                <span class="radio-label">ADM</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="turno" value="diurno" />
+                <span class="radio-label">Serviço Diurno</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="turno" value="sn" />
+                <span class="radio-label">SN</span>
               </label>
             </div>
+
+            <legend class="details periodo-title">Período:</legend>
+            <div class="radio-group periodo-group">
+              <label class="radio-option">
+                <input type="radio" name="periodo" value="normal" checked />
+                <span class="radio-label">Normal</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="periodo" value="extra" />
+                <span class="radio-label">Extra</span>
+              </label>
+            </div>
+
+            <legend class="details periodo-title">Foi emitida a CAT?</legend>
+            <div class="radio-group periodo-group">
+              <label class="radio-option">
+                <input type="radio" name="cat" value="nao" checked />
+                <span class="radio-label">Não</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="cat" value="medico_trabalho" />
+                <span class="radio-label"
+                  >Sim, foi emitida após avaliação Médico do Trabalho</span
+                >
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="cat" value="medico_clinico" />
+                <span class="radio-label"
+                  >Sim, foi emitida após avaliação Médico Clínico</span
+                >
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="cat" value="pronto_atendimento" />
+                <span class="radio-label"
+                  >Sim, foi emitida após avaliação Médico do Pronto
+                  Atendimento</span
+                >
+              </label>
+            </div>
+
+            <div class="input-box">
+              <label class="details" for="fratura"
+                >Fratura sofrida pelo funcionário:</label
+              >
+              <input
+                id="fratura"
+                type="text"
+                placeholder="Digite a fratura (caso ocorrido)"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label class="details" for="descricao"
+                >Descrição detalhada do ocorrido:</label
+              >
+              <textarea
+                id="descricao"
+                placeholder="Descrição do ocorrido"
+                required
+              ></textarea>
+            </div>
           </div>
+
+          <div class="all-options">
+            <legend class="option-title">
+              O funcionário estava utilizando EPI?
+            </legend>
+            <div class="category">
+              <label class="radio-option">
+                <input type="radio" name="uso_epi" value="sim" id="epiSim" />
+                <span class="radio-label">Sim</span>
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="uso_epi"
+                  value="nao"
+                  id="epiNao"
+                  checked
+                />
+                <span class="radio-label">Não</span>
+              </label>
+            </div>
+
+            <div id="epiContainer" class="hidden">
+              <label class="details" for="epiUtilizado"
+                >Qual EPI estava utilizando?</label
+              >
+              <input
+                id="epiUtilizado"
+                type="text"
+                placeholder="Digite o EPI utilizado"
+              />
+            </div>
+          </div>
+
           <div class="button">
             <input type="submit" value="Registrar" />
           </div>
@@ -174,5 +327,8 @@
       </div>
     </div>
   </body>
-  <script src="/public/src/services/script_acidente.js"></script>
+  <script src="/public/src/services/script_form.js"></script>
+  <!-- SCRIPT GERAL -->
+  <script src="/public/src/components/navbar/script.js"></script>
+  <!-- SCRIPT DA NAVBAR -->
 </html>

@@ -10,15 +10,13 @@ Estou fazendo uma organização geral do código (pastas, imgs, configs e dentre
 
 
 
-
-
-
-
-
-
 Olá, boa tarde! Aqui é Erick
 
 Fiz algumas atualizações nas pastas e adicionei uma tela nova de download dos relatórios, em brece farei um código base para baixar informações em arquivo csv do excel.
+
+
+Iasmin - 02/04 
+- Adicionar variáveis das cores javascript em todos os arquivos css
 
 
 
