@@ -13,52 +13,66 @@
     <!-- Imagem de Perfil -->
     <div class="profile-img-container">
         <img id="profile-img" src="/public/src/assets/imgs/Personicone.png" alt="Imagem de Perfil" class="profile-img">
-        <input type="file" id="image-input" class="image-input" accept="image/*" style="display:none">
+        <input type="file" id="image-input" class="image-input" accept="image/*">
     </div>
 
     <!-- Informações do Usuário -->
     <div class="user-info">
+
         <div class="info-item">
-            <label for="nome">Nome:</label>
+            <label><i class="fas fa-user"></i> Nome:</label>
             <span id="nome-text"></span>
             <input type="text" id="nome-input" class="edit-field">
         </div>
 
         <div class="info-item">
-            <label for="email">Email:</label>
-            <span id="email-text"></span>
-            <input type="email" id="email-input" class="edit-field">
-        </div>
-
-        <div class="info-item">
-            <label for="sobrenome">Sobrenome:</label>
+            <label><i class="fas fa-user-tag"></i> Sobrenome:</label>
             <span id="sobrenome-text"></span>
             <input type="text" id="sobrenome-input" class="edit-field">
         </div>
 
         <div class="info-item">
-            <label for="cidade">Cidade:</label>
-            <span id="cidade-text"></span>
-            <input type="text" id="cidade-input" class="edit-field">
+            <label><i class="fas fa-envelope"></i> Email:</label>
+            <span id="email-text"></span>
+            <input type="email" id="email-input" class="edit-field">
         </div>
 
         <div class="info-item">
-            <label for="estado">Estado:</label>
-            <span id="estado-text"></span>
-            <input type="text" id="estado-input" class="edit-field">
+            <label><i class="fas fa-phone"></i> Telefone:</label>
+            <span id="telefone-text"></span>
+            <input type="text" id="telefone-input" class="edit-field">
         </div>
 
         <div class="info-item">
-            <label for="cep">CEP:</label>
+            <label><i class="fas fa-map-marker-alt"></i> Endereço:</label>
+            <span id="endereco-text"></span>
+            <input type="text" id="endereco-input" class="edit-field">
+        </div>
+
+        <div class="info-item">
+            <label><i class="fas fa-map-pin"></i> CEP:</label>
             <span id="cep-text"></span>
             <input type="text" id="cep-input" class="edit-field">
         </div>
 
         <div class="info-item">
-            <label for="numero">Número:</label>
-            <span id="numero-text"></span>
-            <input type="text" id="numero-input" class="edit-field" >
+            <label><i class="fas fa-city"></i> Cidade:</label>
+            <span id="cidade-text"></span>
+            <input type="text" id="cidade-input" class="edit-field">
         </div>
+
+        <div class="info-item">
+            <label><i class="fas fa-flag"></i> Estado:</label>
+            <span id="estado-text"></span>
+            <input type="text" id="estado-input" class="edit-field">
+        </div>
+
+        <div class="info-item">
+            <label><i class="fas fa-home"></i> Número:</label>
+            <span id="numero-text"></span>
+            <input type="text" id="numero-input" class="edit-field">
+        </div>
+
     </div>
 
     <!-- Botões -->
