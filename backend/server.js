@@ -1,20 +1,21 @@
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import authRouter from './routes/auth.routes.js';
+import evaluationRouter from './routes/evaluation.routes.js';
+import userRouter from './routes/user.routes.js';
 
 const app = express();
 
-// Configuração correta para arquivos estáticos
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.json());
+app.use(express.static('../public'));
 
-// Rota principal corrigida
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+// Rotas
+app.use('/auth', authRouter);
+app.use('/api/evaluations', evaluationRouter);
+app.use('/api/users', userRouter);
+
+app.get('/:page', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/pages', `${req.params.page}.html`));
 });
 
-app.listen(3000, () => {
-  console.log('Servidor rodando em http://localhost:3000');
-});
+app.listen(3000, () => console.log('Servidor rodando'));
