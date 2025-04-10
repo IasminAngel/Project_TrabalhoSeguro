@@ -1,21 +1,23 @@
 import express from 'express';
 import path from 'path';
-import authRouter from './routes/auth.routes.js';
-import evaluationRouter from './routes/evaluation.routes.js';
-import userRouter from './routes/user.routes.js';
+import { fileURLToPath } from 'url';
+import userRouter from './routes/api.js';
+import pagesRouter from './routes/pages.js'; // Unifique todas as rotas de páginas aqui
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
+// Configurações
 app.use(express.json());
-app.use(express.static('../public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Rotas
-app.use('/auth', authRouter);
-app.use('/api/evaluations', evaluationRouter);
-app.use('/api/users', userRouter);
+// Rotas API
+app.use('/routes/api', userRouter);
+app.use('/routes/pages', userRouter);
 
-app.get('/:page', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/pages', `${req.params.page}.html`));
-});
+// Rotas de páginas (unificadas)
+app.use('/', pagesRouter);
 
-app.listen(3000, () => console.log('Servidor rodando'));
+app.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));
