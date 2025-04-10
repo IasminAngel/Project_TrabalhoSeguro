@@ -4,6 +4,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/scripts/paths.js"></script>
+    <script>
+      document.write(frontendPaths.css("principal"));
+    </script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -11,13 +16,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/assets/css/style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+    <script>
+      document.write(frontendPaths.js("effects"));
+      document.write(frontendPaths.js("main"));
+    </script>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -133,7 +143,7 @@
             </span>
             <div class="videoContainer hidden">
               <video class="dish-video" controls>
-                <source src="/assets/midia/1video.mp4" type="video/mp4" />
+                <source src="#" type="video/mp4" />
                 Seu navegador não suporta o elemento de vídeo.
               </video>
               <button class="closeVideo btn-default">Fechar</button>
@@ -157,7 +167,7 @@
             </span>
             <div class="videoContainer hidden">
               <video class="dish-video" controls>
-                <source src="/assets/midia/3video.mp4" type="video/mp4" />
+                <source src="#" type="video/mp4" />
                 Seu navegador não suporta o elemento de vídeo.
               </video>
               <button class="closeVideo btn-default">Fechar</button>
@@ -182,7 +192,7 @@
             </span>
             <div class="videoContainer hidden">
               <video class="dish-video" controls>
-                <source src="/assets/midia/3video.mp4" type="video/mp4" />
+                <source src="#" type="video/mp4" />
                 Seu navegador não suporta o elemento de vídeo.
               </video>
               <button class="closeVideo btn-default">Fechar</button>
@@ -409,7 +419,5 @@
         </div>
       </div>
     </footer>
-    <script src="/src/scripts/script.js"></script>
-    <script src="/src/utils/effects.js"></script>
   </body>
 </html>

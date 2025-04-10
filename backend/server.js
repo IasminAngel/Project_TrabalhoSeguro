@@ -1,23 +1,61 @@
-import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import userRouter from './routes/api.js';
-import pagesRouter from './routes/pages.js'; // Unifique todas as rotas de páginas aqui
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import apiRouter from "./routes/api.js"; // Renomeei para apiRouter
+import pagesRouter from "./routes/pages.js";
+import { paths, frontendPaths } from './config/paths.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Configurações
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+
+app.locals.paths = paths;
+app.locals.frontendPaths = frontendPaths;
+
+
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, "../public")));
 
-// Rotas API
-app.use('/routes/api', userRouter);
-app.use('/routes/pages', userRouter);
+app.use("/api", apiRouter); 
 
-// Rotas de páginas (unificadas)
-app.use('/', pagesRouter);
+app.use("/", pagesRouter);
 
-app.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));
+app.get('/scripts/paths.js', (req, res) => {
+  res.type('application/javascript').send(`
+    window.paths = ${JSON.stringify(paths)};
+    window.frontendPaths = {
+      css: function(key) { 
+        return window.paths.css.files[key] 
+          ? '<link rel="stylesheet" href="' + window.paths.css.base + '/' + window.paths.css.files[key] + '">'
+          : '';
+      },
+      js: function(key) {
+        return window.paths.js.files[key]
+          ? '<script src="' + window.paths.js.base + '/' + window.paths.js.files[key] + '"></script>'
+          : '';
+      }
+    };
+  `);
+});
+
+// Adicione esta rota específica para JS (opcional)
+app.get('/assets/js/:file', (req, res) => {
+  const file = req.params.file;
+  res.sendFile(path.join(__dirname, '../public/assets/js', file), {
+    headers: {
+      'Content-Type': 'application/javascript'
+    }
+  });
+});
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+  console.log("Teste o EJS em: http://localhost:3000/test");
+  console.log("Teste o CSS em: http://localhost:3000/assets/css/style.css");
+});
