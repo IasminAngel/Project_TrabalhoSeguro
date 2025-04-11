@@ -1,14 +1,18 @@
-OI ! AQUI É IASMIN !
-Fiz esse arquivo de texto pra falar das modificações em que fiz (por mais que o próprio git vá avisar vocês, mas é bom)
-Estou fazendo uma organização geral do código (pastas, imgs, configs e dentre outros), então não estranhem, qualquer dúvida, só falar comigo
+✅ Terminar a tela de cadastro de empresas
 
-- Lembra de transformar as imagens em variavel
-- lembrar de transformar as cores em váriavel
-- Colocar os devidos vídeos na página principal
+✅ Concluir os caminhos CSS e JavaScript
 
-- Iasmin (pausou na criação da tela de incidentes e desvio, detalhe, esperar resposta do cliente e ir fazer conect com banco de dados)Aq
+✅ Trabalhar nos pop-ups e no sistema de pagamentos (utilizando o framework Stripe)
 
+✅ Organizar as novas pastas JavaScript
 
+✅ Fazer gravações demonstrando o funcionamento da aplicação para interligar com a tela principal
+
+✅ Conectar as informações ao banco de dados
+
+✅ Finalizar o modelo de classe
+
+- Iasmin (pausou na criação da tela de incidentes e desvio, detalhe, esperar resposta do cliente e ir fazer conect com banco de dados)
 
 Olá, boa tarde! Aqui é Erick
 
