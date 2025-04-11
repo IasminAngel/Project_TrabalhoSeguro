@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("/public/src/assets/css/style.css");
+@import url('style.css');
 
 * {
   padding: 0;
@@ -138,6 +138,7 @@ body {
   align-items: center;
   z-index: 1000;
 }
+
 
 .popup-content {
   background-color: #fff;

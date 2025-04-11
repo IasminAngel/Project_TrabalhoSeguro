@@ -1,6 +1,7 @@
 ✅ Terminar a tela de cadastro de empresas
 
 ✅ Concluir os caminhos CSS e JavaScript
+- Tela avaliação com alguns caminhos definidos 
 
 ✅ Trabalhar nos pop-ups e no sistema de pagamentos (utilizando o framework Stripe)
 

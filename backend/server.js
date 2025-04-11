@@ -30,7 +30,7 @@ app.get('/scripts/paths.js', (req, res) => {
   res.type('application/javascript').send(`
     window.paths = ${JSON.stringify(paths)};
     window.frontendPaths = {
-      css: function(key) { 
+      css: function(key) {
         return window.paths.css.files[key] 
           ? '<link rel="stylesheet" href="' + window.paths.css.base + '/' + window.paths.css.files[key] + '">'
           : '';
@@ -39,12 +39,32 @@ app.get('/scripts/paths.js', (req, res) => {
         return window.paths.js.files[key]
           ? '<script src="' + window.paths.js.base + '/' + window.paths.js.files[key] + '"></script>'
           : '';
+      },
+      img: function(type, key) {
+        const filePath = window.paths.imgs[type]?.[key];
+        return filePath ? window.paths.imgs.base + '/' + filePath : '';
+      },
+      icon: function(name) {
+        const file = window.paths.icons.files[name];
+        return file ? window.paths.icons.base + '/' + file : '';
       }
     };
   `);
 });
 
-// Adicione esta rota específica para JS (opcional)
+app.get('/assets/icons/:file', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/assets/icons', req.params.file), {
+    headers: {
+      'Content-Type': 'image/svg+xml'
+    }
+  });
+});
+
+app.get('/assets/imgs/:file', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/assets/imgs', req.params.file));
+});
+
+
 app.get('/assets/js/:file', (req, res) => {
   const file = req.params.file;
   res.sendFile(path.join(__dirname, '../public/assets/js', file), {
@@ -56,6 +76,6 @@ app.get('/assets/js/:file', (req, res) => {
 
 app.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");
-  console.log("Teste o EJS em: http://localhost:3000/test");
   console.log("Teste o CSS em: http://localhost:3000/assets/css/style.css");
+  
 });

@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const router = express.Router();
 
 // Rota principal
-router.get('/', (req, res) => {
+router.get('/main', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 

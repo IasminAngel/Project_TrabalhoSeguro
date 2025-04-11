@@ -3,28 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/pages/ava/style_ava.css"/>
+    <script src="/scripts/paths.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link
-      rel="icon"
-      href="/public/src/assets/icons/star-fill.svg"
-      type="image/svg+xml"
-    />
+    <script>
+      document.write(frontendPaths.css("avaliacao"));
+      document.write(
+        `<link rel="icon" href="${frontendPaths.icon(
+          "star"
+        )}" type="image/svg+xml">`
+      );
+    </script>
     <title>Avaliação</title>
   </head>
   <body>
     <form id="form" action="">
       <div class="container">
         <div id="back">
-          <a href="/index.html" class="btn-default">
-            <img src="/public/src/assets/icons/box-arrow-in-left.svg" alt="Voltar" />
+          <a onclick="window.location.href= '/main'" class="btn-default">
+            <i class="bi bi-arrow-left"></i>
           </a>
         </div>
         <div class="image-container">
-          <img src="/public/src/assets/imgs/Logotipo_TS.png" alt="Logotipo" />
+          <script>
+            document.write(
+              `<img src="${frontendPaths.img("logos", "main")}" alt="Logotipo">`
+            );
+          </script>
         </div>
         <h1 id="title">
           <a class="section-title">Avalie - Trabalho Seguro</a>
@@ -42,14 +49,17 @@
           </div>
           <div id="ava">
             <label for="title_label">Nos dê sua opinião:</label><br />
-            <input class="opinion" name="opinion" required/><br />
+            <input class="opinion" name="opinion" required /><br />
             <label for="title_label">O que deseja que melhoremos ?</label><br />
             <input class="upgrade" name="opinion" />
           </div>
           <button id="send" class="btn-default">Enviar</button>
         </div>
       </div>
-      <div id="error-message" style="color: rgb(255, 0, 0); display: none"></div>
+      <div
+        id="error-message"
+        style="color: rgb(255, 0, 0); display: none"
+      ></div>
       <div id="popup" class="popup" style="display: none">
         <div class="popup-content">
           <span id="closeBtn" class="close">&times;</span>
@@ -58,5 +68,4 @@
       </div>
     </form>
   </body>
-  <script src="/public/src/services/script_ava.js"></script>
 </html>
