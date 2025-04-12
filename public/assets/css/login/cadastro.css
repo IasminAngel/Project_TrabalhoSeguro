@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("/public/src/assets/css/style.css");
+@import url("/assets/css/style.css");
 
 * {
   padding: 0;
@@ -14,7 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/public/src/assets/imgs/background.png");
+  background: var(--color-primary-8);
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;
@@ -173,19 +173,21 @@ body {
   color: var(--color-neutral-0);
 }
 
+
+
 body {
   font-family: Arial, sans-serif;
 }
 
 .popup {
-  display: none; /* Ocultar por padrão */
+  display: none; 
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .popup-content {

@@ -3,34 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/src/pages/login/style_senha.css" />
+    <script src="/scripts/paths.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link
-      rel="icon"
-      href="/public/src/assets/icons/key-fill.svg"
-      type="image/svg+xml"
-    />
+    <script>
+      document.write(frontendPaths.css("senha"));
+      document.write(
+        `<link rel="icon" href="${frontendPaths.icon(
+          "key"
+        )}" type="image/svg+xml">`
+      );
+    </script>
+    <script>
+      document.write(frontendPaths.js("senha"));
+    </script>
     <title>Esqueceu a senha</title>
   </head>
   <body>
     <div class="container">
       <div class="form-image">
-        <img
-          src="/public/src/assets/imgs/password.svg"
-          alt="Password image"
-        />
+        <img src="/assets/imgs/password.svg" alt="Password image" />
       </div>
       <div class="form">
-        <form action="#">
+        <form id="passwordForm">
           <div class="form-header">
             <div class="title">
               <h1>Esqueceu a Senha</h1>
             </div>
             <div class="login-button">
-              <button><a href="/public/src/pages/login/login.html">Inicio</a></button>
+              <button type="button">
+                <a onclick="window.location.href= '/login'">Entrar</a>
+              </button>
             </div>
           </div>
 
@@ -58,11 +63,11 @@
             </div>
 
             <div class="input-box">
-              <label for="password">Confirmar Senha</label>
+              <label for="confirmPassword">Confirmar Senha</label>
               <input
                 type="password"
                 id="confirmPassword"
-                name="password"
+                name="confirmPassword"
                 placeholder="Confirme sua nova senha"
                 required
               />
@@ -70,12 +75,11 @@
           </div>
 
           <div class="continue-button">
-            <button><a href="#" id="confirm">Confirmar</a></button>
+            <button type="button" id="confirm">Confirmar</button>
           </div>
           <div id="error-message" style="color: red; display: none"></div>
         </form>
       </div>
     </div>
-    <script src="/public/src/services/script_senha.js"></script>
   </body>
 </html>

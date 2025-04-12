@@ -8,13 +8,19 @@ export const paths = {
       footer: "footer.css",
       home: "home.css",
       pagament: "pagament.css",
+      biografia: "biografia.css",
+      login: "/login/login.css",
+      registro: "/login/cadastro.css",
+      senha: "/login/senha.css",
     },
   },
   js: {
     base: "/assets/js",
     files: {
       main: "script.js",
-      effects: "effects.js",
+      effects: "/utils/effects.js",
+      login: "/pages/script_login.js",
+      registro: "/pages/script_cadastro.js",
     },
   },
   imgs: {
@@ -22,6 +28,8 @@ export const paths = {
     logos: {
       main: "Logotipo_TS.png",
       alternative: "Logotipo_TS_2.png",
+      background: "background.png",
+      
     },
   },
 
@@ -30,6 +38,11 @@ export const paths = {
     files: {
       back: "box-arrow-in-left.svg",
       star: "star-fill.svg",
+      person: "person-lines-fill.svg",
+      build: "building.svg",
+      entry: "box-arrow-in-left.svg",
+      create: "box-arrow-in-right.svg",
+      key: "key-fill.svg",
     },
   },
 };

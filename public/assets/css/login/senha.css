@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("/public/src/assets/css/style.css");
+@import url("/assets/css/style.css");
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/public/src/assets/imgs/background.png");
+  background: var(--color-primary-8);
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;
@@ -163,6 +163,10 @@ body {
   color: var(--color-neutral-0);
   border-radius: 5px;
   cursor: pointer;
+}
+
+#confirm {
+  color: white;
 }
 
 @media screen and (max-width: 1330px) {
