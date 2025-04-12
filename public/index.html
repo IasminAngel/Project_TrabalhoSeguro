@@ -1,13 +1,9 @@
-<!-- ESTRUTURAR DEPOIS DE APLICAR OS PLANOS DISPONIVEIS NO SITE PRINCIPAL, DEPOIS DE VERIFICAR SE O LOGIN REALMENTE FOI REGISTRADO -->
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/scripts/paths.js"></script>
-    <script>
-      document.write(frontendPaths.css("principal"));
-    </script>
 
     <link
       rel="stylesheet"
@@ -16,6 +12,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script>
+      document.write(frontendPaths.css("principal"));
+      document.write(
+        `<link rel="icon" href="${frontendPaths.icon(
+          "build"
+        )}" type="image/svg+xml">`
+      );
+    </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -32,7 +36,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="icon" href="/assets/icons/building.svg" type="image/svg+xml" />
     <script src="https://unpkg.com/scrollreveal"></script>
     <title>Início</title>
   </head>
@@ -121,7 +124,11 @@
           </div>
         </div>
         <div id="banner">
-          <img src="/assets/imgs/Logotipo_TS.png" alt="" />
+          <script>
+            document.write(
+              `<img src="${frontendPaths.img("logos", "main")}" alt="Logotipo">`
+            );
+          </script>
         </div>
       </section>
 
