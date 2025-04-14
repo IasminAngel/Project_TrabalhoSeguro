@@ -20,8 +20,8 @@ export const paths = {
       main: "script.js",
       effects: "/utils/effects.js",
       login: "/pages/script_login.js",
-      registro: "/pages/script_cadastro.js",
       avaliacao: "/pages/script_avaliacao.js",
+      registro: "/pages/script_cadastro.js",
     },
   },
   imgs: {

@@ -79,6 +79,4 @@ app.get('/assets/js/:file', (req, res) => {
 
 app.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");
-  console.log("Teste o CSS em: http://localhost:3000/assets/css/style.css");
-  
 });
