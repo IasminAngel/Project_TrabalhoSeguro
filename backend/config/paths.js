@@ -21,6 +21,7 @@ export const paths = {
       effects: "/utils/effects.js",
       login: "/pages/script_login.js",
       registro: "/pages/script_cadastro.js",
+      avaliacao: "/pages/script_avaliacao.js",
     },
   },
   imgs: {
