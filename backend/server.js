@@ -1,9 +1,11 @@
 import express from "express";
 import path from "path";
+import cors from 'cors';
 import { fileURLToPath } from "url";
-import apiRouter from "./routes/api.js"; // Renomeei para apiRouter
+import apiRouter from "./routes/api.js";
 import pagesRouter from "./routes/pages.js";
 import { paths, frontendPaths } from './config/paths.js';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +22,7 @@ app.locals.frontendPaths = frontendPaths;
 
 
 app.use(express.json());
+app.use(cors());
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.use("/api", apiRouter); 

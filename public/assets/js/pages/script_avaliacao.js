@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+
   const stars = document.querySelectorAll(".star-icon");
   const form = document.getElementById("form");
-  const sendButton = document.getElementById("send");
   const opinionField = document.querySelector(".opinion");
   const upgradeField = document.querySelector(".upgrade");
   const errorDiv = document.getElementById("error-message");
@@ -10,87 +10,111 @@ document.addEventListener("DOMContentLoaded", function() {
   
   let selectedRating = 0;
 
-  // Sistema de seleção de estrelas
+  function validateForm() {
+    let isValid = true;
+    let errorMessage = "";
+    
+    errorDiv.innerHTML = "";
+    opinionField.classList.remove("error");
+    upgradeField.classList.remove("error");
+
+    if (selectedRating === 0) {
+      errorMessage += "Por favor, selecione uma avaliação com as estrelas.<br>";
+      isValid = false;
+    }
+
+    if (!opinionField.value.trim()) {
+      errorMessage += "Por favor, preencha sua opinião.<br>";
+      opinionField.classList.add("error");
+      isValid = false;
+    }
+
+    if (!upgradeField.value.trim()) {
+    
+    }
+
+    if (!isValid) {
+      showError(errorMessage);
+    }
+
+    return isValid;
+  }
+
   stars.forEach(star => {
     star.addEventListener("click", function() {
       const rating = parseInt(this.getAttribute("data-avaliacao"));
-      
-      // Se clicar na mesma estrela, desmarca
-      if (selectedRating === rating) {
-        selectedRating = 0;
-      } else {
-        selectedRating = rating;
-      }
-      
+      selectedRating = (selectedRating === rating) ? 0 : rating;
       updateStars();
       console.log("Avaliação selecionada:", selectedRating);
+    });
+
+    star.addEventListener("mouseenter", function() {
+      if (!this.classList.contains("ativo")) {
+        this.classList.add("hover");
+      }
+    });
+
+    star.addEventListener("mouseleave", function() {
+      this.classList.remove("hover");
     });
   });
 
   function updateStars() {
     stars.forEach((star, index) => {
-      if (index < selectedRating) {
-        star.classList.add("ativo");
-      } else {
-        star.classList.remove("ativo");
-      }
+      star.classList.toggle("ativo", index < selectedRating);
+      star.classList.remove("hover");
     });
-  }
-
-  // Envio do formulário
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    try {
-      const response = await submitEvaluation();
-      showPopup(response.message || "Avaliação enviada com sucesso!");
-      resetForm();
-    } catch (error) {
-      console.error("Erro:", error);
-      showError(error.message || "Erro ao enviar avaliação");
-    }
-  });
-
-  function validateForm() {
-    if (selectedRating === 0) {
-      showError("Por favor, selecione uma avaliação");
-      return false;
-    }
-    
-    if (!opinionField.value.trim()) {
-      showError("Por favor, digite sua opinião");
-      opinionField.style.border = "1px solid red";
-      return false;
-    }
-    
-    return true;
   }
 
   async function submitEvaluation() {
-    const token = localStorage.getItem('token');
-    if (!token) throw new Error("Usuário não autenticado");
+    try {
+      const response = await fetch("/api/avaliacoes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          estrela: selectedRating,
+          opiniao: opinionField.value.trim(),
+          melhoras: upgradeField.value.trim() || null
+        })
+      });
 
-    const response = await fetch("/api/avaliacoes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify({
-        estrela: selectedRating,
-        opiniao: opinionField.value.trim(),
-        melhoras: upgradeField.value.trim() || null
-      })
-    });
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || `Erro ${response.status}: ${response.statusText}`);
+      }
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message);
+      return data;
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      throw error;
     }
+  }
 
-    return response.json();
+  // Feedback visual
+  function showError(message) {
+    errorDiv.innerHTML = message;
+    errorDiv.style.display = "block";
+    setTimeout(hideError, 5000);
+  }
+
+  function showPopup(message) {
+    popupMessage.textContent = message;
+    popup.style.display = "flex";
+    
+    document.getElementById("closeBtn").onclick = closePopup;
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) closePopup();
+    });
+  }
+
+  function closePopup() {
+    popup.style.display = "none";
+    if (popupMessage.textContent.includes("sucesso")) {
+      window.location.href = "/main";
+    }
   }
 
   function resetForm() {
@@ -98,23 +122,32 @@ document.addEventListener("DOMContentLoaded", function() {
     updateStars();
     opinionField.value = "";
     upgradeField.value = "";
+    hideError();
   }
 
-  function showError(message) {
-    errorDiv.textContent = message;
-    errorDiv.style.display = "block";
-    setTimeout(() => errorDiv.style.display = "none", 4000);
-  }
 
-  function showPopup(message) {
-    popupMessage.textContent = message;
-    popup.style.display = "flex";
-    
-    document.getElementById("closeBtn").onclick = function() {
-      popup.style.display = "none";
-      if (message.includes("sucesso")) {
-        window.location.href = "/main";
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    if (validateForm()) {
+      try {
+        const result = await submitEvaluation();
+        showPopup(result.message || "Avaliação enviada com sucesso!");
+        resetForm();
+      } catch (error) {
+        showError(error.message || "Erro ao enviar avaliação. Tente novamente.");
       }
-    };
+    }
+  });
+
+  // Validação em tempo real
+  opinionField.addEventListener("input", function() {
+    if (this.value.trim()) {
+      this.classList.remove("error");
+      hideError();
+    }
+  });
+
+  function hideError() {
+    errorDiv.style.display = "none";
   }
 });
