@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Funcionários</title>
+</head>
+
+<header class="header">
+    <div class="btns_header">
+        <button class="back">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+            </svg>
+        </button>
+        <button class="home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+              </svg>
+        </button>
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input class="query_bar" type="text">
+    </div>
+</header>
+
+<body>
+
+    <div class="div_main">
+
+        <div class="tables">
+            <div class="div_table_header">
+                <table class="table_header">
+                    <tr>
+                        <td class="td_size_table_header_id">ID</td>
+                        <td class="td_size_table_header_name">NOME</td>
+                        <td class="td_size_table_header_sector">SETOR</td>
+                        <td class="td_size_table_header_btn">ACESSAR PERFIL</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="div_table_main_content" class="div_table">
+                <table id="table_main_content" class="table">
+                    <tr>
+                        <td class="td_size_table">1</td>
+                        <td class="td_size_table_name">IASMIN ANGEL</td>
+                        <td class="td_size_table_sector">ALMOXARIFADO</td>
+                        <td class="td_size_table_btn"><button class="btn_perfil"><i class="fa-solid fa-user"></i></button></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>ALBERT CLÁUDIO</td>
+                        <td>ALMOXARIFADO</td>
+                        <td><button class="btn_perfil"><i class="fa-solid fa-user"></i></button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <footer>
+                <button></button>
+                <div class="container_page_current"><span>1</span></div>
+                <div class="container_page"><span>2</span></div>
+                <button></button>
+            </footer>
+
+        </div>
+        <!-- fim da div main -->
+    </div>
+
+    <a style="color: orange;" href="adicionar_setor.html">op</a>
+
+</body>
+
+
+</html>
