@@ -1,18 +1,16 @@
-/* Estilos gerais */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #17335f; /* Azul um pouco mais escuro */
+    background-color: #17335f; 
     color: white;
     display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 75vh;
     position: relative;
 }
 
-/* Borda azul claro no topo */
 .top-border {
     width: 100%;
     background-color: #ADD8E6; 
@@ -26,7 +24,7 @@ body {
     left: 0;
 }
 
-/* Imagem centralizada no topo */
+
 .top-img {
     position: absolute;
     top: 50px; 
@@ -36,17 +34,15 @@ body {
     height: auto;
 }
 
-/* Container principal */
 .container {
     display: flex;
     justify-content: center;
-    gap: 200px; /* Espaço entre as imagens */
+    gap: 200px; 
     max-width: 1200px;
     width: 100%;
     margin-top: 150px; 
 }
 
-/* Estilização das opções */
 .option {
     position: relative;
     width: 250px;
@@ -55,7 +51,6 @@ body {
     display: block;
 }
 
-/* Imagens arredondadas com borda branca */
 .option-img {
     width: 100%;
     height: 100%;
@@ -66,12 +61,10 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Efeito ao passar o mouse sobre as imagens */
 .option-img:hover {
     transform: scale(1.1);
 }
 
-/* Estilização dos ícones fixos */
 .icon {
     font-size: 40px;
     color: white;
@@ -79,28 +72,24 @@ body {
     position: absolute;
 }
 
-/* Ícones no canto inferior direito */
 .download-icon {
     bottom: 20px;
     right: 20px;
 }
 
-/* Ícone do WhatsApp no canto inferior esquerdo */
 .whatsapp-icon {
     bottom: 20px;
     left: 20px;
 }
 
-/* Ícones no canto superior direito */
 .icons-top-right {
     position: absolute;
     top: 20px;
     right: 20px;
-    display: flex; /* Alinha os ícones horizontalmente */
-    gap: 15px; /* Espaço entre os ícones */
+    display: flex; 
+    gap: 15px; 
 }
 
-/* Ícones dentro do canto superior direito */
 .icons-top-right .icon {
     font-size: 40px;
     color: rgb(243, 235, 235);
@@ -108,7 +97,22 @@ body {
     position: relative;     
 }
 
-/* Ícone de porta no canto superior esquerdo */
+.icons-down {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.icons-down .icon {
+    font-size: 40px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
 .door-icon {
     font-size: 40px;
     color: white;
@@ -117,7 +121,6 @@ body {
     left: 20px;
 }
 
-/* Efeito ao passar o mouse nos ícones */
 .icon:hover {
     color: #254aa3;
     border-radius: 50%;
@@ -131,11 +134,13 @@ body {
 }
 
 
-/* Responsividade para telas menores */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-        margin-top: 50px;
+        align-items: center;
+        gap: 50px;
+        margin-top: 120px;
+        margin-bottom: 120px;
     }
     .option {
         width: 200px;
@@ -146,5 +151,11 @@ body {
     }
     .icons-top-right {
         right: 10px;
+    }
+    .icons-down {
+        padding: 0 15px;
+    }
+    .icons-down .icon {
+        font-size: 35px;
     }
 }

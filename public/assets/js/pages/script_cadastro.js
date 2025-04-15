@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("cadastroForm");
   const continueBtn = document.getElementById("continue");
   const errorDiv = document.getElementById("error-message");
@@ -16,27 +16,29 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function formatPhone(input) {
-    let value = input.value.replace(/\D/g, '');
+    let value = input.value.replace(/\D/g, "");
     if (value.length > 11) value = value.substring(0, 11);
-    
+
     if (value.length > 0) {
-      value = `(${value.substring(0, 2)}) ${value.substring(2, 7)}-${value.substring(7)}`;
+      value = `(${value.substring(0, 2)}) ${value.substring(
+        2,
+        7
+      )}-${value.substring(7)}`;
     }
     input.value = value;
   }
 
-
-  document.getElementById("number").addEventListener("input", function() {
+  document.getElementById("number").addEventListener("input", function () {
     formatPhone(this);
   });
 
-  continueBtn.addEventListener("click", async function(event) {
+  continueBtn.addEventListener("click", async function (event) {
     event.preventDefault();
     let isValid = true;
     let errorMessage = "";
-    
+
     const inputs = form.querySelectorAll("input");
-    inputs.forEach(input => input.style.border = "");
+    inputs.forEach((input) => (input.style.border = ""));
     errorDiv.style.display = "none";
 
     const fields = [
@@ -45,13 +47,13 @@ document.addEventListener("DOMContentLoaded", function() {
       { id: "email", name: "E-mail", type: "email" },
       { id: "number", name: "Celular", type: "phone" },
       { id: "password", name: "Senha", min: 6, max: 20 },
-      { id: "confirmpassword", name: "Confirmação de Senha" }
+      { id: "confirmpassword", name: "Confirmação de Senha" },
     ];
 
-    fields.forEach(field => {
+    fields.forEach((field) => {
       const input = document.getElementById(field.id);
       const value = input.value.trim();
-      
+
       if (!value) {
         errorMessage += `Por favor, preencha o ${field.name}.<br>`;
         input.style.border = "1px solid red";
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmpassword").value;
-    
+
     if (password && confirmPassword && password !== confirmPassword) {
       errorMessage += "As senhas não coincidem.<br>";
       document.getElementById("password").style.border = "1px solid red";
@@ -96,15 +98,15 @@ document.addEventListener("DOMContentLoaded", function() {
       const response = await fetch("/api/cadastrar", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           nome: document.getElementById("firstname").value.trim(),
           sobrenome: document.getElementById("lastname").value.trim(),
           email: document.getElementById("email").value.trim(),
           celular: document.getElementById("number").value.trim(),
-          senha: password
-        })
+          senha: password,
+        }),
       });
 
       const data = await response.json();
@@ -114,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       showPopup("Cadastro realizado com sucesso!");
-
     } catch (error) {
       console.error("Erro:", error);
       errorDiv.innerHTML = error.message || "Erro ao processar cadastro";
@@ -125,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function showPopup(message) {
     popupMessage.textContent = message;
     popup.style.display = "flex";
-    
+
     setTimeout(() => {
       popup.style.display = "none";
       window.location.href = "/login";
@@ -135,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function cleanMessage() {
   setTimeout(function () {
-      const errorDiv = document.getElementById("error-message");
-      errorDiv.style.display = "none";
+    const errorDiv = document.getElementById("error-message");
+    errorDiv.style.display = "none";
   }, 4000);
 }

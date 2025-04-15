@@ -31,7 +31,11 @@ router.get('/senha', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/login/senha.html'));
 });
 
-// Rota genérica para outras páginas
+router.get('/aplicacao', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/aplicacao/selecao.html'));
+});
+
+
 router.get('/:page', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public', `${req.params.page}.html`));
 });

@@ -13,6 +13,8 @@
 
 ✅ Finalizar o modelo de classe
 
+✅ ALTERAR SENHA BUGADO - LEMBRAR
+
 - Iasmin (pausou na criação da tela de incidentes e desvio, detalhe, esperar resposta do cliente e ir fazer conect com banco de dados)
 
 Olá, boa tarde! Aqui é Erick

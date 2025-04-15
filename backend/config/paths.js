@@ -12,6 +12,7 @@ export const paths = {
       login: "/login/login.css",
       registro: "/login/cadastro.css",
       senha: "/login/senha.css",
+      selecao: "selecao.css",
     },
   },
   js: {
