@@ -45,7 +45,6 @@ router.post('/cadastrar', async (req, res) => {
   try {
     const { nome, sobrenome, email, celular, senha } = req.body;
 
-    
     if (!nome || !sobrenome || !email || !celular || !senha) {
       return res.status(400).json({ 
         success: false,
@@ -67,6 +66,8 @@ router.post('/cadastrar', async (req, res) => {
 
     const saltRounds = 10;
     const senhaHash = await bcrypt.hash(senha, saltRounds);
+    console.log('Senha original:', senha);
+    console.log('Hash gerado:', senhaHash);
 
     const result = await query(
       `INSERT INTO cadastro 
@@ -74,6 +75,7 @@ router.post('/cadastrar', async (req, res) => {
        VALUES (?, ?, ?, ?, ?)`,
       [nome, sobrenome, email, celular, senhaHash]
     );
+    console.log('Dados inseridos:', [nome, sobrenome, email, celular, senhaHash]);
 
     if (result.affectedRows === 1) {
       return res.status(201).json({
@@ -90,17 +92,16 @@ router.post('/cadastrar', async (req, res) => {
     res.status(500).json({ 
       success: false,
       error: 'Erro no servidor',
-
-      details: process.env.NODE_ENV === 'development' ? error.message : null
+      details: error.message
     });
   }
 });
+
 
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validação melhorada
     if (!email?.trim() || !password) {
       return res.status(400).json({ 
         success: false,
@@ -108,13 +109,21 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    // Busca otimizada no banco
-    const [user] = await query(
-      `SELECT idCadastro as id, nome as name, email, senha as password 
-       FROM cadastro 
-       WHERE email = ? LIMIT 1`,
-      [email.trim().toLowerCase()]
-    );
+    let user;
+    try {
+      [user] = await query(
+        `SELECT idCadastro as id, nome as name, email, senha as password 
+         FROM cadastro 
+         WHERE email = ? LIMIT 1`,
+        [email.trim().toLowerCase()]
+      );
+    } catch (dbError) {
+      console.error('Erro ao buscar usuário:', dbError);
+      return res.status(500).json({ 
+        success: false,
+        error: 'Erro ao acessar o banco de dados' 
+      });
+    }
 
     if (!user) {
       console.log('Usuário não encontrado para:', email);
@@ -124,9 +133,18 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    // Comparação segura de senhas
-    const passwordMatch = await bcrypt.compare(password, user.password);
-    
+    let passwordMatch;
+    try {
+      passwordMatch = await bcrypt.compare(password, user.password);
+      console.log('Resultado da comparação:', passwordMatch);
+    } catch (bcryptError) {
+      console.error('Erro ao comparar senhas:', bcryptError);
+      return res.status(500).json({ 
+        success: false,
+        error: 'Erro ao verificar credenciais' 
+      });
+    }
+
     if (!passwordMatch) {
       console.log('Senha incorreta para:', email);
       return res.status(401).json({ 
@@ -158,11 +176,41 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Erro no login:', error);
+    console.error('Erro geral no login:', error);
     res.status(500).json({ 
       success: false,
       error: 'Erro interno no servidor'
     });
   }
 });
+
+router.post("/alterar-senha", async (req, res) => {
+  const { email, novaSenha } = req.body;
+
+  if (!email || !novaSenha) {
+    return res.status(400).json({ success: false, error: "Campos obrigatórios não enviados." });
+  }
+
+  try {
+    const hash = await bcrypt.hash(novaSenha, 10);
+
+    const sql = "UPDATE cadastro SET senha = ? WHERE email = ?";
+    connection.query(sql, [hash, email], (err, result) => {
+      if (err) {
+        console.error("Erro no banco:", err);
+        return res.status(500).json({ success: false, error: "Erro ao alterar senha" });
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ success: false, error: "Usuário não encontrado." });
+      }
+
+      res.json({ success: true, message: "Senha alterada com sucesso!" });
+    });
+  } catch (error) {
+    console.error("Erro ao criar hash:", error);
+    res.status(500).json({ success: false, error: "Erro interno." });
+  }
+});
+
 export default router;

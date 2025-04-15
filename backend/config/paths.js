@@ -22,6 +22,7 @@ export const paths = {
       login: "/pages/script_login.js",
       avaliacao: "/pages/script_avaliacao.js",
       registro: "/pages/script_cadastro.js",
+      senha: "/pages/script_senha.js",
     },
   },
   imgs: {

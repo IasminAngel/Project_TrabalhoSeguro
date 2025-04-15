@@ -63,6 +63,11 @@ document.addEventListener("DOMContentLoaded", function() {
     } catch (error) {
       console.error('Erro no login:', error);
       showError(error.message || 'Erro durante o login. Tente novamente.');
+
     }
+    console.log('Senha fornecida:', password);
+    console.log('Hash armazenado:', user.password);
+    console.log('Resultado da comparação:', passwordMatch);
   });
+
 });
