@@ -1,51 +1,68 @@
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("loginForm");
+  const errorDiv = document.getElementById("error-message");
+
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function showError(message, field = null) {
+    errorDiv.textContent = message;
+    errorDiv.style.display = "block";
     
-    let errorMessage = "";
-    const emailField = document.getElementById("email");
-    const passwordField = document.getElementById("password");
-    const errorDiv = document.getElementById("error-message");
-
-    emailField.classList.remove("error");
-    passwordField.classList.remove("error");
-    errorDiv.style.display = "none";
-
-    function validateEmail(email) {
-      const emailRules = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRules.test(email);
+    if (field) {
+      field.classList.add("error");
+      field.focus();
     }
+    
+    setTimeout(() => {
+      errorDiv.style.display = "none";
+      if (field) field.classList.remove("error");
+    }, 4000);
+  }
 
-    if (emailField.value === "") {
-      errorMessage += "Por favor, preencha o email.<br>";
-      emailField.classList.add("error");
-    } else if (!validateEmail(emailField.value)) {
-      errorMessage += "Por favor, insira um e-mail válido!<br>";
-      emailField.classList.add("error");
-    }
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    
+    // Validações frontend
+    if (!email) return showError("Por favor, preencha o email.", document.getElementById("email"));
+    if (!validateEmail(email)) return showError("Por favor, insira um e-mail válido!", document.getElementById("email"));
+    if (!password) return showError("Por favor, preencha sua senha.", document.getElementById("password"));
+    
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
 
-    const maxPassword = 8;
-    const size = passwordField.value.length;
-
-    if (passwordField.value === "") {
-      errorMessage += "Por favor, preencha sua senha.<br>";
-      passwordField.classList.add("error");
-    } else if (size > maxPassword) {
-      errorMessage += `A senha deve ter no máximo ${maxPassword} caracteres!<br>`;
-      passwordField.classList.add("error");
-      passwordField.value = passwordField.value.slice(0, maxPassword);
-    }
-
-    if (errorMessage !== "") {
-      errorDiv.style.display = "block";
-      errorDiv.innerHTML = errorMessage;
+      const data = await response.json();
       
-      setTimeout(function() {
-        errorDiv.style.display = "none";
-      }, 4000);
-    } else {
-      console.log("Login válido, redirecionando...");
-      window.location.href = "/public/src/pages/option/index_option.html";
+      if (!data.success) {
+        throw new Error(data.error || 'Erro no login');
+      }
+      
+      if (!data.token || !data.user) {
+        throw new Error('Dados de autenticação ausentes');
+      }
+      
+      // Armazena os dados
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      
+      // Redireciona
+      window.location.href = "/dashboard";
+
+    } catch (error) {
+      console.error('Erro no login:', error);
+      showError(error.message || 'Erro durante o login. Tente novamente.');
     }
   });
 });

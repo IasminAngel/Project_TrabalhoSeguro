@@ -6,7 +6,6 @@ import apiRouter from "./routes/api.js";
 import pagesRouter from "./routes/pages.js";
 import { paths, frontendPaths } from './config/paths.js';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -67,7 +66,6 @@ app.get('/assets/imgs/:file', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/assets/imgs', req.params.file));
 });
 
-
 app.get('/assets/js/:file', (req, res) => {
   const file = req.params.file;
   res.sendFile(path.join(__dirname, '../public/assets/js', file), {
@@ -77,6 +75,9 @@ app.get('/assets/js/:file', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Servidor rodando em http://localhost:3000");
-});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`http://localhost:3000`);
+  });

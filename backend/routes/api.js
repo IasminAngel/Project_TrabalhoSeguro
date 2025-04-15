@@ -1,5 +1,6 @@
 import express from 'express';
-import { query } from '../sql/database.js';
+import { query } from '../database.js';
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 const router = express.Router();
@@ -44,6 +45,7 @@ router.post('/cadastrar', async (req, res) => {
   try {
     const { nome, sobrenome, email, celular, senha } = req.body;
 
+    
     if (!nome || !sobrenome || !email || !celular || !senha) {
       return res.status(400).json({ 
         success: false,
@@ -51,7 +53,6 @@ router.post('/cadastrar', async (req, res) => {
       });
     }
 
-    // Verifica se o email já existe
     const [usuarioExistente] = await query(
       'SELECT idCadastro FROM cadastro WHERE email = ?', 
       [email]
@@ -64,11 +65,9 @@ router.post('/cadastrar', async (req, res) => {
       });
     }
 
-    // Criptografa a senha
     const saltRounds = 10;
     const senhaHash = await bcrypt.hash(senha, saltRounds);
 
-    // Insere no banco de dados
     const result = await query(
       `INSERT INTO cadastro 
        (nome, sobrenome, email, celular, senha) 
@@ -76,7 +75,6 @@ router.post('/cadastrar', async (req, res) => {
       [nome, sobrenome, email, celular, senhaHash]
     );
 
-    // Verifica se a inserção foi bem-sucedida
     if (result.affectedRows === 1) {
       return res.status(201).json({
         success: true,
@@ -92,10 +90,79 @@ router.post('/cadastrar', async (req, res) => {
     res.status(500).json({ 
       success: false,
       error: 'Erro no servidor',
-      // Mostra detalhes apenas em desenvolvimento
+
       details: process.env.NODE_ENV === 'development' ? error.message : null
     });
   }
 });
 
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Validação melhorada
+    if (!email?.trim() || !password) {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Email e senha são obrigatórios' 
+      });
+    }
+
+    // Busca otimizada no banco
+    const [user] = await query(
+      `SELECT idCadastro as id, nome as name, email, senha as password 
+       FROM cadastro 
+       WHERE email = ? LIMIT 1`,
+      [email.trim().toLowerCase()]
+    );
+
+    if (!user) {
+      console.log('Usuário não encontrado para:', email);
+      return res.status(401).json({ 
+        success: false,
+        error: 'Credenciais inválidas' 
+      });
+    }
+
+    // Comparação segura de senhas
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    
+    if (!passwordMatch) {
+      console.log('Senha incorreta para:', email);
+      return res.status(401).json({ 
+        success: false,
+        error: 'Credenciais inválidas' 
+      });
+    }
+
+    // Geração do token
+    const token = jwt.sign(
+      { 
+        id: user.id, 
+        email: user.email 
+      },
+      process.env.JWT_SECRET || 'fallback_secret',
+      { expiresIn: '1h' }
+    );
+
+    console.log('Login bem-sucedido para:', user.email);
+
+    res.json({
+      success: true,
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email
+      }
+    });
+
+  } catch (error) {
+    console.error('Erro no login:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Erro interno no servidor'
+    });
+  }
+});
 export default router;
