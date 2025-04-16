@@ -35,6 +35,14 @@ router.get('/aplicacao', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/aplicacao/selecao.html'));
 });
 
+router.get('/formularios', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/registros/index_formularios.html'));
+});
+
+router.get('/acidente_incidente', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/registros/acidente_incidente.html'));
+});
+
 
 router.get('/:page', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public', `${req.params.page}.html`));

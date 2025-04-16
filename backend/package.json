@@ -23,7 +23,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.13.0",
     "sequelize": "^6.37.7",
-    "stripe": "^17.7.0"
+    "stripe": "^17.7.0",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

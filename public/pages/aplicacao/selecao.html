@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/imgs/Logotipo_TS.png"
+      sizes="64x64"
+    />
     <script src="/scripts/paths.js"></script>
     <meta charset="UTF-8" />
     <link
@@ -12,14 +18,6 @@
     <script>
       document.write(frontendPaths.css("selecao"));
     </script>
-    <script>
-      document.write(
-        `<link rel="icon" href="${frontendPaths.icon(
-          "entry"
-        )}" type="image/svg+xml">`
-      );
-    </script>
-
     <title>Opções</title>
   </head>
   <body>
@@ -49,7 +47,7 @@
           draggable="false"
         />
       </a>
-      <a href="/public/src/pages/registers/index_registers.html" class="option">
+      <a href="/formularios" class="option">
         <img
           src="/assets/imgs/Registros.png"
           alt="Registros"
@@ -59,21 +57,20 @@
       </a>
     </div>
 
-    <!-- Ícones -->
-     <div class="icons-down">
-         <a
-           href="/public/src/pages/downloadScreen/index_download.html"
-           class="icon download-icon"
-         >
-           <i class="fas fa-download"></i
-         ></a>
-         <a
-           href="https://wa.me/5511999999999"
-           class="icon whatsapp-icon"
-           target="_blank"
-           ><i class="fab fa-whatsapp"></i
-         ></a>
-     </div>
+    <div class="icons-down">
+      <a
+        href="/public/src/pages/downloadScreen/index_download.html"
+        class="icon download-icon"
+      >
+        <i class="fas fa-download"></i
+      ></a>
+      <a
+        href="https://wa.me/5511999999999"
+        class="icon whatsapp-icon"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+    </div>
 
     <!-- Ícones no canto superior direito -->
     <div class="icons-top-right">

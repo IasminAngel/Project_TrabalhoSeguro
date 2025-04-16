@@ -3,20 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro Acidentes e Incidentes</title>
+    <script src="/scripts/paths.js"></script>
+    <script>
+      document.write(frontendPaths.css("acidente_incidente"));
+      document.write(frontendPaths.css("navbar"));
+      document.write(frontendPaths.js("navbar"));
+      document.write(frontendPaths.js("acidente_incidente"));
+    </script>
+    
+    <title>Acidentes e Incidentes</title>
+   
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link
-      rel="icon"
-      href="/public/src/assets/icons/card-text.svg"
-      type="image/svg+xml"
-    />
-    <link
-      rel="stylesheet"
-      href="/public/src/pages/registers/acidentes/styles.css"
-    />
+    rel="icon"
+    type="image/png"
+    href="/assets/imgs/Logotipo_TS.png"
+    sizes="64x64"
+  />
   </head>
 
   <body>
@@ -28,7 +34,7 @@
         <div id="menu" class="menu">
           <ul>
             <li>
-              <a href="#"><span>🏠</span> Home</a>
+              <a href="/aplicacao"><span>🏠</span> Home</a>
             </li>
             <li>
               <a href="#"><span>🛡️</span> Epis</a>
@@ -37,7 +43,7 @@
               <a href="#"><span>👤</span> Funcionarios</a>
             </li>
             <li>
-              <a href="#"><span>🔄</span> Sair</a>
+              <a href="/main"><span>🔄</span> Sair</a>
             </li>
           </ul>
         </div>
@@ -326,9 +332,6 @@
         </form>
       </div>
     </div>
+   
   </body>
-  <script src="/public/src/services/script_form.js"></script>
-  <!-- SCRIPT GERAL -->
-  <script src="/public/src/components/navbar/script.js"></script>
-  <!-- SCRIPT DA NAVBAR -->
 </html>

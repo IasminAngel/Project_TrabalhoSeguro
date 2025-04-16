@@ -115,23 +115,13 @@ document.addEventListener("DOMContentLoaded", function () {
         throw new Error(data.message || "Erro ao cadastrar usuário");
       }
 
-      showPopup("Cadastro realizado com sucesso!");
+      showSuccessAlert("Oba!", "Cadastro realizado com sucesso!", "/login");
     } catch (error) {
       console.error("Erro:", error);
       errorDiv.innerHTML = error.message || "Erro ao processar cadastro";
       errorDiv.style.display = "block";
     }
   });
-
-  function showPopup(message) {
-    popupMessage.textContent = message;
-    popup.style.display = "flex";
-
-    setTimeout(() => {
-      popup.style.display = "none";
-      window.location.href = "/login";
-    }, 2000);
-  }
 });
 
 function cleanMessage() {

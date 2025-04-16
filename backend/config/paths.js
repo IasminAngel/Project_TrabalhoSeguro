@@ -12,7 +12,10 @@ export const paths = {
       login: "/login/login.css",
       registro: "/login/cadastro.css",
       senha: "/login/senha.css",
-      selecao: "selecao.css",
+      selecao: "/aplicacao/selecao.css",
+      formularios: "/aplicacao/formularios.css",
+      acidente_incidente: "/aplicacao/acidente_incidente.css",
+      navbar: "/components/navbar/navbar.css",
     },
   },
   js: {
@@ -24,6 +27,9 @@ export const paths = {
       avaliacao: "/pages/script_avaliacao.js",
       registro: "/pages/script_cadastro.js",
       senha: "/pages/script_senha.js",
+      acidente_incidente: "/pages/script_form.js",
+      shows: "/utils/alerts.js",
+      navbar: "/utils/navbar.js",
     },
   },
   imgs: {
