@@ -12,11 +12,11 @@ router.get('/main', (req, res) => {
 });
 
 router.get('/avaliacao', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/pages/avaliar.html'));
+  res.sendFile(path.join(__dirname, '../../public/pages/landing/avaliar.html'));
 });
 
 router.get('/biografia', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/pages/biografia.html'));
+  res.sendFile(path.join(__dirname, '../../public/pages/landing/biografia.html'));
 });
 
 router.get('/login', (req, res) => {

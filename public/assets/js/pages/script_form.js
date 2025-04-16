@@ -1,6 +1,6 @@
 console.log("FUNCIONANDO");
 document.addEventListener("DOMContentLoaded", function () {
-  // Controle do EPI
+ 
   const epiSim = document.getElementById("epiSim");
   const epiNao = document.getElementById("epiNao");
   const epiContainer = document.getElementById("epiContainer");
@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     epiContainer.classList.add("hidden");
   });
 
-  // Controle de acidentes anteriores
   const acidentesAnteriores = document.querySelectorAll(
     'input[name="acidentes_anteriores"]'
   );
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Controle de testemunhas
   const testemunhaSim = document.getElementById("testemunhaSim");
   const testemunhaNao = document.getElementById("testemunhaNao");
   const testemunhaContainer = document.getElementById("testemunhaContainer");
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     testemunhaContainer.classList.add("hidden");
   });
 
-  // Controle de afastamento
   const afastamentoSim = document.getElementById("afastamentoSim");
   const afastamentoNao = document.getElementById("afastamentoNao");
   const diasAfastamentoContainer = document.getElementById(

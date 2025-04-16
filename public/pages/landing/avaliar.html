@@ -16,8 +16,10 @@
         )}" type="image/svg+xml">`
       );
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
       document.write(frontendPaths.js("avaliacao"));
+      document.write(frontendPaths.js("shows"));
     </script>
     <title>Avaliação</title>
   </head>
@@ -63,10 +65,6 @@
         id="error-message"
         style="color: rgb(255, 0, 0); display: none"
       ></div>
-      <div id="popup" class="popup" style="display: none">
-        <div class="popup-content">
-          <span id="closeBtn" class="close">&times;</span>
-          <p id="popup-message"></p>
         </div>
       </div>
     </form>

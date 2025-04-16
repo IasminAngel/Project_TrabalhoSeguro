@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const opinionField = document.querySelector(".opinion");
   const upgradeField = document.querySelector(".upgrade");
   const errorDiv = document.getElementById("error-message");
-  const popup = document.getElementById("popup");
-  const popupMessage = document.getElementById("popup-message");
 
   let selectedRating = 0;
 
@@ -99,23 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(hideError, 5000);
   }
 
-  function showPopup(message) {
-    popupMessage.textContent = message;
-    popup.style.display = "flex";
-
-    document.getElementById("closeBtn").onclick = closePopup;
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) closePopup();
-    });
-  }
-
-  function closePopup() {
-    popup.style.display = "none";
-    if (popupMessage.textContent.includes("sucesso")) {
-      window.location.href = "/main";
-    }
-  }
-
   function resetForm() {
     selectedRating = 0;
     updateStars();
@@ -128,8 +109,8 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const result = await submitEvaluation();
-        showPopup(result.message || "Avaliação enviada com sucesso!");
+        await submitEvaluation();
+        showSuccessAlert("Oba!", "Avaliação enviada com sucesso!", "main");
         resetForm();
       } catch (error) {
         showError(

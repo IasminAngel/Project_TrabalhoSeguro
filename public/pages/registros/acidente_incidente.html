@@ -10,19 +10,19 @@
       document.write(frontendPaths.js("navbar"));
       document.write(frontendPaths.js("acidente_incidente"));
     </script>
-    
+
     <title>Acidentes e Incidentes</title>
-   
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link
-    rel="icon"
-    type="image/png"
-    href="/assets/imgs/Logotipo_TS.png"
-    sizes="64x64"
-  />
+      rel="icon"
+      type="image/png"
+      href="/assets/imgs/Logotipo_TS.png"
+      sizes="64x64"
+    />
   </head>
 
   <body>
@@ -34,16 +34,19 @@
         <div id="menu" class="menu">
           <ul>
             <li>
-              <a href="/aplicacao"><span>🏠</span> Home</a>
+              <a href="/aplicacao"><span>🏠</span>Principal</a>
+            </li>
+            <li>
+              <a href="/formularios"><span>📝</span> Registros</a>
             </li>
             <li>
               <a href="#"><span>🛡️</span> Epis</a>
             </li>
             <li>
-              <a href="#"><span>👤</span> Funcionarios</a>
+              <a href="#"><span>👤</span>Funcionarios</a>
             </li>
             <li>
-              <a href="/main"><span>🔄</span> Sair</a>
+              <a href="/main"><span>🔄</span>Sair</a>
             </li>
           </ul>
         </div>
@@ -203,31 +206,33 @@
             </div>
 
             <legend class="details">Turno do trabalho:</legend>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="turno" value="matutino" />
-                <span class="radio-label">Matutino</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="turno" value="vespertino" />
-                <span class="radio-label">Vespertino</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="turno" value="noturno" />
-                <span class="radio-label">Noturno</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="turno" value="adm" />
-                <span class="radio-label">ADM</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="turno" value="diurno" />
-                <span class="radio-label">Serviço Diurno</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="turno" value="sn" />
-                <span class="radio-label">SN</span>
-              </label>
+            <div class="radio-group turno-options">
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="turno" value="matutino" />
+                  <span class="radio-label">Matutino</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="turno" value="vespertino" />
+                  <span class="radio-label">Vespertino</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="turno" value="noturno" />
+                  <span class="radio-label">Noturno</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="turno" value="adm" />
+                  <span class="radio-label">ADM</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="turno" value="diurno" />
+                  <span class="radio-label">Serviço Diurno</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="turno" value="sn" />
+                  <span class="radio-label">SN</span>
+                </label>
+              </div>
             </div>
 
             <legend class="details periodo-title">Período:</legend>
@@ -332,6 +337,5 @@
         </form>
       </div>
     </div>
-   
   </body>
 </html>

@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("cadastroForm");
   const continueBtn = document.getElementById("continue");
   const errorDiv = document.getElementById("error-message");
-  const popup = document.getElementById("popup");
-  const popupMessage = document.getElementById("popup-message");
 
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
