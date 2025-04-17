@@ -5,16 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const texts = document.querySelectorAll(".user-info span");
     const profileImg = document.getElementById("profile-img");
     const imageInput = document.getElementById("image-input");
+    const profileContainer = document.querySelector('.profile-container');
 
-    // Função para alternar entre visualizar e editar
+    // Editar
     editButton.addEventListener("click", function () {
         fields.forEach(field => field.style.display = "block");
         texts.forEach(text => text.style.display = "none");
         editButton.style.display = "none";
         saveButton.style.display = "block";
+        profileContainer.classList.add('editing');
     });
 
-    // Função para salvar as edições e voltar ao modo de exibição
+    // Salvar
     saveButton.addEventListener("click", function () {
         fields.forEach((field, index) => {
             texts[index].innerText = field.value;
@@ -24,15 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
         texts.forEach(text => text.style.display = "block");
         saveButton.style.display = "none";
         editButton.style.display = "block";
+        profileContainer.classList.remove('editing');
     });
 
-    
-    const profileSection = document.querySelector('.profile-container');
-    profileSection.setAttribute('aria-live', 'polite');
-
-    // Função para alterar a imagem de perfil
+    // Upload de imagem
     profileImg.addEventListener("click", function () {
-        imageInput.click(); // Aciona o input de imagem ao clicar na imagem de perfil
+        imageInput.click();
     });
 
     imageInput.addEventListener("change", function () {
@@ -40,9 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                profileImg.src = e.target.result; 
+                profileImg.src = e.target.result;
             };
             reader.readAsDataURL(file);
         }
     });
+
+    const profileSection = document.querySelector('.profile-container');
+    profileSection.setAttribute('aria-live', 'polite');
 });
