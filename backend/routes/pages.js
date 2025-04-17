@@ -43,6 +43,10 @@ router.get('/acidente_incidente', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/registros/acidente_incidente.html'));
 });
 
+router.get('/desvios', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/registros/index_desvios.html'));
+});
+
 
 router.get('/:page', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public', `${req.params.page}.html`));
