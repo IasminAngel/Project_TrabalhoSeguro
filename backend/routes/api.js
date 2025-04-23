@@ -184,7 +184,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post("/alterar-senha", async (req, res) => {
+/*router.post("/alterar-senha", async (req, res) => {
   const { email, novaSenha } = req.body;
 
   if (!email || !novaSenha) {
@@ -195,6 +195,37 @@ router.post("/alterar-senha", async (req, res) => {
     const hash = await bcrypt.hash(novaSenha, 10);
 
     const sql = "UPDATE cadastro SET senha = ? WHERE email = ?";
+    connection.query(sql, [hash, email], (err, result) => {
+      if (err) {
+        console.error("Erro no banco:", err);
+        return res.status(500).json({ success: false, error: "Erro ao alterar senha" });
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ success: false, error: "Usuário não encontrado." });
+      }
+
+      res.json({ success: true, message: "Senha alterada com sucesso!" });
+    });
+  } catch (error) {
+    console.error("Erro ao criar hash:", error);
+    res.status(500).json({ success: false, error: "Erro interno." });
+  }
+});*/ // Bloco de código - BUG
+
+// ROTA PREENCHIMENTO DO FORMS
+
+router.post("/preencher_formulario", async (req, res) => {
+  const { email, novaSenha } = req.body;
+
+  if (!email || !novaSenha) {
+    return res.status(400).json({ success: false, error: "Campos obrigatórios não enviados." });
+  }
+
+  try {
+    const hash = await bcrypt.hash(novaSenha, 10);
+
+    const sql = "INSERT INTO  SET senha = ? WHERE email = ?";
     connection.query(sql, [hash, email], (err, result) => {
       if (err) {
         console.error("Erro no banco:", err);

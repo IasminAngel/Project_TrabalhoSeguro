@@ -5,7 +5,7 @@
 
 ✅ Trabalhar nos pop-ups e no sistema de pagamentos (utilizando o framework Stripe)
 
-✅ Organizar as novas pastas JavaScript
+✅ EDITAR BANCO DE DADOS UNIÃO DE ACIDENTES E INCIDENTES
 
 ✅ Fazer gravações demonstrando o funcionamento da aplicação para interligar com a tela principal
 
