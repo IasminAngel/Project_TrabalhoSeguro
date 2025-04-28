@@ -1,4 +1,3 @@
-console.log("FUNCIONANDO");
 document.addEventListener("DOMContentLoaded", function () {
  
   const epiSim = document.getElementById("epiSim");
