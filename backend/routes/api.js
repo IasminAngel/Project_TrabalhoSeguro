@@ -4,9 +4,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 const router = express.Router();
-
-
-// AVALIACAO 
+ 
 router.post('/avaliacoes', async (req, res) => {
   console.log('Dados recebidos:', req.body);
 
@@ -153,7 +151,6 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    // Geração do token
     const token = jwt.sign(
       { 
         id: user.id, 
