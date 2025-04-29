@@ -1,33 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="script.js"></script>
-  </head>
- 
-  <body>
-    <div class="menu-container">
-        <button id="menu-btn" class="menu-btn">&#9776;</button>
-        <div id="menu" class="menu">
-          <ul>
-            <li>
-              <a href="#"><span>🏠</span> Home</a>
-            </li>
-            <li>
-              <a href="#"><span>🛡️</span> Epis</a>
-            </li>
-            <li>
-              <a href="#"><span>👤</span> Funcionarios</a>
-            </li>
-            <li>
-              <a href="#"><span>🔄</span> Sair</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-  </body>
- 
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento de Teste - Stripe</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    #card-element {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #submit {
+      background-color: #5469d4;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #submit:hover {
+      background-color: #4254b2;
+    }
+    #payment-message {
+      margin-top: 20px;
+      font-size: 14px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Pagamento de Teste com Stripe</h2>
+
+  <form id="payment-form">
+    <div class="form-group">
+      <label for="card-element">Dados do Cartão</label>
+      <div id="card-element"></div>
+    </div>
+    <button id="submit">Pagar</button>
+    <div id="payment-message"></div>
+  </form>
+
+  <script>
+    const stripe = Stripe('pk_test_51RJ1icFSgHnf7lUpZCklY2DSFOjA4cYVAIb17Ms8JcUi112cKpIharkXK0VimPwczCLY3ZTdIIlzbqXirOywwCYm00Icza4N1W'); 
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+
+    const form = document.getElementById('payment-form');
+    const messageContainer = document.getElementById('payment-message');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const {paymentMethod, error} = await stripe.createPaymentMethod({
+        type: 'card',
+        card: cardElement,
+      });
+
+      if (error) {
+        messageContainer.textContent = error.message;
+      } else {
+        console.log('PaymentMethod criado com sucesso:', paymentMethod);
+        messageContainer.textContent = "Pagamento de teste criado! ID: " + paymentMethod.id;
+      }
+    });
+  </script>
+
+</body>
 </html>

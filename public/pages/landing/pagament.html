@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento de Teste - Stripe</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="/scripts/paths.js"></script>
+  <script>
+    document.write(frontendPaths.css("cartao"));
+    document.write(
+      `<link rel="icon" href="${frontendPaths.icon(
+        "card"
+      )}" type="image/svg+xml">`
+    );
+  </script>
+  <script>
+    document.write(frontendPaths.js("cartao"));
+  </script>
+</head>
+<body>
+
+  <h2>Pagamento de Teste com Stripe</h2>
+
+  <form id="payment-form">
+    <div class="form-group">
+      <label for="card-element">Dados do Cartão</label>
+      <div id="card-element"></div>
+    </div>
+    <button id="submit">Pagar</button>
+    <div id="payment-message"></div>
+  </form>
+
+
+</body>
+</html>
