@@ -31,6 +31,10 @@ router.get('/senha', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/login/senha.html'));
 });
 
+router.get('/pagament', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/landing/pagament.html'));
+});
+
 router.get('/aplicacao', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/aplicacao/selecao.html'));
 });

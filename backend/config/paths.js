@@ -9,6 +9,7 @@ export const paths = {
       home: "home.css",
       pagament: "pagament.css",
       biografia: "biografia.css",
+      cartao: "cartao.css",
       login: "/login/login.css",
       registro: "/login/cadastro.css",
       senha: "/login/senha.css",
@@ -30,6 +31,7 @@ export const paths = {
       acidente_incidente: "/pages/script_form.js",
       shows: "/utils/alerts.js",
       navbar: "/utils/navbar.js",
+      cartao: "/core/pay.js",
     },
   },
   imgs: {
@@ -52,6 +54,7 @@ export const paths = {
       entry: "box-arrow-in-left.svg",
       create: "box-arrow-in-right.svg",
       key: "key-fill.svg",
+      card: "credit-card.svg",
     },
   },
 };
