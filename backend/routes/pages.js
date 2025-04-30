@@ -36,7 +36,7 @@ router.get('/pagament', (req, res) => {
 });
 
 router.get('/aplicacao', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/pages/aplicacao/selecao.html'));
+  res.sendFile(path.join(__dirname, '../../public/pages/aplicacao/selection.html'));
 });
 
 router.get('/formularios', (req, res) => {
@@ -50,6 +50,24 @@ router.get('/acidente_incidente', (req, res) => {
 router.get('/desvios', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/registros/index_desvios.html'));
 });
+
+router.get('/desvios', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/registros/index_registers.html'));
+});
+
+router.get('/desvios', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/screenCheck/index_check.html'));
+});
+
+router.get('/desvios', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/episCheck/index_epis.html'));
+});
+
+router.get('/desvios', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/profile funcionaro/index_enployee.html'));
+});
+
+
 
 
 router.get('/:page', (req, res) => {
