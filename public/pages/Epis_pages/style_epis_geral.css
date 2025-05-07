@@ -1,0 +1,34 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #1E386C;
+    color: White;
+    padding: 10px;
+    text-align: center;
+}
+
+.btns_back{
+    background-color: transparent;
+    border: none;
+}
+
+.query_bar{
+    border-radius: 15px;
+}
+
+body{
+    background-color: #011C50;
+    color: White;
+   
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+.tables_epis{
+    justify-content: center;
+}
