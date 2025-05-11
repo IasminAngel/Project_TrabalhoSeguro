@@ -28,6 +28,7 @@ def carregar_dados():
 # Título do dashboard
 st.title("Dashboard de EPIs fornecidos aos Funcionários")
 
+
 # Carrega os dados
 df = carregar_dados()
 

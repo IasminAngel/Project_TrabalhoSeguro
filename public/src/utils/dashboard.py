@@ -1,8 +1,8 @@
 
 # Para rodar instalar biblioteca streamlit e ploty.express
 # Pip install streamlit
-# Pip install ploty.express
-# Comando para rodar: python -m run streamlit public/src/utils/dashboard.py 
+# Pip install ploty
+# Comando para rodar: python -m streamlit run public/src/utils/dashboard.py 
 
 import streamlit as st
 import pandas as pd
