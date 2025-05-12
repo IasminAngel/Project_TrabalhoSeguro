@@ -3,34 +3,558 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <script src="/scripts/paths.js"></script>
   <title>Pagamento</title>
   <script src="https://js.stripe.com/v3/"></script>
-  <script>
-    document.write(frontendPaths.css("cartao"));
-    document.write(
-      `<link rel="icon" href="${frontendPaths.icon(
-        "card"
-      )}" type="image/svg+xml">`
-    );
-  </script>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+  <style>
+    :root {
+      --indigo-500: #6366f1;
+      --indigo-600: #4f46e5;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-900: #111827;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: var(--gray-900);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .payment-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .payment-left {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .payment-header {
+      padding: 24px;
+      background-color: var(--indigo-500);
+      color: var(--white);
+      position: relative;
+      padding-bottom: 72px;
+    }
+
+    .payment-header-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--indigo-600);
+      color: var(--white);
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .payment-header-title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .payment-header-description {
+      font-size: 15px;
+      color: var(--gray-200);
+      line-height: 1.5;
+    }
+
+    .payment-content {
+      padding: 24px;
+      margin-top: -64px;
+      position: relative;
+    }
+
+    .payment-content::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      height: 16px;
+      border-radius: 4px;
+      background-color: var(--indigo-600);
+    }
+
+    .payment-body {
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .05);
+      position: relative;
+      padding: 24px;
+    }
+
+    .payment-plan {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .payment-plan-type {
+      width: 40px;
+      height: 40px;
+      background-color: var(--indigo-500);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      margin-right: 12px;
+    }
+
+    .payment-plan-info {
+      flex-grow: 1;
+      margin-right: 12px;
+    }
+
+    .payment-plan-info-name {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+
+    .payment-plan-info-price {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .payment-plan-change {
+      color: var(--blue-500);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .payment-plan-change:hover {
+      color: var(--blue-600);
+    }
+
+    .payment-summary-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .payment-summary-name {
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+
+    .payment-summary-price {
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .payment-summary-divider {
+      height: 0;
+      margin: 12px 0;
+      border-bottom: 1px dashed var(--gray-200);
+    }
+
+    .payment-summary-total {
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .payment-container {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .payment-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--gray-900);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+
+    #card-element {
+      padding: 12px;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      background-color: var(--gray-50);
+    }
+
+    button {
+      background-color: var(--indigo-500);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--indigo-600);
+    }
+
+    #payment-message {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      text-align: center;
+      color: var(--gray-600);
+    }
+
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .plan-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .plan-modal-content {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    }
+
+    .plan-modal-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--gray-900);
+    }
+
+    .plan-options {
+      display: grid;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .plan-option {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .plan-option:hover {
+      border-color: var(--indigo-500);
+    }
+
+    .plan-option.selected {
+      border-color: var(--indigo-500);
+      background-color: rgba(99, 102, 241, 0.05);
+    }
+
+    .plan-option-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--indigo-500);
+      color: var(--white);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .plan-option-info {
+      flex-grow: 1;
+    }
+
+    .plan-option-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .plan-option-price {
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .modal-buttons button {
+      flex: 1;
+    }
+
+    .cancel-btn {
+      background-color: var(--gray-200);
+      color: var(--gray-700);
+    }
+
+    .cancel-btn:hover {
+      background-color: var(--gray-300);
+    }
+
+
+    @media (max-width: 768px) {
+      .payment-wrapper {
+        grid-template-columns: 1fr;
+      }
+      
+      .payment-content::before {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="payment-container">
-    <h2>Pagamento</h2>
-    <form id="payment-form">
-      <div class="form-group">
-        <label for="card-element">Dados do Cartão</label>
-        <div id="card-element"></div>
+  
+  <div class="payment-wrapper">
+    <div class="payment-left">
+      <div class="payment-header">
+        <div class="payment-header-icon"><i class="ri-flashlight-fill"></i></div>
+        <div class="payment-header-title">Resumo da Assinatura</div>
+        <p class="payment-header-description">Escolha o plano que melhor atende às suas necessidades.</p>
       </div>
-      <button id="submit">Pagar</button>
-      <div id="payment-message"></div>
-    </form>
+      <div class="payment-content">
+        <div class="payment-body">
+          <div class="payment-plan">
+            <div class="payment-plan-type" id="current-plan-type">Pro</div>
+            <div class="payment-plan-info">
+              <div class="payment-plan-info-name" id="current-plan-name">Plano Professional</div>
+              <div class="payment-plan-info-price" id="current-plan-price">R$49/mês</div>
+            </div>
+            <a class="payment-plan-change" id="change-plan-btn">Alterar</a>
+          </div>
+          <div class="payment-summary">
+            <div class="payment-summary-item">
+              <div class="payment-summary-name">Taxa adicional</div>
+              <div class="payment-summary-price">R$10</div>
+            </div>
+            <div class="payment-summary-item">
+              <div class="payment-summary-name">Desconto (20%)</div>
+              <div class="payment-summary-price">-R$10</div>
+            </div>
+            <div class="payment-summary-divider"></div>
+            <div class="payment-summary-item payment-summary-total">
+              <div class="payment-summary-name">Total</div>
+              <div class="payment-summary-price" id="total-price">R$49/mês</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-container">
+      <h2>Pagamento</h2>
+      <form id="payment-form">
+        <div class="form-group">
+          <label for="card-element">Dados do Cartão</label>
+          <div id="card-element"></div>
+        </div>
+        <button id="submit">Confirmar Pagamento</button>
+        <div id="payment-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="plan-modal" id="plan-modal">
+    <div class="plan-modal-content">
+      <div class="plan-modal-title">Selecione seu plano</div>
+      <div class="plan-options" id="plan-options">
+        <div class="plan-option" data-plan="basic">
+          <div class="plan-option-icon"><i class="ri-user-line"></i></div>
+          <div class="plan-option-info">
+            <div class="plan-option-name">Plano Básico</div>
+            <div class="plan-option-price">R$29/mês</div>
+          </div>
+        </div>
+        <div class="plan-option selected" data-plan="pro">
+          <div class="plan-option-icon"><i class="ri-flashlight-fill"></i></div>
+          <div class="plan-option-info">
+            <div class="plan-option-name">Plano Professional</div>
+            <div class="plan-option-price">R$49/mês</div>
+          </div>
+        </div>
+        <div class="plan-option" data-plan="premium">
+          <div class="plan-option-icon"><i class="ri-star-fill"></i></div>
+          <div class="plan-option-info">
+            <div class="plan-option-name">Plano Premium</div>
+            <div class="plan-option-price">R$99/mês</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button class="cancel-btn" id="cancel-plan-btn">Cancelar</button>
+        <button id="confirm-plan-btn">Confirmar</button>
+      </div>
+    </div>
   </div>
 
   <script>
-    document.write(frontendPaths.js("cartao"));
+    const plans = {
+      basic: {
+        type: "Básico",
+        name: "Plano Básico",
+        price: "R$29/mês",
+        total: "R$29/mês"
+      },
+      pro: {
+        type: "Pro",
+        name: "Plano Professional",
+        price: "R$49/mês",
+        total: "R$49/mês"
+      },
+      premium: {
+        type: "Premium",
+        name: "Plano Premium",
+        price: "R$99/mês",
+        total: "R$99/mês"
+      }
+    };
+
+    const changePlanBtn = document.getElementById('change-plan-btn');
+    const planModal = document.getElementById('plan-modal');
+    const cancelPlanBtn = document.getElementById('cancel-plan-btn');
+    const confirmPlanBtn = document.getElementById('confirm-plan-btn');
+    const planOptions = document.querySelectorAll('.plan-option');
+    
+    const currentPlanType = document.getElementById('current-plan-type');
+    const currentPlanName = document.getElementById('current-plan-name');
+    const currentPlanPrice = document.getElementById('current-plan-price');
+    const totalPrice = document.getElementById('total-price');
+
+    let currentPlan = 'pro';
+ 
+    changePlanBtn.addEventListener('click', () => {
+      planModal.style.display = 'flex';
+    });
+
+    cancelPlanBtn.addEventListener('click', () => {
+      planModal.style.display = 'none';
+    });
+
+    planOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        planOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+      });
+    });
+
+    confirmPlanBtn.addEventListener('click', () => {
+      const selectedOption = document.querySelector('.plan-option.selected');
+      if (selectedOption) {
+        const plan = selectedOption.getAttribute('data-plan');
+        currentPlan = plan;
+        
+        currentPlanType.textContent = plans[plan].type;
+        currentPlanName.textContent = plans[plan].name;
+        currentPlanPrice.textContent = plans[plan].price;
+        totalPrice.textContent = plans[plan].total;
+        
+
+        planModal.style.display = 'none';
+      }
+    });
+
+    const stripe = Stripe('pk_test_51RJ1icFSgHnf7lUpZCklY2DSFOjA4cYVAIb17Ms8JcUi112cKpIharkXK0VimPwczCLY3ZTdIIlzbqXirOywwCYm00Icza4N1W');
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+
+    const paymentForm = document.getElementById('payment-form');
+    paymentForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitButton = document.getElementById('submit');
+      submitButton.disabled = true;
+      submitButton.classList.add('loading');
+      
+      try {
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+          type: 'card',
+          card: cardElement,
+        });
+
+        if (error) {
+          document.getElementById('payment-message').textContent = error.message;
+          submitButton.disabled = false;
+          submitButton.classList.remove('loading');
+        } else {
+         
+          console.log('Plano selecionado:', currentPlan);
+          console.log('PaymentMethod:', paymentMethod.id);
+          
+          document.getElementById('payment-message').textContent = 'Pagamento processado com sucesso!';
+          submitButton.textContent = 'Pagamento Concluído';
+          showSuccessAlert("Oba!", "Cadastro realizado com sucesso!");
+        }
+      } catch (err) {
+        document.getElementById('payment-message').textContent = 'Ocorreu um erro ao processar seu pagamento.';
+        submitButton.disabled = false;
+        submitButton.classList.remove('loading');
+      }
+    });
   </script>
 </body>
 </html>
