@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pagamento</title>
+  <script src="/scripts/paths.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://js.stripe.com/v3/"></script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
   <script>
       document.write(
@@ -533,7 +536,9 @@
           
           document.getElementById('payment-message').textContent = 'Pagamento processado com sucesso!';
           submitButton.textContent = 'Pagamento Concluído';
-          showSuccessAlert("Oba!", "Cadastro realizado com sucesso!");
+//           function showSuccessAlert(title, message) {
+//           Swal.fire(title, message, 'success');
+// }
         }
       } catch (err) {
         document.getElementById('payment-message').textContent = 'Ocorreu um erro ao processar seu pagamento.';
