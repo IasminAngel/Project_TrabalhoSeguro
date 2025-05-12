@@ -55,6 +55,7 @@ export const paths = {
       create: "box-arrow-in-right.svg",
       key: "key-fill.svg",
       card: "credit-card.svg",
+      left: "arrow-left.svg"
     },
   },
 };
