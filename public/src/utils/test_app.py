@@ -1,20 +1,51 @@
 import streamlit as st
+import mysql.connector
+import pandas as pd
 
-# Função para simular um questionário
-def questionario():
-    st.title('Questionário de Segurança no Trabalho')
+# Conectar ao banco de dados MySQL
+def conectar_bd():
+    return mysql.connector.connect(
+        host="localhost",  # Altere para o seu host
+        user="root",       # Altere para o seu usuário
+        password="",       # Altere para sua senha
+        database="Trabalho_Seguro"
+    )
 
-    # Exemplo de perguntas
-    nome = st.text_input('Qual seu nome?')
-    idade = st.number_input('Qual sua idade?', min_value=18, max_value=100)
-    setor = st.selectbox('Em qual setor você trabalha?', ['TI', 'Marketing', 'RH', 'Logística', 'Financeiro'])
+# Função para carregar os dados
+@st.cache_data
+def carregar_dados():
+    con = conectar_bd()
+    query = """
+        SELECT f.id_funcionario, f.nome, e.nome AS EPI, c.data
+        FROM Contem c
+        JOIN Funcionario f ON c.Funcionario_id_funcionario = f.id_funcionario
+        JOIN EPI e ON c.EPI_idEPI = e.idEPI
+    """
+    df = pd.read_sql(query, con)
+    con.close()
+    return df
 
-    # Exemplo de botão para submeter
-    if st.button('Submeter'):
-        st.write(f'Nome: {nome}')
-        st.write(f'Idade: {idade}')
-        st.write(f'Setor: {setor}')
-        st.success('Formulário submetido com sucesso!')
+# Título do dashboard
+st.title("Dashboard de EPIs fornecidos aos Funcionários")
 
-if __name__ == '__main__':
-    questionario()
+
+# Carrega os dados
+df = carregar_dados()
+
+# Filtros interativos
+funcionarios = st.multiselect("Filtrar por Funcionário:", options=df["nome"].unique(), default=df["nome"].unique())
+df_filtrado = df[df["nome"].isin(funcionarios)]
+
+# Exibir tabela filtrada
+st.subheader("Tabela de EPIs fornecidos")
+st.dataframe(df_filtrado)
+
+# Estatísticas
+st.subheader("Resumo")
+epi_count = df_filtrado.groupby("EPI")["data"].count()
+st.bar_chart(epi_count)
+
+# Exibir estatísticas adicionais, como quantos EPIs cada funcionário recebeu
+st.subheader("EPIs por Funcionário")
+epi_funcionario = df_filtrado.groupby("nome")["EPI"].count()
+st.bar_chart(epi_funcionario)
