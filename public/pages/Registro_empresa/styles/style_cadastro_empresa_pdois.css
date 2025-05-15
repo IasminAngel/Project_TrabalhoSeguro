@@ -1,0 +1,14 @@
+.content_form{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 88px;
+}
+
+.cnpj{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_trash{
+    display: none;
+}
