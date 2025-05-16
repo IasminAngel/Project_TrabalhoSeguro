@@ -12,3 +12,20 @@
 .btn_trash{
     display: none;
 }
+
+.btn_hint, .btn_trash{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hint{
+    display: none;
+    border-radius: 8px;
+    border: 1px solid #4A8DB9;
+    width: 40%;
+    padding: 12px;
+}
+
+
+

@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style_cadastro_empresa.css">
     <link rel="stylesheet" href="../styles/style_cadastro_empresa_pdois.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <title>Cadastro de empresa</title>
 </head>
 
 <body>
     <div class="container">
         <div class="sidebar">
-            <img class="logo" src="Logotipo_TS_2.png" alt="">
+            <img class="logo" src="../Logotipo_TS_2.png" alt="">
             <div>
                 <span>Página 2 de 2</span>
             </div>
@@ -41,10 +43,28 @@
                 <div class="content_form">
 
                     <div>
-                        <input type="text" name="" id="emails" placeholder="Email dos colaboradores">
-                        <button id="btn_save_email">Salvar</button>
-                        <select name="" id="colaboradores"></select>
-                        <button class="btn_trash" id="btn_trash">Teste(Lata de lixo)</button>
+
+                        <div class="container_hint">
+                            <button id="btn_hint" class="btn_hint">
+                                <span>
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </span>
+                            </button>
+                            <input type="text" name="" id="emails" placeholder="Email dos colaboradores">
+                            <button id="btn_save_email">Salvar</button>
+                            <select name="" id="colaboradores"></select>
+                            <button class="btn_trash" id="btn_trash">
+                                <span>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </span>
+                            </button>
+                            
+                            <div id="hint" class="hint">
+                                <p>Aqui você pode listar até 10 emails de colaboradores de sua empresa 
+                                    para ter acesso ao programa como técnicos de segurança do trabalho</p>
+                            </div>
+                        </div>
+
                     </div>
     
                     <div class="cnpj">
@@ -53,6 +73,9 @@
                     </div>
                 </div>
 
+                
+
+                   
                 </div>
 
         </div>
