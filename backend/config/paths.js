@@ -17,6 +17,8 @@ export const paths = {
       formularios: "/aplicacao/formularios.css",
       acidente_incidente: "/aplicacao/acidente_incidente.css",
       navbar: "/components/navbar/navbar.css",
+      empresaUm : "style_cadastro_empresa.css",
+      empresaDois :  "style_cadastro_empresa_pdois.css",
     },
   },
   js: {

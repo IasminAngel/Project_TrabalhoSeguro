@@ -67,7 +67,13 @@ router.get('/enployee', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/profile funcionaro/index_enployee.html'));
 });
 
+router.get('/nova_empresa', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../../public/pages/Registro_empresa/pages/cadastro_empresa.html'));
+});
 
+router.get('/nova_empresa_dois', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../../public/pages/Registro_empresa/pages/cadastro_empresa_pdois.html'));
+});
 
 
 router.get('/:page', (req, res) => {
