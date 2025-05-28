@@ -58,7 +58,7 @@ INSERT INTO Trabalho_Seguro.Cadastro (idCadastro, nome, sobrenome, email, celula
 (2, 'Ana', 'Ferreira', 'ana.ferreira@empresa.com', '1188888-8888', 'senha456', 'senha456', '{"genero": "Feminino"}');
 
 INSERT INTO Trabalho_Seguro.Login (idLogin, email, senha, Cadastro_idCadastro) VALUES
-(1, 'carlos.mendes@empresa.com', 'senha123', 1),
+(1, 'carlos.mendes@empresa.com', 'c', 1),
 (2, 'ana.ferreira@empresa.com', 'senha456', 2);
 
 INSERT INTO Trabalho_Seguro.Avaliacao_site (idAvaliacao, estrela, opiniao, melhoras) VALUES

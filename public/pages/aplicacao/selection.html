@@ -1,85 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/imgs/Logotipo_TS.png"
-      sizes="64x64"
-    />
-    <script src="/scripts/paths.js"></script>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet" href="/public/assets/css/aplicacao/selecao.css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      document.write(frontendPaths.css("selecao"));
-    </script>
+<head>
+    <link rel="icon" type="image/png" href="/src/assets/imgs/Logotipo_TS.png" sizes="64x64">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opções</title>
-  </head>
-  <body>
-    <script>
-      document.write(
-        `<img src="${frontendPaths.img(
-          "logos",
-          "alternative"
-        )}" alt="Logotipo" width="340" height="200">`
-      );
-    </script>
+    <link rel="stylesheet" href="/assets/css/styles_option.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Imagem centralizada no topo -->
+    <img src="/src/assets/imgs/logoTrabalhoseguro.png" alt="Imagem no topo" class="top-img" draggable="false">
 
     <div class="container">
-      <a href="/funcionarios" class="option">
-        <img
-          src="/assets/imgs/Funcionario.png"
-          alt="Funcionários"
-          class="option-img"
-          draggable="false"
-        />
-      </a>
-      <a href="/public/src/pages/screenCheck/index_check.html" class="option">
-        <img
-          src="/assets/imgs/Setores.png"
-          alt="Setores"
-          class="option-img"
-          draggable="false"
-        />
-      </a>
-      <a href="/formularios" class="option">
-        <img
-          src="/assets/imgs/Registros.png"
-          alt="Registros"
-          class="option-img"
-          draggable="false"
-        />
-      </a>
+        <a href="/funcionarios" class="option">
+            <img src="/assets/imgs/Funcionario.png" alt="Funcionários" class="option-img" draggable="false">
+        </a>
+        <a href="/src/pages/screenCheck/index_check.html" class="option">
+            <img src="/assets/imgs/Setores.png" alt="Setores" class="option-img" draggable="false">
+        </a>
+        <a href="/src/pages/registers/index_registers.html" class="option">
+            <img src="/assets/imgs/Registros.png" alt="Registros" class="option-img" draggable="false">
+        </a>
     </div>
 
-    <div class="icons-down">
-      <a
-        href="/public/src/pages/downloadScreen/index_download.html"
-        class="icon download-icon"
-      >
-        <i class="fas fa-download"></i
-      ></a>
-      <a
-        href="https://wa.me/5511999999999"
-        class="icon whatsapp-icon"
-        target="_blank"
-        ><i class="fab fa-whatsapp"></i
-      ></a>
-    </div>
+    <!-- Ícones -->
+    <a href="/public/pages/downloadScreen/index_download.html" class="icon download-icon">
+        <i class="fas fa-download"></i>
+    </a>
+    <a href="https://wa.me/5511999999999" class="icon whatsapp-icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Ícones no canto superior direito -->
     <div class="icons-top-right">
-      <a href="/index.html" class="icon settings-icon"
-        ><i class="fas fa-door-open"></i
-      ></a>
-      <a
-        href="/public/src/pages/profile_funcionario/index_employee.html"
-        class="icon person-icon"
-        ><i class="fas fa-user"></i
-      ></a>
+        <a href="/index.html" class="icon settings-icon"><i class="fas fa-door-open"></i></a>
+        <a href="/src/pages/profile_funcionario/index_employee.html" class="icon person-icon"><i class="fas fa-user"></i></a>
     </div>
-  </body>
+    
+</body>
 </html>

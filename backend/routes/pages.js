@@ -51,20 +51,24 @@ router.get('/desvios', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/registros/index_desvios.html'));
 });
 
-router.get('/desvios', (req, res) => {
+router.get('/registers', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/registros/index_registers.html'));
 });
 
-router.get('/desvios', (req, res) => {
+router.get('/check', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/screenCheck/index_check.html'));
 });
 
-router.get('/desvios', (req, res) => {
+router.get('/epis', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/episCheck/index_epis.html'));
 });
 
-router.get('/desvios', (req, res) => {
+router.get('/employee', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/profile funcionaro/index_enployee.html'));
+});
+
+router.get('/download', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/downloadScreen/index_download.html'));
 });
 
 

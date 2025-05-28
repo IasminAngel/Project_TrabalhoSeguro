@@ -17,6 +17,7 @@ export const paths = {
       formularios: "/aplicacao/formularios.css",
       acidente_incidente: "/aplicacao/acidente_incidente.css",
       navbar: "/components/navbar/navbar.css",
+      option: "/styles_option.css",
     },
   },
   js: {
@@ -37,9 +38,13 @@ export const paths = {
   imgs: {
     base: "/assets/imgs",
     logos: {
-      main: "Logotipo_TS.png",
-      alternative: "Logotipo_TS_2.png",
-      background: "background.png",
+    main: "Logotipo_TS.png",
+    alternative: "Logotipo_TS_2.png",
+    background: "background.png",
+    setores: "setores.png",
+    verificar: "verificar.png",
+    registros: "registros.png",
+    funcionarios: "funcionarios.png",
       
     },
   },
