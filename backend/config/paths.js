@@ -18,7 +18,9 @@ export const paths = {
       acidente_incidente: "/aplicacao/acidente_incidente.css",
       navbar: "/components/navbar/navbar.css",
       option: "/styles_option.css",
-    },
+      download: "/style_download.css",   
+      check: "/style_check.css"
+       },
   },
   js: {
     base: "/assets/js",
@@ -33,6 +35,7 @@ export const paths = {
       shows: "/utils/alerts.js",
       navbar: "/utils/navbar.js",
       cartao: "/core/pay.js",
+      epi: "pages\script_epi.js",
     },
   },
   imgs: {
@@ -45,7 +48,8 @@ export const paths = {
     verificar: "verificar.png",
     registros: "registros.png",
     funcionarios: "funcionarios.png",
-      
+    logo: "logoTrabalhoseguro.png", 
+    fundo: "FundoProfile.jpg",
     },
   },
 

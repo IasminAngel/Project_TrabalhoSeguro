@@ -64,7 +64,7 @@ router.get('/epis', (req, res) => {
 });
 
 router.get('/employee', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/pages/profile funcionaro/index_enployee.html'));
+  res.sendFile(path.join(__dirname, '../../public/pages/profile/index_employee.html'));
 });
 
 router.get('/download', (req, res) => {

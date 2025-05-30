@@ -6,11 +6,11 @@ body {
     min-height: 100vh; /* Garante que ocupe toda a altura da tela */
     margin: 0; /* Remove qualquer margem padrão */
     background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5)), 
-    url('/public/src/assets/imgs/FundoProfile.jpg');
+    url('/assets/imgs/FundoProfile.jpg');
 
-    background-size: cover; /* Faz a imagem cobrir todo o espaço */
-    background-position: center; /* Centraliza a imagem */
-    background-blend-mode: overlay; /* Mistura o gradiente com a imagem */
+    background-size: cover; 
+    background-position: center; 
+    background-blend-mode: overlay; 
 
 
 
