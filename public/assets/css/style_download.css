@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(rgb(35, 66, 116), rgb(38, 109, 223)), 
-    url('/public/src/assets/imgs/downloadIcon.jpg');
+    url('/assets/imgs/downloadIcon.jpg');
 
     background-size: cover; /* Faz a imagem cobrir todo o espaço */
     background-position: center; /* Centraliza a imagem */
