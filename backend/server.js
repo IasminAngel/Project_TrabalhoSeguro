@@ -11,23 +11,34 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-
+// Configurações básicas
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
+// Compartilhamento de paths
 app.locals.paths = paths;
 app.locals.frontendPaths = frontendPaths;
 
-
+// Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Rotas estáticas
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.use("/api", apiRouter); 
+// Rotas da API
+app.use("/api", apiRouter);
 
+// Rotas de páginas
 app.use("/", pagesRouter);
 
+// Rota para paths.js
 app.get('/scripts/paths.js', (req, res) => {
   res.type('application/javascript').send(`
     window.paths = ${JSON.stringify(paths)};
@@ -54,6 +65,7 @@ app.get('/scripts/paths.js', (req, res) => {
   `);
 });
 
+// Rotas de assets
 app.get('/assets/icons/:file', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/assets/icons', req.params.file), {
     headers: {
@@ -75,9 +87,19 @@ app.get('/assets/js/:file', (req, res) => {
   });
 });
 
+// Middleware de erro
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ 
+    success: false,
+    error: 'Erro interno no servidor',
+    details: process.env.NODE_ENV === 'development' ? err.message : null
+  });
+});
 
+// Inicialização do servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
-  console.log(`http://localhost:3000`);
-  });
+  console.log(`http://localhost:${PORT}`);
+});
