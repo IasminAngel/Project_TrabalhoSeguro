@@ -135,6 +135,26 @@ CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Acidente` (
 ENGINE = InnoDB;
 
 
+CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Acidente_Incidente` (
+  `id` INT NOT NULL,
+  `dt_hr` DATETIME NOT NULL,
+  `matricula` VARCHAR(30) NULL,
+  `agente_causador` VARCHAR(100) NOT NULL,
+  `total_acidentes` INT,
+  `testemunha` VARCHAR(45),
+  `dias_afastamento` INT,
+  `turno` VARCHAR(45) NOT NULL,
+  `periodo` VARCHAR(45) NOT NULL,
+  `cat` VARCHAR(45) NOT NULL,
+  `fratura` VARCHAR(45) NOT NULL,
+  `descricao` VARCHAR(45) NOT NULL,
+  `epi` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+
+
 -- -----------------------------------------------------
 -- Table `Trabalho_Seguro`.`Afeta`
 -- -----------------------------------------------------

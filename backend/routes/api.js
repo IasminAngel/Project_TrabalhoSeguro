@@ -181,6 +181,52 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
+// TERMINAR DE ESTRUTURAR NOVO FORM
+router.post('/adicionar_form', async (req, res) => {
+  console.log('Dados recebidos:', req.body);
+
+  try {
+    const { id, dt_hr, local, matricula, agente_causador, total_acidentes, testemunha, dias_afastamento, turno, periodo, cat, fratura, descricao, epi } = req.body;
+
+    // editar aqui
+    if (!dt_hr || !status || !descricao || !local || !tipo || !epi) {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Todos os campos são obrigatórios' 
+      });
+    }
+
+    //Abaixo aplicar função se caso já foi cadastrado
+    if (usuarioExistente) {
+      return res.status(400).json({ 
+        success: false,
+        error: 'Email já cadastrado' 
+      });
+    }
+
+    const result = await query(
+      `INSERT INTO cadastro 
+       (id, dt_hr, local, matricula, agente_causador, total_acidentes, testemunha, dias_afastamento, turno, periodo, cat, fratura, descricao, epi) 
+       VALUES (?, ?, ?, ?, ?. ?)`,
+      [
+        id, dt_hr, local, matricula, agente_causador, total_acidentes, testemunha, dias_afastamento, turno, periodo, cat, fratura, descricao, epi
+      ]
+    );
+    console.log('Dados inseridos:', [id, dt_hr, local, matricula, agente_causador, total_acidentes, testemunha, dias_afastamento, turno, periodo, cat, fratura, descricao, epi]);
+
+  } catch (error) {
+    console.error('Erro no cadastro:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Erro no servidor',
+      details: error.message
+    });
+  }
+});
+
+
+
 /*router.post("/alterar-senha", async (req, res) => {
   const { email, novaSenha } = req.body;
 
