@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Setor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Setor` (
-  `idSetor` INT NOT NULL,
+  `idSetor` INT NOT NULL  AUTO_INCREMENT,
   `setor` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idSetor`))
 ENGINE = InnoDB;
@@ -42,7 +42,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Funcionario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Funcionario` (
-  `id_funcionario` INT NOT NULL,
+  `id_funcionario` INT NOT NULL  AUTO_INCREMENT,
   `matricula` VARCHAR(45) NOT NULL,
   `CPF` VARCHAR(11) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -109,7 +109,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `Trabalho_Seguro`.`Acidente_Incidente`
 -- -----------------------------------------------------
-CREATE TABLE acidente_incidente (
+CREATE TABLE `Trabalho_Seguro`.`acidente_incidente` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   data_acidente DATE,
   local VARCHAR(100),
@@ -136,7 +136,7 @@ CREATE TABLE acidente_incidente (
 -- Table `Trabalho_Seguro`.`Desvio`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Desvio` (
-  `idDesvio` INT NOT NULL,
+  `idDesvio` INT NOT NULL  AUTO_INCREMENT,
   `dt_hr_desvio` DATETIME NOT NULL,
   `status_desvio` VARCHAR(30) NULL,
   `descricao_desvio` TEXT(1000) NOT NULL,
@@ -181,7 +181,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Tem`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Tem` (
-  `EPI_idEPI` INT NOT NULL,
+  `EPI_idEPI` INT NOT NULL ,
   `Funcao_idFuncao` INT NOT NULL,
   PRIMARY KEY (`EPI_idEPI`, `Funcao_idFuncao`),
   INDEX `fk_EPI_has_Funcao_Funcao1_idx` (`Funcao_idFuncao` ),
@@ -203,7 +203,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Treinamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Treinamento` (
-  `idTreinamento` INT NOT NULL,
+  `idTreinamento` INT NOT NULL  AUTO_INCREMENT,
   `treinamento` VARCHAR(45) NOT NULL,
   `inicio` DATE NULL,
   `conclusao` DATE NULL,
@@ -246,7 +246,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Cadastro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Cadastro` (
-  `idCadastro` INT NOT NULL,
+  `idCadastro` INT NOT NULL  AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `sobrenome` VARCHAR(45) NOT NULL,
   `email` VARCHAR(64) NOT NULL,
@@ -260,7 +260,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Login`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Login` (
-  `idLogin` INT NOT NULL,
+  `idLogin` INT NOT NULL  AUTO_INCREMENT,
   `email` VARCHAR(64) NOT NULL,
   `senha` VARCHAR(12) NOT NULL,
   `Cadastro_idCadastro` INT NOT NULL,
@@ -278,7 +278,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Esqueceu_senha`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Esqueceu_senha` (
-  `idEsqueceu_senha` INT NOT NULL,
+  `idEsqueceu_senha` INT NOT NULL  AUTO_INCREMENT,
   `email` VARCHAR(64) NOT NULL,
   `nova_senha` VARCHAR(12) NOT NULL,
   `confirmar_senha` VARCHAR(12) NOT NULL,
@@ -309,7 +309,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Identificar_avaliacao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Identificar_avaliacao` (
-  `Login_site_idLogin` INT NOT NULL,
+  `Login_site_idLogin` INT NOT NULL  AUTO_INCREMENT,
   `Avaliacao_site_idAvaliacao` INT NOT NULL,
   PRIMARY KEY (`Login_site_idLogin`, `Avaliacao_site_idAvaliacao`),
   INDEX `fk_Login_site_has_Avaliacao_site_Avaliacao_site1_idx` (`Avaliacao_site_idAvaliacao` ),
@@ -331,7 +331,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Cadastro_Empresa`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Cadastro_Empresa` (
-  `idCadastro_Empresa` INT NOT NULL,
+  `idCadastro_Empresa` INT NOT NULL  AUTO_INCREMENT,
   `nome_empresa` VARCHAR(45) NOT NULL,
   `CNPJ` VARCHAR(14) NOT NULL,
   `setor_atuacao` VARCHAR(45) NOT NULL,
@@ -352,7 +352,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Pagamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Pagamento` (
-  `idPagamento` INT NOT NULL,
+  `idPagamento` INT NOT NULL  AUTO_INCREMENT,
   `titular_cartao` VARCHAR(45) NOT NULL,
   `numero_cartao` VARCHAR(16) NOT NULL,
   `validade` DATE NOT NULL,
@@ -370,7 +370,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Responsavel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Responsavel` (
-  `Setor_idSetor` INT NOT NULL,
+  `Setor_idSetor` INT NOT NULL  AUTO_INCREMENT,
   `Funcionario_id_funcionario` INT NOT NULL,
   PRIMARY KEY (`Setor_idSetor`, `Funcionario_id_funcionario`),
   INDEX `fk_Setor_has_Funcionario_Funcionario1_idx` (`Funcionario_id_funcionario` ),
@@ -392,7 +392,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Pagamento_Empresa`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Pagamento_Empresa` (
-  `Pagamento_idPagamento` INT NOT NULL,
+  `Pagamento_idPagamento` INT NOT NULL  AUTO_INCREMENT,
   `Cadastro_Empresa_idCadastro_Empresa` INT NOT NULL,
   PRIMARY KEY (`Pagamento_idPagamento`, `Cadastro_Empresa_idCadastro_Empresa`),
   INDEX `fk_Pagamento_has_Cadastro_Empresa_Cadastro_Empresa1_idx` (`Cadastro_Empresa_idCadastro_Empresa` ),
@@ -414,7 +414,7 @@ ENGINE = InnoDB;
 -- Table `Trabalho_Seguro`.`Contem`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Trabalho_Seguro`.`Contem` (
-  `idContem` INT NOT NULL,
+  `idContem` INT NOT NULL  AUTO_INCREMENT,
   `data` VARCHAR(45) NOT NULL,
   `Funcionario_id_funcionario` INT NOT NULL,
   `EPI_idEPI` INT NOT NULL,

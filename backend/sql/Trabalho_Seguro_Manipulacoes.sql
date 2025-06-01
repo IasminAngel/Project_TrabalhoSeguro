@@ -1,95 +1,247 @@
-INSERT INTO Trabalho_Seguro.Cargo (posicao, nome_cargo) VALUES
-('Gerente', 'Gerente de Produção'),
-('Supervisor', 'Supervisor de Qualidade'),
-('Operador', 'Operador de Máquinas');
-
-INSERT INTO Trabalho_Seguro.Setor (idSetor, setor) VALUES
-(1, 'Produção'),
-(2, 'Qualidade'),
-(3, 'Manutenção');
-
-INSERT INTO Trabalho_Seguro.Funcionario (id_funcionario, matricula, CPF, email, formacao, nome_funcionario, sobrenome_funcionario, dt_nascimento, ddd, numero, ddd_emergencial, telefoneEmergencial, CEP, cidade, bairro, logradouro, numero_residencia, tempoTrabalho, Cargo_idCargo1, Setor_idSetor) VALUES
-(1, '12345', '12345678901', 'joao.silva@empresa.com', 'Engenharia Mecânica', 'João', 'Silva', '1985-05-15', '11', '99999-9999', '11', '88888-8888', '01234-567', 'São Paulo', 'Centro', 'Rua das Flores', '100', '5 anos', 1, 1),
-(2, '67890', '23456789012', 'maria.souza@empresa.com', 'Técnica em Segurança', 'Maria', 'Souza', '1990-08-20', '11', '97777-7777', '11', '86666-6666', '04567-890', 'São Paulo', 'Vila Olímpia', 'Avenida Paulista', '200', '3 anos', 2, 2);
-
-INSERT INTO Trabalho_Seguro.Funcao (descricao_funcao, Cargo_idCargo) VALUES
-('Gerenciar equipe de produção', 1),
-('Inspecionar qualidade dos produtos', 2),
-('Operar máquinas pesadas', 3);
-
-INSERT INTO Trabalho_Seguro.Incidentes (dt_hr_incidente, status_incidente, descricao_incidente, local_incidente, tipo_incidente) VALUES
-('2023-10-01 14:30:00', 'Resolvido', 'Vazamento de óleo na máquina X', 'Setor de Produção', 'Vazamento'),
-('2023-10-05 10:00:00', 'Pendente', 'Falha no sistema de segurança', 'Setor de Qualidade', 'Falha de Equipamento');
-
-INSERT INTO Trabalho_Seguro.EPI (nome, validade) VALUES
-('Capacete de Segurança', '2024-12-31'),
-('Luvas de Proteção', '2024-06-30');
-
-INSERT INTO Trabalho_Seguro.Acidente (idAcidente, dt_hr_acidente, status_acidente, descricao_acidente, local_acidente, tipo_acidente, uso_epi_acidente) VALUES
-(1, '2023-09-15 09:45:00', 'Investigação', 'Queda de altura', 'Setor de Manutenção', 'Queda', 'Sim'),
-(2, '2023-10-10 16:20:00', 'Concluído', 'Corte na mão', 'Setor de Produção', 'Corte', 'Não');
-
-INSERT INTO Trabalho_Seguro.Afeta (lesao, Funcionario_id_funcionario, Acidente_idAcidente) VALUES
-('Fraturas múltiplas', 1, 1),
-('Corte profundo', 2, 2);
-
-INSERT INTO Trabalho_Seguro.Desvio (idDesvio, dt_hr_desvio, status_desvio, descricao_desvio, local_desvio, danos_desvio, ala_desvio, recomendacao_desvio) VALUES
-(1, '2023-10-02 08:00:00', 'Pendente', 'Falta de sinalização na área', 'Setor de Produção', 'Nenhum', 'Ala A', 'Instalar sinalização adequada'),
-(2, '2023-10-06 12:00:00', 'Concluído', 'Falta de EPI no local', 'Setor de Manutenção', 'Nenhum', 'Ala B', 'Fornecer EPI necessário');
-
-INSERT INTO Trabalho_Seguro.Registra (Incidentes_idIncidentes, Acidente_idAcidente, Desvio_idDesvio, Funcionario_id_funcionario) VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 2);
-
-INSERT INTO Trabalho_Seguro.Tem (EPI_idEPI, Funcao_idFuncao) VALUES
-(1, 1),
-(2, 2);
-
-INSERT INTO Trabalho_Seguro.Treinamento (idTreinamento, treinamento, inicio, conclusao, validade, descricao) VALUES
-(1, 'Segurança no Trabalho', '2023-01-01', '2023-01-10', '2024-01-10', 'Treinamento sobre normas de segurança'),
-(2, 'Operação de Máquinas', '2023-02-01', '2023-02-15', '2024-02-15', 'Treinamento para operação segura de máquinas');
-
-INSERT INTO Trabalho_Seguro.treinamento_Setor (Setor_idSetor, Treinamento_idTreinamento, Funcionario_id_funcionario) VALUES
-(1, 1, 1),
-(2, 2, 2);
-
-INSERT INTO Trabalho_Seguro.Cadastro (idCadastro, nome, sobrenome, email, celular, senha, confirmar_senha, genero) VALUES
-(1, 'Carlos', 'Mendes', 'carlos.mendes@empresa.com', '1199999-9999', 'senha123', 'senha123', '{"genero": "Masculino"}'),
-(2, 'Ana', 'Ferreira', 'ana.ferreira@empresa.com', '1188888-8888', 'senha456', 'senha456', '{"genero": "Feminino"}');
-
-INSERT INTO Trabalho_Seguro.Login (idLogin, email, senha, Cadastro_idCadastro) VALUES
-(1, 'carlos.mendes@empresa.com', 'senha123', 1),
-(2, 'ana.ferreira@empresa.com', 'senha456', 2);
-
-INSERT INTO Trabalho_Seguro.Avaliacao_site (idAvaliacao, estrela, opiniao, melhoras) VALUES
-(1, '{"estrelas": 5}', 'Site muito útil e intuitivo.', 'Adicionar mais funcionalidades.'),
-(2, '{"estrelas": 4}', 'Bom, mas pode melhorar.', 'Melhorar o desempenho.');
-
-INSERT INTO Trabalho_Seguro.Identificar_avaliacao (Login_site_idLogin, Avaliacao_site_idAvaliacao) VALUES
-(1, 1),
-(2, 2);
-
-INSERT INTO Trabalho_Seguro.Cadastro_Empresa (idCadastro_Empresa, nome_empresa, CNPJ, setor_atuacao, tamanho_empresa, Login_idLogin) VALUES
-(1, 'Empresa Segura LTDA', '12345678000199', 'Indústria', '{"tamanho": "Grande"}', 1),
-(2, 'Segurança Total SA', '98765432000111', 'Construção', '{"tamanho": "Média"}', 2);
-
-INSERT INTO Trabalho_Seguro.Pagamento (idPagamento, titular_cartao, numero_cartao, validade, CVV, logradouro, CEP, cidade, estado, plano_escolhido) VALUES
-(1, 'Carlos Mendes', '1234567812345678', '2025-12-31', '123', 'Rua das Flores', '01234-567', 'São Paulo', 'SP', 'Plano Premium'),
-(2, 'Ana Ferreira', '8765432187654321', '2026-11-30', '456', 'Avenida Paulista', '04567-890', 'São Paulo', 'SP', 'Plano Básico');
-
-INSERT INTO Trabalho_Seguro.Responsavel (Setor_idSetor, Funcionario_id_funcionario) VALUES
-(1, 1),
-(2, 2);
-
-INSERT INTO Trabalho_Seguro.Pagamento_Empresa (Pagamento_idPagamento, Cadastro_Empresa_idCadastro_Empresa) VALUES
-(1, 1),
-(2, 2);
-
-INSERT INTO Trabalho_Seguro.Contem (idContem, data, Funcionario_id_funcionario, EPI_idEPI) VALUES
-(1, '2023-10-01', 1, 1),
-(2, '2023-10-05', 2, 2);
+DELIMITER //
+CREATE TRIGGER valida_data_nascimento_funcionario
+BEFORE INSERT ON Funcionario
+FOR EACH ROW
+BEGIN
+    IF NEW.dt_nascimento > CURDATE() THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Data de nascimento não pode ser no futuro';
+    END IF;
+    
+    IF TIMESTAMPDIFF(YEAR, NEW.dt_nascimento, CURDATE()) < 18 THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Funcionário deve ter pelo menos 18 anos';
+    END IF;
+END//
+DELIMITER ;
 
 
+-- Tabela para histórico de senhas
+CREATE TABLE IF NOT EXISTS Historico_Senha (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  idCadastro INT NOT NULL,
+  senha_antiga VARCHAR(45) NOT NULL,
+  data_alteracao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (idCadastro) REFERENCES Cadastro(idCadastro)
+);
+
+-- Trigger para histórico
+DELIMITER //
+CREATE TRIGGER registra_historico_senha
+AFTER UPDATE ON Cadastro
+FOR EACH ROW
+BEGIN
+    IF OLD.senha != NEW.senha THEN
+        INSERT INTO Historico_Senha (idCadastro, senha_antiga)
+        VALUES (OLD.idCadastro, OLD.senha);
+    END IF;
+END//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER valida_epi_acidente
+BEFORE INSERT ON Acidente_Incidente
+FOR EACH ROW
+BEGIN
+    DECLARE epi_obrigatorio INT;
+    
+    -- Verifica se o funcionário usou EPI quando era obrigatório
+    SELECT COUNT(*) INTO epi_obrigatorio
+    FROM Funcionario f
+    JOIN Cargo c ON f.Cargo_idCargo1 = c.idCargo
+    JOIN Funcao fn ON c.idCargo = fn.Cargo_idCargo
+    JOIN Tem t ON fn.idFuncao = t.Funcao_idFuncao
+    WHERE f.matricula = NEW.matricula AND t.EPI_idEPI IS NOT NULL;
+    
+    IF epi_obrigatorio > 0 AND NEW.uso_epi = FALSE THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'EPI é obrigatório para esta função';
+    END IF;
+END//
+DELIMITER ;
+
+
+DELIMITER //
+CREATE TRIGGER atualiza_validade_treinamento
+BEFORE INSERT ON treinamento_Setor
+FOR EACH ROW
+BEGIN
+    DECLARE v_validade DATE;
+    
+    -- Obtém a validade do treinamento
+    SELECT validade INTO v_validade
+    FROM Treinamento
+    WHERE idTreinamento = NEW.Treinamento_idTreinamento;
+    
+    -- Se o treinamento já expirou, não permite vincular
+    IF v_validade < CURDATE() THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Treinamento expirado. Renove antes de vincular.';
+    END IF;
+END//
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE registrar_acidente(
+    IN p_data_acidente DATE,
+    IN p_local VARCHAR(100),
+    IN p_matricula VARCHAR(50),
+    IN p_agente VARCHAR(100),
+    IN p_acidentes_anteriores BOOLEAN,
+    IN p_quantidade_acidentes INT,
+    IN p_confirmacao_testemunha BOOLEAN,
+    IN p_testemunha_info TEXT,
+    IN p_afastamento BOOLEAN,
+    IN p_dias_afastamento INT,
+    IN p_turno VARCHAR(20),
+    IN p_periodo VARCHAR(50),
+    IN p_cat BOOLEAN,
+    IN p_fratura BOOLEAN,
+    IN p_descricao TEXT,
+    IN p_uso_epi BOOLEAN,
+    IN p_epi_utilizado TEXT,
+    IN p_id_funcionario INT
+)
+BEGIN
+    DECLARE v_id_acidente INT;
+    
+    -- Valida se o funcionário existe
+    IF NOT EXISTS (SELECT 1 FROM Funcionario WHERE id_funcionario = p_id_funcionario) THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Funcionário não encontrado';
+    END IF;
+    
+    -- Insere o acidente
+    INSERT INTO Acidente_Incidente (
+        data_acidente, local, matricula, agente, acidentes_anteriores, quantidade_acidentes,
+        confirmacao_testemunha, testemunha_info, afastamento, dias_afastamento, turno, periodo,
+        cat, fratura, descricao, uso_epi, epi_utilizado
+    ) VALUES (
+        p_data_acidente, p_local, p_matricula, p_agente, p_acidentes_anteriores, p_quantidade_acidentes,
+        p_confirmacao_testemunha, p_testemunha_info, p_afastamento, p_dias_afastamento, p_turno, p_periodo,
+        p_cat, p_fratura, p_descricao, p_uso_epi, p_epi_utilizado
+    );
+    
+    SET v_id_acidente = LAST_INSERT_ID();
+    
+    -- Registra quem registrou o acidente
+    INSERT INTO Registra (Funcionario_id_funcionario, Acidente_Incidente_id, Desvio_idDesvio)
+    VALUES (p_id_funcionario, v_id_acidente, NULL);
+    
+    -- Se for CAT, gera alerta
+    IF p_cat THEN
+        INSERT INTO Desvio (dt_hr_desvio, status_desvio, descricao_desvio, local_desvio, danos_desvio, ala_desvio, recomendacao_desvio)
+        VALUES (NOW(), 'Pendente', 'Acidente registrado como CAT - Comunicação necessária', p_local, 'Acidente com afastamento', 'Todos', 'Investigar causas');
+        
+        UPDATE Registra SET Desvio_idDesvio = LAST_INSERT_ID() 
+        WHERE Acidente_Incidente_id = v_id_acidente;
+    END IF;
+    
+    SELECT v_id_acidente AS id_acidente_registrado;
+END//
+DELIMITER ;
+
+
+DELIMITER //
+CREATE FUNCTION verificar_epis_vencidos(p_id_funcionario INT) 
+RETURNS TEXT
+DETERMINISTIC
+BEGIN
+    DECLARE resultado TEXT DEFAULT '';
+    DECLARE v_nome_epi VARCHAR(30);
+    DECLARE v_validade DATE;
+    DECLARE done INT DEFAULT FALSE;
+    
+    DECLARE cur_epis CURSOR FOR
+    SELECT e.nome, e.validade
+    FROM Funcionario f
+    JOIN Cargo c ON f.Cargo_idCargo1 = c.idCargo
+    JOIN Funcao fn ON c.idCargo = fn.Cargo_idCargo
+    JOIN Tem t ON fn.idFuncao = t.Funcao_idFuncao
+    JOIN EPI e ON t.EPI_idEPI = e.idEPI
+    WHERE f.id_funcionario = p_id_funcionario AND e.validade < CURDATE();
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    
+    OPEN cur_epis;
+    
+    read_loop: LOOP
+        FETCH cur_epis INTO v_nome_epi, v_validade;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SET resultado = CONCAT(resultado, v_nome_epi, ' (Vencido em: ', v_validade, ')\n');
+    END LOOP;
+    
+    CLOSE cur_epis;
+    
+    IF resultado = '' THEN
+        SET resultado = 'Nenhum EPI vencido para este funcionário';
+    END IF;
+    
+    RETURN resultado;
+END//
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE renovar_treinamento(
+    IN p_id_treinamento INT,
+    IN p_nova_validade DATE
+)
+BEGIN
+    DECLARE v_duracao INT;
+    
+    -- Verifica se o treinamento existe
+    IF NOT EXISTS (SELECT 1 FROM Treinamento WHERE idTreinamento = p_id_treinamento) THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Treinamento não encontrado';
+    END IF;
+    
+    -- Calcula duração padrão (2 anos)
+    IF p_nova_validade IS NULL THEN
+        SET p_nova_validade = DATE_ADD(CURDATE(), INTERVAL 2 YEAR);
+    END IF;
+    
+    -- Atualiza validade do treinamento
+    UPDATE Treinamento 
+    SET validade = p_nova_validade
+    WHERE idTreinamento = p_id_treinamento;
+    
+    SELECT CONCAT('Treinamento ID ', p_id_treinamento, ' renovado até ', p_nova_validade) AS mensagem;
+END//
+DELIMITER ;
 
 
 
+CALL registrar_acidente(
+    '2023-11-15',            -- data_acidente
+    'Setor de Produção',      -- local
+    'F001',                  -- matricula
+    'Máquina de Corte',      -- agente
+    FALSE,                   -- acidentes_anteriores
+    0,                       -- quantidade_acidentes
+    TRUE,                    -- confirmacao_testemunha
+    'João da Silva testemunhou', -- testemunha_info
+    TRUE,                    -- afastamento
+    5,                       -- dias_afastamento
+    'Manhã',                 -- turno
+    'Primeira quinzena',      -- periodo
+    TRUE,                    -- cat
+    FALSE,                   -- fratura
+    'O funcionário prendeu a mão na máquina', -- descricao
+    TRUE,                    -- uso_epi
+    'Luva de proteção',      -- epi_utilizado
+    2                        -- id_funcionario que registrou
+);
+
+
+SELECT verificar_epis_vencidos(1) AS epis_vencidos;
+
+CALL renovar_treinamento(1, NULL); -- Renova NR-6 por mais 2 anos
+
+
+UPDATE Cadastro 
+SET senha = 'novaSenha123' 
+WHERE idCadastro = 1;
