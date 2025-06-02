@@ -42,6 +42,24 @@ document.addEventListener("DOMContentLoaded", function () {
             <td>${id}</td>
             <td>${formattedDate}</td>
         `;
+           
+         // Calculando a diferença de dias
+const dataAtual = new Date(); // Corrigido aqui
+const dataEPI = new Date(date);
+const diffTempo = dataAtual - dataEPI;
+const diffDias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
+
+// Aplicando cor de fundo de acordo com a idade do EPI
+if (diffDias > 365) {
+    newRow.style.backgroundColor = "#FF6347"; // Vermelho claro
+} else if (diffDias > 180) {
+    newRow.style.backgroundColor = "#fff8b3"; // Amarelo claro
+} else {
+    newRow.style.backgroundColor = "#ccffcc"; // Verde claro
+}
+
+ 
+
 
         // Adicionando a nova linha à tabela
         tableBody.appendChild(newRow);

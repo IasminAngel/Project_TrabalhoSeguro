@@ -79,6 +79,14 @@ router.get('/download', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/downloadScreen/index_download.html'));
 });
 
+
+router.get('/setor', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/setor/adicionar_setor.html'));
+});
+
+
+
+
 // Rota coringa para qualquer outro arquivo .html dentro de public
 router.get('/:page', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public', `${req.params.page}.html`));

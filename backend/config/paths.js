@@ -21,7 +21,9 @@ export const paths = {
       empresaDois: "style_cadastro_empresa_pdois.css",
       option: "/styles_option.css",
       download: "/style_download.css",
-      check: "/style_check.css"
+      check: "/style_check.css",
+      setor: "/style_adicionar_setor.css",
+      epi: "/style_epis.css"
     },
   },
   js: {
