@@ -1,0 +1,141 @@
+/* Fonte e Estilo Geral */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgb(35, 66, 116), rgb(38, 109, 223)), 
+    url('/assets/imgs/downloadIcon.jpg');
+
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-blend-mode: color; /* Mistura o gradiente com a imagem */
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Botão de fechar no canto esquerdo */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #11185e;
+}
+
+/* Container centralizado */
+.menu-container {
+    background-color: rgb(68, 86, 185);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow:  0px 10px 20px rgba(0, 0, 0, 0.9);;            
+    text-align: center;
+    width: 100%;
+    max-width: 500px; /* Limita a largura do container */
+    
+}
+
+/* Título do container */
+.menu-container h2 {
+    color: #f2f5f8;
+    margin-bottom: 20px;
+}
+
+/* Estilização dos botões */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Aumenta o espaçamento entre os botões */
+    align-items: center;
+}
+
+/* Botões personalizados */
+.report-btn, .submit-btn {
+    width: 220px; /* Ligeiramente maior */
+    padding: 14px;
+    border: none;
+    border-radius: 25px; /* Bordas mais arredondadas */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Estilo do botão "Reportar" */
+.report-btn {
+    background: linear-gradient(to right, #6aa0e1, #4f86c6); /* Degradê */
+    color: white;
+}
+
+.report-btn:hover {
+    background: linear-gradient(to right, #4f86c6, #17335f);
+    transform: scale(1.05); /* Efeito de crescimento ao passar o mouse */
+}
+
+/* Estilo do botão "Enviar" */
+.submit-btn {
+    background: linear-gradient(to right, #17335f, #0d2448);
+    color: white;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #0d2448, #6aa0e1);
+    transform: scale(1.05);
+}
+
+/* Efeito de clique nos botões */
+.report-btn:active, .submit-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ícones nos botões */
+.report-btn i, .submit-btn i {
+    margin-right: 8px; /* Dá um espaçamento entre o ícone e o texto */
+}
+
+/* Responsividade: Tela menor que 768px */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .menu-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .report-btn, .submit-btn {
+        width: 100%; /* Botões ocupam toda a largura da tela */
+        font-size: 16px; /* Reduz o tamanho da fonte para telas menores */
+    }
+
+    .close-btn {
+        font-size: 20px; /* Tamanho menor para o botão de fechar */
+        top: 10px; /* Ajusta a posição */
+        left: 10px;
+    }
+}
+
+/* Responsividade: Tela menor que 480px */
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 15px;
+    }
+
+    .report-btn, .submit-btn {
+        padding: 12px; /* Menos padding para botões */
+        font-size: 14px;
+    }
+}

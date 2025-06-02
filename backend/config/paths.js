@@ -17,8 +17,11 @@ export const paths = {
       formularios: "/aplicacao/formularios.css",
       acidente_incidente: "/aplicacao/acidente_incidente.css",
       navbar: "/components/navbar/navbar.css",
-      empresaUm : "style_cadastro_empresa.css",
-      empresaDois :  "style_cadastro_empresa_pdois.css",
+      empresaUm: "style_cadastro_empresa.css",
+      empresaDois: "style_cadastro_empresa_pdois.css",
+      option: "/styles_option.css",
+      download: "/style_download.css",
+      check: "/style_check.css"
     },
   },
   js: {
@@ -34,6 +37,7 @@ export const paths = {
       shows: "/utils/alerts.js",
       navbar: "/utils/navbar.js",
       cartao: "/core/pay.js",
+      epi: "/pages/script_epi.js"
     },
   },
   imgs: {
@@ -42,10 +46,14 @@ export const paths = {
       main: "Logotipo_TS.png",
       alternative: "Logotipo_TS_2.png",
       background: "background.png",
-      
+      setores: "setores.png",
+      verificar: "verificar.png",
+      registros: "registros.png",
+      funcionarios: "funcionarios.png",
+      logo: "logoTrabalhoseguro.png",
+      fundo: "FundoProfile.jpg"
     },
   },
-
   icons: {
     base: "/assets/icons",
     files: {
@@ -77,7 +85,6 @@ export const frontendPaths = {
     const filePath = paths.imgs[type]?.[key];
     return filePath ? `${paths.imgs.base}/${filePath}` : '';
   },
-  
   icon: (name) => {
     const file = paths.icons.files[name];
     return file ? `${paths.icons.base}/${file}` : '';

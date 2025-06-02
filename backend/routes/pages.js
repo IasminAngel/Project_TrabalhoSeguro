@@ -63,19 +63,23 @@ router.get('/epis', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/episCheck/index_epis.html'));
 });
 
-router.get('/enployee', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/pages/profile funcionaro/index_enployee.html'));
+router.get('/employee', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/profile/index_employee.html'));
 });
 
-router.get('/nova_empresa', (req, res)=>{
+router.get('/nova_empresa', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/Registro_empresa/pages/cadastro_empresa.html'));
 });
 
-router.get('/nova_empresa_dois', (req, res)=>{
+router.get('/nova_empresa_dois', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/Registro_empresa/pages/cadastro_empresa_pdois.html'));
 });
 
+router.get('/download', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/downloadScreen/index_download.html'));
+});
 
+// Rota coringa para qualquer outro arquivo .html dentro de public
 router.get('/:page', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public', `${req.params.page}.html`));
 });
