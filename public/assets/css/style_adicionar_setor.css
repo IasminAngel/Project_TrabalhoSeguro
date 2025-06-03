@@ -1,84 +1,132 @@
-body{
-    background-color: #000B31;
+/* Corpo e fonte */
+body {
+    background-color: #17335f;
     color: white;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
 }
-header{
+
+/* Header fixo no topo */
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 28px;
-    background-color: #91a9da71;
-    height: 45px;
-    padding-left: 20px;
-    padding-right: 20px;
+    background-color: #6aa0e1;
+    height: 60px;
+    padding: 0 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 1250px;
+    box-sizing: border-box;
+    color: white;
 }
 
-.main_content{
+/* Texto explicativo centralizado */
+.text {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 1250px;
+}
+
+/* Conteúdo principal */
+.main_content {
+    width: 100%;
+    max-width: 1250px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    
+    gap: 20px;
+    padding: 0 10px 30px 10px;
+    box-sizing: border-box;
 }
 
-.text{
+/* Container dos campos do setor em linha */
+.container_registor {
+    background-color: #0A2D89;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* centraliza horizontalmente */
+    gap: 20px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 1250px;
+    box-sizing: border-box;
+}
+
+/* Cada campo do setor */
+.info_setor {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    color: white;
+}
+
+/* Inputs com largura fixa e estilo */
+.data_bar {
+    border-radius: 8px;
+    border: none;
+    padding: 8px;
+    width: 200px;
+    font-size: 16px;
+}
+
+/* Container do botão, para ficar embaixo e centralizado */
+.show_members {
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    width: 100%;
+    max-width: 1250px;
 }
 
-.container_registor{
-    background-color: #0A2D89;
-    width: 340px;
-    padding: 8px;
-    border-radius: 10px;
-    margin-top: 25px;
-    margin-left: 12px;
-    border: 1px solid white;
-}
-
-.btn_add_member{
-    width: 380px;
-    height: 30px;
-    border: 1px solid rgb(255, 255, 255);
+/* Botão centralizado */
+.btn_add_member {
+    width: 200px;
+    height: 40px;
+    border: none;
     border-radius: 12px;
     background-color: #6175A8;
     color: white;
     cursor: pointer;
-}
-
-.show_members{
-    display: flex;
-    flex-direction: column;
-}
-
-.div_btns_final{
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    width: 100%;
+    transition: background-color 0.3s ease;
     margin-top: 10px;
 }
 
-.btn_final{
-    display: none;
-    width : 70px;
-    height: 30px;
-    border: 1px solid white;
-    border-radius: 12px;
-    background-color: #6175A8;
+.btn_add_member:hover {
+    background-color: #4c5e88;
+}
+
+
+.back-icon {
+    background: none; 
+    cursor: pointer;
     color: white;
-}
-
-.data_bar{
-    border-radius: 12px;
-    border: none;
-}
-
-.teste{
+    font-size: 28px; /* aumenta o tamanho do ícone */
     display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-items: end;
-    padding-right: 150px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
 }
+
+.back-icon :hover{
+    font-size: 28px;
+    line-height: 1;
+    color: #174175;
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
 
