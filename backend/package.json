@@ -8,7 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "concurrently \"nodemon server.js\" \"streamlit run ../public/src/utils/dashboard.py --server.headless true --server.enableCORS false --server.enableXsrfProtection false --server.address 0.0.0.0 --server.port 8501\""
+    "dev": "concurrently \"nodemon server.js\" \"python -m streamlit run ../public/src/utils/dashboard.py --server.headless true --server.enableCORS false --server.enableXsrfProtection false --server.address 0.0.0.0 --server.port 8501\""
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
