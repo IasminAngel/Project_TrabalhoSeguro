@@ -4,70 +4,98 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("#item-form");
     const tableBody = document.querySelector("tbody");
 
-
-    addButton.addEventListener("click", function () {
-        form.style.display = "block";
-    });
-
-    // Função para formatar a data
     function formatDate(dateString) {
         const date = new Date(dateString);
         const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Meses começam do zero
+        const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
         return `${day}/${month}/${year}`;
     }
 
-    // Salvar o novo item na tabela
-    saveButton.addEventListener("click", function () {
-        const name = document.querySelector("#item-name").value;
-        const id = document.querySelector("#item-id").value;
+    function applyRowColor(row, dateString) {
+        const dataAtual = new Date();
+        const dataEPI = new Date(dateString);
+        const diffTempo = dataAtual - dataEPI;
+        const diffDias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
+
+        if (diffDias > 365) {
+            row.style.backgroundColor = "#FF6347";
+        } else if (diffDias > 180) {
+            row.style.backgroundColor = "#fff8b3";
+        } else {
+            row.style.backgroundColor = "#ccffcc";
+        }
+    }
+
+    // Cria a linha da tabela, incluindo botão de excluir
+    function createTableRow(item, index) {
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.id}</td>
+            <td>${formatDate(item.date)}</td>
+            <td><button class="delete-btn" data-index="${index}">Excluir</button></td>
+        `;
+        applyRowColor(newRow, item.date);
+        return newRow;
+    }
+
+    function loadItems() {
+        const items = JSON.parse(localStorage.getItem("epis")) || [];
+        tableBody.innerHTML = ""; // limpa antes
+        items.forEach((item, index) => {
+            const row = createTableRow(item, index);
+            tableBody.appendChild(row);
+        });
+        attachDeleteListeners();
+    }
+
+    // Função para remover item do localStorage e da tabela
+    function deleteItem(index) {
+        let items = JSON.parse(localStorage.getItem("epis")) || [];
+        items.splice(index, 1); // Remove o item do array
+        localStorage.setItem("epis", JSON.stringify(items));
+        loadItems(); // Recarrega a tabela atualizada
+    }
+
+    // Adiciona os listeners aos botões de excluir
+    function attachDeleteListeners() {
+        const deleteButtons = document.querySelectorAll(".delete-btn");
+        deleteButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const index = btn.getAttribute("data-index");
+                deleteItem(index);
+            });
+        });
+    }
+
+    addButton.addEventListener("click", () => {
+        form.style.display = "block";
+    });
+
+    saveButton.addEventListener("click", () => {
+        const name = document.querySelector("#item-name").value.trim();
+        const id = document.querySelector("#item-id").value.trim();
         const date = document.querySelector("#item-date").value;
 
-        // Verificando se todos os campos foram preenchidos
-        if (name === "" || id === "" || date === "") {
+        if (!name || !id || !date) {
             alert("Por favor, preencha todos os campos.");
             return;
         }
 
-        // Formatando a data
-        const formattedDate = formatDate(date);
+        const newItem = { name, id, date };
 
-        // Criando uma nova linha
-        const newRow = document.createElement("tr");
+        const items = JSON.parse(localStorage.getItem("epis")) || [];
+        items.push(newItem);
+        localStorage.setItem("epis", JSON.stringify(items));
 
-        // Criando as células e adicionando os valores
-        newRow.innerHTML = `
-            <td>${name}</td>
-            <td>${id}</td>
-            <td>${formattedDate}</td>
-        `;
-           
-         // Calculando a diferença de dias
-const dataAtual = new Date(); // Corrigido aqui
-const dataEPI = new Date(date);
-const diffTempo = dataAtual - dataEPI;
-const diffDias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
+        loadItems();
 
-// Aplicando cor de fundo de acordo com a idade do EPI
-if (diffDias > 365) {
-    newRow.style.backgroundColor = "#FF6347"; // Vermelho claro
-} else if (diffDias > 180) {
-    newRow.style.backgroundColor = "#fff8b3"; // Amarelo claro
-} else {
-    newRow.style.backgroundColor = "#ccffcc"; // Verde claro
-}
-
- 
-
-
-        // Adicionando a nova linha à tabela
-        tableBody.appendChild(newRow);
-
-        // Escondendo o formulário novamente
         form.style.display = "none";
         document.querySelector("#item-name").value = "";
         document.querySelector("#item-id").value = "";
         document.querySelector("#item-date").value = "";
     });
+
+    loadItems();
 });

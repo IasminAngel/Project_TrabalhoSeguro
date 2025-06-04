@@ -102,6 +102,8 @@ th {
 .add-item {
     font-family: Verdana, sans-serif;
     margin-top: 20px;
+    align-self: flex-end;
+    margin-right: 400px; /* aumenta espaço do botão para a direita */
     padding: 10px 30px;
     border: none;
     background-color: #17335f;
@@ -147,4 +149,173 @@ th {
 /*Transição para o botão salvar*/
 #save-item:hover {
     background-color: #12529a;
+}
+
+
+
+/* Ajustes para tabela na .table-container */
+/* Container que envolve tabela + botão */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    /* mantém outras propriedades que você já tem */
+    margin-top: 80px;
+    background: white;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    color: #17335f;
+    width: 60%;
+    max-width: 900px;
+    overflow-x: auto;
+}
+
+/* Remover float e alinhar botão à direita */
+.add-item {
+    margin-top: 20px;
+    padding: 12px 36px;
+    border: none;
+    background-color: #17335f;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    /* float: right;  -- remover essa linha */
+    align-self: flex-end;  /* faz o botão ir para a direita */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Tabela estilizada */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espaçamento entre linhas */
+}
+
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+/* Cabeçalho */
+thead th {
+    background-color: #6aa0e1;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Linhas com espaçamento e sombra */
+tbody tr {
+    background: #f9faff;
+    box-shadow: 0 2px 6px rgba(26, 83, 141, 0.15);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* Para arredondar as células das linhas */
+tbody tr td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+tbody tr td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Hover nas linhas */
+tbody tr:hover {
+    background-color: #d1e4ff;
+}
+
+/* Remover bordas das células para estilo mais leve */
+table, th, td {
+    border: none;
+}
+
+/* Botão adicionar alinhado à direita */
+
+.add-item:hover {
+    background-color: #12529a;
+    transform: scale(1.05);
+}
+
+/* Form container fica abaixo da tabela, centralizado */
+.form-container {
+    margin-top: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Inputs com sombra leve e borda azul */
+#item-form input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #6aa0e1;
+    box-shadow: 0 1px 5px rgba(106, 160, 225, 0.4);
+    transition: border-color 0.3s ease;
+}
+
+#item-form input:focus {
+    outline: none;
+    border-color: #12529a;
+    box-shadow: 0 0 8px rgba(18, 82, 154, 0.6);
+}
+
+/* Botão salvar maior e arredondado */
+#save-item {
+    padding: 14px 0;
+    background-color: #17335f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#save-item:hover {
+    background-color: #12529a;
+}
+
+
+@media (max-width: 768px) {
+    .table-container {
+        width: 90%;
+        padding: 10px 20px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .add-item {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .form-container {
+        max-width: 90%;
+        gap: 12px;
+    }
+
+    #item-form input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #save-item {
+        font-size: 14px;
+        padding: 12px 0;
+    }
 }

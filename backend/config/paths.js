@@ -43,7 +43,8 @@ export const paths = {
       shows: "/utils/alerts.js",
       navbar: "/utils/navbar.js",
       cartao: "/core/pay.js",
-      epi: "/pages/script_epi.js"
+      epi: "/pages/script_epi.js",
+      setor: "pages/api.js"
     },
   },
   imgs: {

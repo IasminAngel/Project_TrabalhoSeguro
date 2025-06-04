@@ -1,71 +1,71 @@
 <!DOCTYPE html>
-<html lang="PT-br">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/style_adicionar_setor.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Adicionar setor</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adicionar Setor</title>
+  <link rel="stylesheet" href="/assets/css/style_adicionar_setor.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
-<header>
+<body>
+  <header>
     <a href="/check" class="back-icon">
-    <i class="fas fa-arrow-left"></i>
-</a>
-
+      <i class="fas fa-arrow-left"></i>
+    </a>
     <span>Registro de setor</span>
     <button class="menu">
-        <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-bars"></i>
     </button>
-</header>
-<body>
-    <div class="text">
-        <span>Preencha os campos abaixo para adicionar um novo setor e seus membros</span>
-    </div>
-    
-    <div class="main_content">
-        
-            
-        <div class="container_registor">
-            <div class="info_setor">
-                <span>Nome do setor: </span>
-                <input type="text" name="" id="setor_name" class="data_bar">
-            </div>
+  </header>
 
-            <div class="info_setor">
-                <span>Descrição do setor: </span>
-                <input type="text" name="" id="" class="data_bar">
-            </div>
+  <div class="text">
+    <span>Preencha os campos abaixo para adicionar um novo setor</span>
+  </div>
 
-            <div class="info_setor">
-                <span>Técnico responsável: </span>
-                <input type="text" name="" id="setor_technic" class="data_bar">
-            </div>
+  <div class="main_content">
+    <div class="container_registor">
+      <div class="info_setor">
+        <span>Nome do setor:</span>
+        <input type="text" id="setor_name" class="data_bar" />
+      </div>
 
-            <div class="info_setor">
-                <span>Data de criação: </span>
-                <input type="text" name="" id="" class="data_bar">
-            </div>
-            
+      <div class="info_setor">
+        <span>Descrição do setor:</span>
+        <input type="text" id="setor_description" class="data_bar" />
+      </div>
 
-            <!-- container para armazenar o registro de setor -->
-        </div>
-        <div class="show_members">
-            
-            <button id="btn_add_member" class="btn_add_member">Adicionar Membro</button>     
-            
-        </div>
-        <!-- div para colocar o conteudo principal -->
+      <div class="info_setor">
+        <span>Técnico responsável:</span>
+        <input type="text" id="setor_technic" class="data_bar" />
+      </div>
+
+      <div class="info_setor">
+        <span>Data de criação:</span>
+        <input type="date" id="setor_date" class="data_bar" />
+      </div>
+
+      <button id="btn_save_setor">Salvar</button>
     </div>
 
-    <div class="teste" id="marker"></div>
+    <!-- TABELA DE SETORES -->
+    <table id="setor-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Técnico</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas serão adicionadas aqui -->
+      </tbody>
+    </table>
+  </div>
 
-    
-        
-
+  <!-- Script separado -->
+  <script src="/assets/js/pages/api.js"></script>
 </body>
-
-<script type="module" src="/public/src/pages/Telas de Marcos/TS/src/scripts/Adicionar_setor.js"></script>
-<script type="module" src="assets/js/pages/api.js"></script>
-
 </html>
+

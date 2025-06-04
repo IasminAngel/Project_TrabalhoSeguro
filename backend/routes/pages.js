@@ -95,10 +95,6 @@ router.get('/add_setor', (req, res)=> {
   res.sendFile(path.join(__dirname, '../../public/pages/setor/adicionar_setor.html'));
 });
 
-router.get('/add_setor', (req, res)=> {
-  res.sendFile(path.join(__dirname, '../../public/pages/setor/adicionar_setor.html'));
-});
-
 router.get('/epis_view', (req, res)=>{
   res.sendFile(path.join(__dirname, '../../public/pages/Epis_pages/epis_geral.html'));
 });
