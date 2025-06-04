@@ -23,7 +23,11 @@ export const paths = {
       download: "/style_download.css",
       check: "/style_check.css",
       setor: "/style_adicionar_setor.css",
-      epi: "/style_epis.css"
+      epi: "/style_epis.css",
+      funcionarios: "/style_funcionarios_geral.css",
+      setor_func: "/style_funcionarios_setor.css",
+      epis_view: "/style_epis_geral.css",
+      epi_especifico: "/style_epi_especifico.css",
     },
   },
   js: {
