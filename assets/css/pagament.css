@@ -1,0 +1,150 @@
+/* Finish */
+
+#planos-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; 
+}
+
+.planos-wrapper {
+  display: flex;
+  justify-content: center; 
+  gap: 20px; 
+}
+
+.pagaments {
+  width: 45%; 
+}
+
+.description{
+  margin: 10px;
+    font-size: 18px;
+    opacity: 65%;
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+    color: var(--color-neutral-2);
+}
+
+h2, h5{
+  margin-bottom: 10px;
+}
+
+#planos-container .section-subtitle {
+  text-align: center; 
+  margin-bottom: 20px;
+}
+
+.pagaments {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 0 0 1px var(--color-shadows-2), 0 5px 12px -2px var(--color-shadows-2),
+    0 18px 36px -6px var(--color-shadows-2);
+  background-color:var(--color-neutral-0);
+}
+
+.description{
+  margin-bottom: 50px;
+}
+
+.pay{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay h2{
+  margin-bottom: 10px;
+}
+
+.pagaments .title {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagaments form input {
+  display: none;
+}
+
+.pagaments form .category {
+  margin-top: 10px;
+  padding-top: 50px;
+  display: flex; 
+  justify-content: center;
+  gap: 20px; 
+  flex-wrap: wrap;
+}
+
+
+.category .btn-default{
+  margin: 50px;
+}
+
+.category label {
+  height: 90px;
+  width: 90px; 
+  padding: 10px;
+  box-shadow: 0px 0px 0px 1px var(--color-shadows-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  background-color: var(--color-neutral-0);
+}
+
+
+
+label .imgName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.imgName span {
+  display: none; 
+}
+
+.imgName .imgContainer {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 35%;
+  transform: translateY(-35%);
+}
+
+
+img {
+  width: 0px;
+  height: auto;
+}
+
+.visa img {
+  width: 80px;
+}
+
+.mastercard img {
+  width: 65px;
+}
+
+.paypal img {
+  width: 80px;
+}
+
+.AMEX img {
+  width: 50px;
+}

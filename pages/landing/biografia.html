@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="/scripts/paths.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <script>
+    document.write(frontendPaths.css("biografia"));
+    document.write(
+      `<link rel="icon" href="${frontendPaths.icon(
+        "person"
+      )}" type="image/svg+xml">`
+    );
+  </script>
+  <link rel="icon" href="/public/src/assets/icons/person-lines-fill.svg" type="image/svg+xml" />
+  <title>Sobre Nós</title>
+</head>
+
+<body>
+
+  <form id="form" action="">
+    <div class="container">
+      <div id="back">
+        <a onclick="window.location.href= '/main'" class="btn-default">
+          <i class="bi bi-arrow-left"></i>
+        </a>
+      </div>
+      <div class="image-container">
+        <script>
+          document.write(
+            `<img src="${frontendPaths.img("logos", "main")}" alt="Logotipo">`
+          );
+        </script>
+      </div>
+
+      <h1 id="title">
+        <a class="section-title">Sobre Nós - Trabalho Seguro</a>
+      </h1>
+
+      <h2 class="subtitle">Quem somos</h2>
+      <div id="text">
+        <p>
+          <br />
+          Somos uma equipe dedicada a entender e atender as necessidades das empresas que buscam mais eficiência e
+          segurança no ambiente de trabalho, especialmente por meio da atuação estratégica do técnico de segurança.
+          Sabemos que esses profissionais enfrentam desafios diários complexos — da gestão de documentos e relatórios ao
+          monitoramento contínuo das práticas de segurança — e que, em muitas empresas, esses processos ainda são feitos
+          em papel, o que reduz a agilidade e aumenta o risco de falhas.
+
+          Pensando nisso, desenvolvemos um sistema moderno e intuitivo, projetado para substituir processos manuais por
+          uma plataforma digital eficiente. Nosso objetivo é facilitar a rotina do técnico de segurança e também apoiar
+          o setor de Recursos Humanos com ferramentas que centralizam informações, organizam documentos e automatizam
+          tarefas essenciais.
+
+          Com foco em eliminar a papelada e otimizar o tempo, nosso sistema contribui diretamente para a segurança,
+          conformidade legal e gestão eficiente de dados. Reunimos funcionalidades que permitem o monitoramento, análise
+          e controle centralizado de dados de segurança e RH — tudo isso para que nossos clientes atuem com mais
+          precisão, confiança e produtividade.
+
+          Estamos aqui para apoiar as empresas que desejam modernizar sua gestão, fortalecer a atuação do técnico de
+          segurança e promover um ambiente de trabalho mais seguro e eficiente.
+
+          <br />
+          Estamos aqui para apoiar e fortalecer o trabalho de quem se dedica a
+          promover a segurança e a gestão eficaz no ambiente de trabalho.
+          <br /><br />
+        </p>
+
+        <h2 class="subtitle">Nos conheça melhor</h2>
+        <br />
+        <p>
+          <b>Missão:</b> Evoluir e auxiliar empresas e os funcionários a terem
+          uma boa qualidade de serviço. <br /><br />
+          <b>Valores:</b> Operando com um sistema que oferece organização para
+          as empresas, segurança aos funcionários de forma rápida e ágil,
+          prezando amplitude e valorização de diversas áreas, até mesmo
+          aquelas que são impossibilitadas ao uso da internet. <br /><br />
+          <b>Visão:</b> Ser uma referência em soluções para a promoção de
+          segurança no trabalho e no controle administrativo.
+        </p>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>

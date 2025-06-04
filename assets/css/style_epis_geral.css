@@ -1,0 +1,61 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #1E386C;
+    color: White;
+    padding: 10px;
+    text-align: center;
+}
+
+.btns_back{
+    background-color: transparent;
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+
+.btn_acessar{
+    background-color: #00537C;
+    border-radius: 8px;
+    width: 60px;
+    color: white;
+    border: none;
+}
+
+.anchor_acessar{
+    background-color: #00537C;
+    border-radius: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    border: none;
+}
+
+.query_bar{
+    border-radius: 15px;
+}
+
+body{
+    background-color: #011C50;
+    color: White;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+.table_epis{
+    justify-content: center;
+    border: 5px solid white;
+    border-collapse: collapse;
+    width: 60%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th , td{
+    border: 3px solid white;
+}

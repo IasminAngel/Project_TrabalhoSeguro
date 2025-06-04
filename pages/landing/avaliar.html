@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/scripts/paths.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script>
+      document.write(frontendPaths.css("avaliacao"));
+      document.write(
+        `<link rel="icon" href="${frontendPaths.icon(
+          "star"
+        )}" type="image/svg+xml">`
+      );
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      document.write(frontendPaths.js("avaliacao"));
+      document.write(frontendPaths.js("shows"));
+    </script>
+    <title>Avaliação</title>
+  </head>
+  <body>
+    <form id="form" action="">
+      <div class="container">
+        <div id="back">
+          <a onclick="window.location.href= '/main'" class="btn-default">
+            <i class="bi bi-arrow-left"></i>
+          </a>
+        </div>
+        <div class="image-container">
+          <script>
+            document.write(
+              `<img src="${frontendPaths.img("logos", "main")}" alt="Logotipo">`
+            );
+          </script>
+        </div>
+        <h1 id="title">
+          <a class="section-title">Avalie - Trabalho Seguro</a>
+        </h1>
+        <h3 id="question_star">O quanto gostou do nosso sistema ?</h3>
+        <div id="questions_all">
+          <div id="stars-av">
+            <ul class="avaliacao">
+              <li class="star-icon" data-avaliacao="1"></li>
+              <li class="star-icon" data-avaliacao="2"></li>
+              <li class="star-icon" data-avaliacao="3"></li>
+              <li class="star-icon" data-avaliacao="4"></li>
+              <li class="star-icon" data-avaliacao="5"></li>
+            </ul>
+          </div>
+          <div id="ava">
+            <label for="title_label">Nos dê sua opinião:</label><br />
+            <input class="opinion" placeholder="Conte o que achou do nosso sistema..." required>
+            <label for="title_label">O que deseja que melhoremos ?</label><br />
+            <input class="upgrade" placeholder="O que podemos melhorar? (opcional)">
+          </div>
+          <button id="send" class="btn-default">Enviar</button>
+        </div>
+      </div>
+      <div
+        id="error-message"
+        style="color: rgb(255, 0, 0); display: none"
+      ></div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
