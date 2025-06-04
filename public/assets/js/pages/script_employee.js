@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const profileImg = document.getElementById("profile-img");
     const imageInput = document.getElementById("image-input");
 
-    // Função para alternar entre visualizar e editar
+    // Alternar entre visualização e edição
     editButton.addEventListener("click", function () {
         fields.forEach(field => field.style.display = "block");
         texts.forEach(text => text.style.display = "none");
@@ -14,10 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.style.display = "block";
     });
 
-    // Função para salvar as edições e voltar ao modo de exibição
+    // Salvar as edições e voltar à visualização
     saveButton.addEventListener("click", function () {
         fields.forEach((field, index) => {
-            texts[index].innerText = field.value;
+            const value = field.value;
+            texts[index].innerText = value;
+            localStorage.setItem(`campo${index}`, value); // Salva no localStorage
             field.style.display = "none";
         });
 
@@ -26,13 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
         editButton.style.display = "block";
     });
 
-    
+    // Acessibilidade (leitor de tela)
     const profileSection = document.querySelector('.profile-container');
     profileSection.setAttribute('aria-live', 'polite');
 
-    // Função para alterar a imagem de perfil
+    // Troca da imagem de perfil
     profileImg.addEventListener("click", function () {
-        imageInput.click(); // Aciona o input de imagem ao clicar na imagem de perfil
+        imageInput.click(); // Abre o seletor de arquivo
     });
 
     imageInput.addEventListener("change", function () {
@@ -40,9 +42,30 @@ document.addEventListener("DOMContentLoaded", function () {
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                profileImg.src = e.target.result; 
+                profileImg.src = e.target.result;
+                localStorage.setItem("profileImage", e.target.result); // Salva a imagem no localStorage
             };
             reader.readAsDataURL(file);
         }
     });
+
+    // Carregar dados salvos
+    function carregarDados() {
+        // Carregar textos
+        texts.forEach((text, index) => {
+            const valorSalvo = localStorage.getItem(`campo${index}`);
+            if (valorSalvo) {
+                text.innerText = valorSalvo;
+                fields[index].value = valorSalvo;
+            }
+        });
+
+        // Carregar imagem
+        const imagemSalva = localStorage.getItem("profileImage");
+        if (imagemSalva) {
+            profileImg.src = imagemSalva;
+        }
+    }
+
+    carregarDados();
 });
