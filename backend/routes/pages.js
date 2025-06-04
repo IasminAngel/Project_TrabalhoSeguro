@@ -79,17 +79,38 @@ router.get('/download', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/pages/downloadScreen/index_download.html'));
 });
 
-
 router.get('/setor', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/pages/setor/funcionarios_setor.html'));
+});
+
+router.get('/funcionarios', (req, res)=> {
+  res.sendFile(path.join(__dirname, '../../public/pages/funcionarios/funcionarios.html'));
+});
+
+router.get('/exibir_funcionarios', (req, res)=> {
+   res.sendFile(path.join(__dirname, '../../public/pages/funcionarios/vizualizar_funcionario.html'));
+});
+
+router.get('/add_setor', (req, res)=> {
   res.sendFile(path.join(__dirname, '../../public/pages/setor/adicionar_setor.html'));
 });
 
+router.get('/add_setor', (req, res)=> {
+  res.sendFile(path.join(__dirname, '../../public/pages/setor/adicionar_setor.html'));
+});
 
+router.get('/epis_view', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../../public/pages/Epis_pages/epis_geral.html'));
+});
+
+router.get('/epis_especifico', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../../public/pages/Epis_pages/epis_especifico.html'));
+});
 
 
 // Rota coringa para qualquer outro arquivo .html dentro de public
-router.get('/:page', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public', `${req.params.page}.html`));
-});
+// router.get('/:page', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../public', `${req.params.page}.html`));
+// });
 
 export default router;
