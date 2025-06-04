@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="/scripts/paths.js"></script>
+    <script>
+        document.write(frontendPaths.css("setor_func"));
+    </script>
+    
+    <title>Setores</title>
+</head>
+
+<body>
+    <header>
+        <div>
+
+            <a href="/check" class="btn_back">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                 </svg>
+             </a>
+     
+             <a href="/aplicacao" class="btn_back">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                 </svg>
+             </a>
+        </div>
+        
+       
+        <span>ALMOXARIFADO</span>
+        <input type="text" class="query_bar" id="query_bar_funcionarios_setor">
+
+    </header>
+    
+    <div class="main_content">
+
+        <table class="table">
+            <tr class="header">
+                <td class="weight_line">ID</td>
+                <td class="weight_line">NOME</td>
+                <td class="weight_line">ACESSAR PERFIL</td>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td>IASMIN ANGEL</td>
+                <td>
+                    <a href="/exibir_funcionarios" class="btn_perfil">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>ALEXANDRE EDUARDO</td>
+                <td>
+                    <a href="" class="btn_perfil">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>CARLOS FROTA</td>
+                <td>
+                    <a href="" class="btn_perfil">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>ZACARIAS COSTA</td>
+                <td>
+                    <a href="" class="btn_perfil">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>LUCAS GUSTAVO</td>
+                <td>
+                    <a href="" class="btn_perfil">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+
+<!-- <footer id="next_page_btns">
+    <button></button>
+    <div class="container_page_current">1</div>
+    <div class="container_page">2</div>
+    <button></button>
+</footer> -->
+</html>

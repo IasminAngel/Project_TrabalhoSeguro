@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/paths.js"></script>
+    
+    <script>
+        document.write(frontendPaths.css("empresaUm"));
+        document.write(frontendPaths.css("empresaDois"));
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>Cadastro de empresa</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img class="logo" src="../Logotipo_TS_2.png" alt="">
+            <div>
+                <span>Página 2 de 2</span>
+                <a href= "/nova_empresa">Página anterior</a>
+            </div>
+
+        </div>
+
+        <div class="line"></div>
+
+        <div class="main_content">
+            <h2 class="title">Cadastro de Empresa</h2>
+
+            <div class="div_form">
+                <div class="form_header">
+                    <div class="code">
+                        <span>Código</span>
+                        <span class="code_text" id="codigo_value">0</span>
+                    </div>
+
+                    <div class="att_date">
+                        <span>Data de atualização</span>
+                        <span class="att_date_text" id="data_atualizacao_value">23/10/2022</span>
+                    </div>
+
+                </div>
+                
+                <div class="content_form">
+
+                    <div>
+
+                        <div class="container_hint">
+                            <button id="btn_hint" class="btn_hint">
+                                <span>
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </span>
+                            </button>
+                            <input type="text" name="" id="emails" placeholder="Email dos colaboradores">
+                            <button id="btn_save_email">Salvar</button>
+                            <select name="" id="colaboradores"></select>
+                            <button class="btn_trash" id="btn_trash">
+                                <span>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </span>
+                            </button>
+                            
+                            <div id="hint" class="hint">
+                                <p>Aqui você pode listar até 10 emails de colaboradores de sua empresa 
+                                    para ter acesso ao programa como técnicos de segurança do trabalho</p>
+                            </div>
+                        </div>
+
+                    </div>
+    
+                    <div class="cnpj">
+                        <span>Envie seu cnpj</span>
+                        <input type="file" name="" id="">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="div_content_btns">
+        
+        <div class="btns">
+            <button class="save">Salvar</button>
+            <button class="cancel">Cancelar</button>
+        </div>
+        
+    </div>
+</body>
+
+<script src="../services/cadastro_empresa_pdois.js"></script>
+
+</html>
