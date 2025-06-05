@@ -1,6 +1,7 @@
 /* Corpo e fonte */
 body {
     background-color: #17335f;
+    font-family: Arial, sans-serif;
     color: white;
     margin: 0;
     padding: 0;
@@ -8,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
+    
 }
 
 /* Header fixo no topo */
@@ -24,7 +25,8 @@ header {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
-    color: white;
+    color: #17335f;
+    
     
 }
 
