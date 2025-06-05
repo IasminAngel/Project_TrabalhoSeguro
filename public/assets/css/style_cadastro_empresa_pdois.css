@@ -27,5 +27,26 @@
     padding: 12px;
 }
 
+.div_content_btns{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
 
+.save{
+    border-radius: 12px;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    height: 30px;
+    width: 150px;
+}
 
+.cancel{
+    border-radius: 12px;
+    background-color: rgba(250, 41, 41, 0.952);
+    color: white;
+    font-size: 18px;
+    height: 30px;
+    width: 150px;
+}

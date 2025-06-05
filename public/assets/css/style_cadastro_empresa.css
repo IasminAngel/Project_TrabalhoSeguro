@@ -94,56 +94,34 @@ body{
 
 
 .large_field{
-    width: 800px;
+    width: 49%;
     height: 25px;
 }
 
 .complement{
     height: 25px;
-    margin-left: 200px;
+    margin-left: 75px;
 }
 
 .city{
     height: 25px;
-    width: 350px;
+    width: 20%;
     margin-left: 20px;
 }
 
 .medium_large_field{
-    width: 450px;
+    width: 30%;
     height: 25px;
 }
 
 .medium_field{
-    width: 395px;
+    width: 24%;
     height: 25px;
 }
 
 .small_field{
-    width: 70px;
+    width: 7%;
     height: 25px;
 }
 
-.div_content_btns{
-    display: flex;
-    justify-content: center;
-    margin-top: 12px;
-}
 
-.save{
-    border-radius: 12px;
-    background-color: green;
-    color: white;
-    font-size: 18px;
-    height: 30px;
-    width: 150px;
-}
-
-.cancel{
-    border-radius: 12px;
-    background-color: rgba(250, 41, 41, 0.952);
-    color: white;
-    font-size: 18px;
-    height: 30px;
-    width: 150px;
-}
