@@ -1,82 +1,314 @@
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/scripts/paths.js"></script>
     <title>Registro Desvios</title>
-    <script>document.write(frontendPaths.css("formularios"))</script>
-    <script>document.write(frontendPaths.js("formularios"))</script>
-</head>
-<link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-/>
-<link
-rel="icon"
-href="/public/src/assets/icons/card-text.svg"
-type="image/svg+xml"
-/>
+    <style>
+      :root {
+        --primary-color: #11185e;
+        --secondary-color: #254aa3;
+        --background-color: #f5f7fa;
+        --text-color: #333;
+        --light-text: #fff;
+        --border-color: #ddd;
+        --error-color: #e74c3c;
+      }
 
-<body>
+      body {
+        font-family: "Segoe UI", Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background: linear-gradient(135deg, #11185e, #254aa3, #023373);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      .navbar {
+        background-color: var(--primary-color);
+        color: var(--light-text);
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .text {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: var(--light-text);
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .title {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .input-box {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+      }
+
+      .details {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+
+      input[type="text"],
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border 0.3s;
+      }
+
+      input[type="text"]:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 2px rgba(106, 160, 225, 0.2);
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .all-options {
+        border: none;
+        margin: 2rem 0;
+        padding: 0;
+      }
+
+      .option-title {
+        font-weight: 500;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .category {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .dot {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .dot:before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--secondary-color);
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        position: relative;
+        transition: all 0.2s;
+      }
+
+      input[type="radio"]:checked + .dot:before {
+        background-color: var(--secondary-color);
+        box-shadow: inset 0 0 0 3px var(--light-text);
+      }
+
+      .option {
+        user-select: none;
+      }
+
+      .button input[type="submit"] {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--primary-color);
+        color: var(--light-text);
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+        .navbar {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .text {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .nav-buttons {
+            position: absolute;
+            left: 1rem;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
 
 
+      .button input[type="submit"]:hover {
+        background-color: #023373;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          margin: 1rem;
+          padding: 1.5rem;
+        }
+
+        .category {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
+      input:invalid,
+      textarea:invalid {
+        border-color: var(--error-color);
+      }
+
+      input:focus:invalid,
+      textarea:focus:invalid {
+        box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="icon"
+      href="/public/src/assets/icons/card-text.svg"
+      type="image/svg+xml"
+    />
+  </head>
+
+  <body>
     <div class="navbar">
-        <div class="barra-fundo"></div>
-            <div class="text">Registrar Desvio</div>
-             <a href="/public/src/pages/option/index_option.html">
-        <img class="voltar-house" src="/public/src/assets/icons/house.svg"/>
-    </a>
+      <div class="barra-fundo"></div>
+      <div class="nav-buttons">
+        <a href="javascript:history.back()" class="nav-button">
+          <img
+            class="nav-icon"
+            src="/assets/icons/arrow-left.svg"
+            alt="Voltar"
+          />
+        </a>
+      </div>
+      <div class="text">Registrar Desvio</div>
     </div>
 
     <div class="container">
-        <div class="title">Formulário - Desvio</div>
-        <div class="content">
-            <form action="#">
-                <div class="questions">
-                    <div class="input-box">
-                        <span class="details">Data do :</span>
-                        <input type="text" placeholder="DD/MM/AAAA" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Local do:</span>
-                        <input type="text" placeholder="Digite o local" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Matrícula do funcionário afetado:</span>
-                        <input type="text" placeholder="Digite a matrícula" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Digite de forma coerente a fratura tida pelo funcionário:</span>
-                        <input type="text" placeholder="Digite a fratura" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Digite uma descrição detalhada do ocorrido:</span>
-                        <textarea placeholder="Descrição do ocorrido" required></textarea>
-                    </div>
-                </div>
-                <div class="all-options">
-                    <span class="option-title">O funcionário estava utilizando EPI?</span>
-                    <div class="category">
-                      <label for="dot-1">
-                        <input type="radio" id="dot-1" name="epi" hidden>
-                        <span class="dot one"></span>
-                        <span class="option">Sim</span>
-                      </label>
-                      <label for="dot-2">
-                        <input type="radio" id="dot-2" name="epi" hidden>
-                        <span class="dot two"></span>
-                        <span class="option">Não</span>
-                      </label>
-                    </div>
-                  </div>
-                <div class="button">
-                    <input type="submit" value="Registrar">
-                </div>
-            </form>
-        </div>
+      <div class="title">Formulário - Desvio</div>
+      <div class="content">
+        <form action="#">
+          <div class="questions">
+            <div class="input-box">
+              <span class="details">Data do :</span>
+              <input type="text" placeholder="DD/MM/AAAA" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Local do:</span>
+              <input type="text" placeholder="Digite o local" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Matrícula do funcionário afetado:</span>
+              <input type="text" placeholder="Digite a matrícula" required />
+            </div>
+            <div class="input-box">
+              <span class="details"
+                >Digite de forma coerente a fratura tida pelo funcionário:</span
+              >
+              <input type="text" placeholder="Digite a fratura" required />
+            </div>
+            <div class="input-box">
+              <span class="details"
+                >Digite uma descrição detalhada do ocorrido:</span
+              >
+              <textarea placeholder="Descrição do ocorrido" required></textarea>
+            </div>
+          </div>
+          <div class="all-options">
+            <span class="option-title"
+              >O funcionário estava utilizando EPI?</span
+            >
+            <div class="category">
+              <label for="dot-1">
+                <input type="radio" id="dot-1" name="epi" hidden />
+                <span class="dot one"></span>
+                <span class="option">Sim</span>
+              </label>
+              <label for="dot-2">
+                <input type="radio" id="dot-2" name="epi" hidden />
+                <span class="dot two"></span>
+                <span class="option">Não</span>
+              </label>
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Registrar" />
+          </div>
+        </form>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

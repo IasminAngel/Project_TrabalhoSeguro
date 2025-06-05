@@ -28,6 +28,7 @@ export const paths = {
       setor_func: "/style_funcionarios_setor.css",
       epis_view: "/style_epis_geral.css",
       epi_especifico: "/style_epi_especifico.css",
+      desvios: "/aplicacao/desvios.css",
     },
   },
   js: {
