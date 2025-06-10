@@ -544,7 +544,7 @@
         }
       });
 
-      const stripe = Stripe('pk_test_51RJ1icFSgHnf7lUpZCklY2DSFOjA4cYVAIb17Ms8JcUi112cKpIharkXK0VimPwczCLY3ZTdIIlzbqXirOywwCYm00Icza4N1W');
+      const stripe = Stripe(''); // Funciona com KEY da conta do fornecedor (CHAVE PRIVADA, SEM DIVULGAÇÕES)
       const elements = stripe.elements();
       const cardElement = elements.create("card");
       cardElement.mount("#card-element");
